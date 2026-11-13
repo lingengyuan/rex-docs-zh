@@ -1,0 +1,34 @@
+# Rex 官方文档页面清单，与 llms.txt 保持一致。
+# 新增页面时，在对应章节末尾追加，然后运行 tools/fetch.sh。
+installation
+customize/config
+customize/keyboard-shortcuts
+customize/key-sequences
+customize/key-modes
+customize/actions
+automate/cli
+automate/agent-skill
+automate/lua-scripts
+automate/lua-events
+automate/shell-scripting
+automate/server-api
+build/program-status
+reference/cli
+reference/api
+reference/mac-actions
+reference/mac-settings
+reference/ios-actions
+reference/ios-settings
+reference/lua
+reference/events
+reference/privacy
+linux/installation
+linux/server-modes
+linux/shared-server
+linux/login-server
+linux/remote-access
+linux/upgrading
+freebsd/installation
+windows/installation
+windows/running
+beta/community-mcp
