@@ -35,6 +35,7 @@ rex-docs-zh/
 ├── originals/          # 原文快照与 manifest
 ├── tools/              # sync.py
 ├── pages.txt           # 页面清单
+├── TRANSLATION.md      # 翻译规范
 └── glossary.md         # 术语表
 ```
 
@@ -44,7 +45,7 @@ rex-docs-zh/
 
 ```markdown
 > 原文：https://www.superlogical.com/rex/docs/installation
-> 原文版本：1bbd80a7b3cc（抓取于 2026-11-14）
+> 原文版本：1bbd80a7b3cc（抓取于 2026-11-13）
 ```
 
 版本号取自 `originals/manifest.tsv`，`tools/sync.py` 用它判断译文是否落后。
@@ -66,4 +67,4 @@ tools/sync.py --dry-run  # 只检测，不写入
 
 ## 贡献
 
-修改 `docs/` 下的 Markdown，术语以 `glossary.md` 为准，然后提交 Pull Request。
+翻译规范见 [TRANSLATION.md](TRANSLATION.md)，术语以 `glossary.md` 为准。修改 `docs/` 后提交 Pull Request。
