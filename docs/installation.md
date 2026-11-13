@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/installation
-> 抓取于 2026-11-14
+> 原文版本：1bbd80a7b3cc（抓取于 2026-11-14）
 
 # 安装
 

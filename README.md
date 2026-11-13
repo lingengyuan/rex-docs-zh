@@ -32,21 +32,43 @@ Rex 官方文档的社区中文译文。
 
 ```text
 rex-docs-zh/
-├── docs/          # 中文译文
-├── originals/     # 官方原文快照，用于校对和更新检测
-├── tools/         # 抓取与更新检测脚本
-├── pages.txt      # 页面清单
-└── glossary.md    # 术语表
+├── .github/workflows/  # 每日更新检查
+├── docs/               # 中文译文
+├── originals/          # 官方原文快照，用于校对和更新检测
+├── tools/              # 抓取与状态检测
+├── pages.txt           # 页面清单
+└── glossary.md         # 术语表
 ```
+
+## 译文格式
+
+每篇译文开头记录原文地址和原文版本：
+
+```markdown
+> 原文：https://www.superlogical.com/rex/docs/installation
+> 原文版本：1bbd80a7b3cc（抓取于 2026-11-14）
+```
+
+`tools/sync.py` 用版本号判断译文是否落后于原文。
 
 ## 维护
 
 ```sh
-tools/fetch.sh          # 抓取最新原文到 originals/
-tools/check-updates.sh  # 比较线上原文与快照，列出变化的页面
+tools/sync.py            # 抓取原文，更新 originals/ 和 manifest
+tools/sync.py --dry-run  # 只检测，不写入
 ```
 
-`originals/manifest.tsv` 记录每篇原文的 SHA-256 和抓取时间。`check-updates.sh` 用它们找出需要重译的页面。
+`originals/manifest.tsv` 记录每篇原文的 SHA-256 和抓取时间。
+
+## 自动检查
+
+`.github/workflows/docs-watch.yml` 每天 01:00 UTC（北京时间 09:00）运行：
+
+1. 抓取 `llms.txt` 和各页 `.md`，与 `manifest.tsv` 对比。
+2. 有变化时创建 `docs-update` 分支和 PR，只修改 `originals/` 和 `manifest.tsv`。
+3. 创建或更新 `docs-update` 标签的 Issue，通知维护者处理译文。
+
+有未合并的更新 PR 时，后续检查自动跳过。
 
 ## 贡献
 

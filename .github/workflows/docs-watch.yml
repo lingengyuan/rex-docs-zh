@@ -1,0 +1,102 @@
+name: 文档更新检查
+
+on:
+  schedule:
+    # 01:00 UTC，即北京时间 09:00。
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: docs-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 检查待合并的更新 PR
+        id: pending
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          count=$(gh pr list --label docs-update --state open --json number --jq 'length')
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          if [ "$count" != "0" ]; then
+            echo "已有待合并的更新 PR，跳过本次检查。"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.pending.outputs.count == '0'
+        with:
+          python-version: "3.12"
+
+      - name: 抓取原文并生成报告
+        id: sync
+        if: steps.pending.outputs.count == '0'
+        run: |
+          report="$RUNNER_TEMP/report.md"
+          python3 tools/sync.py --report "$report"
+          if [ -f "$report" ]; then
+            echo "report=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "report=0" >> "$GITHUB_OUTPUT"
+          fi
+          if [ -n "$(git status --porcelain -- originals pages.txt)" ]; then
+            echo "changed=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=0" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 提交并创建 PR
+        id: pr
+        if: steps.sync.outputs.changed == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          branch="docs-update/$(date -u +%Y-%m-%d-%H%M)-${{ github.run_attempt }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add originals pages.txt
+          git commit -m "chore: 更新官方文档原文快照 $(date -u +%Y-%m-%d)"
+          git push origin "$branch"
+          gh label create docs-update --color FBCA04 --description "官方文档原文更新" 2>/dev/null || true
+          gh pr create \
+            --base main \
+            --head "$branch" \
+            --title "文档原文更新 $(date -u +%Y-%m-%d)" \
+            --body-file "$RUNNER_TEMP/report.md" \
+            --label docs-update \
+            --assignee "${{ github.repository_owner }}"
+          url=$(gh pr view "$branch" --json url --jq .url)
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+
+      - name: 创建或更新 Issue
+        if: steps.sync.outputs.report == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_URL: ${{ steps.pr.outputs.url }}
+        run: |
+          gh label create docs-update --color FBCA04 --description "官方文档原文更新" 2>/dev/null || true
+          body="$RUNNER_TEMP/issue.md"
+          cp "$RUNNER_TEMP/report.md" "$body"
+          if [ -n "$PR_URL" ]; then
+            printf '\n更新 PR：%s\n' "$PR_URL" >> "$body"
+          fi
+          number=$(gh issue list --label docs-update --state open --json number --jq '.[0].number // empty')
+          if [ -n "$number" ]; then
+            gh issue comment "$number" --body-file "$body"
+          else
+            gh issue create \
+              --title "文档原文有更新（待处理）" \
+              --body-file "$body" \
+              --label docs-update \
+              --assignee "${{ github.repository_owner }}"
+          fi
