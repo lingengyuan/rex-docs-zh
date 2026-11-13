@@ -45,6 +45,7 @@ jobs:
           python3 tools/sync.py --report "$report"
           if [ -f "$report" ]; then
             echo "report=1" >> "$GITHUB_OUTPUT"
+            cat "$report" >> "$GITHUB_STEP_SUMMARY"
           else
             echo "report=0" >> "$GITHUB_OUTPUT"
           fi
