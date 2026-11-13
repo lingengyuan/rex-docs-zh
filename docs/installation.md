@@ -19,18 +19,18 @@ macOS 客户端完全自包含，自带本地服务端，安装后即可使用�
 
 ## Linux（仅服务端）
 
-详见[在 Linux 上安装](linux/installation.md)。
+详见[在 Linux 上安装](https://www.superlogical.com/rex/docs/linux/installation)。
 
 [使用 Discord 登录](https://www.superlogical.com/rex/docs/auth/login?returnTo=%2Frex%2Fdocs%2Flinux%2Finstallation)后查看安装命令。
 
 ## FreeBSD（仅服务端）
 
-详见[在 FreeBSD 上安装](freebsd/installation.md)。
+详见[在 FreeBSD 上安装](https://www.superlogical.com/rex/docs/freebsd/installation)。
 
 [使用 Discord 登录](https://www.superlogical.com/rex/docs/auth/login?returnTo=%2Frex%2Fdocs%2Ffreebsd%2Finstallation)后查看安装命令。
 
 ## Windows（仅服务端）
 
-详见[在 Windows 上安装](windows/installation.md)。
+详见[在 Windows 上安装](https://www.superlogical.com/rex/docs/windows/installation)。
 
 [使用 Discord 登录](https://www.superlogical.com/rex/docs/auth/login?returnTo=%2Frex%2Fdocs%2Fwindows%2Finstallation)后查看安装命令。
