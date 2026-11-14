@@ -33,7 +33,7 @@ rex config reload
 
 按下 <kbd>Cmd</kbd>+<kbd>D</kbd>，获得焦点的窗格就会向右拆分。
 
-[Lua API 参考](https://www.superlogical.com/rex/docs/reference/lua.md)列出了所有可用的 Lua API。
+[Lua API 参考](../reference/lua.md)列出了所有可用的 Lua API。
 
 ## 校验配置
 

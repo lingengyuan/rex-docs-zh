@@ -97,7 +97,7 @@ Error: no argument named "bogus"; the action takes file, ratio?
 
 如果 Rex 无法获取对应的值，相应字段会不存在。
 
-在 `run` 内部调用的 Rex API 默认作用于该操作所在的会话，因此本页示例均未传入 `session_id`。如果调用的 API 作用于单个块（例如 `rex.session.set_block_label`），仍需传入 `block_id`；若针对获得焦点的块，可传入 `ctx.block_id`。[Lua API 参考](https://www.superlogical.com/rex/docs/reference/lua.md)提供了完整的 API 列表。
+在 `run` 内部调用的 Rex API 默认作用于该操作所在的会话，因此本页示例均未传入 `session_id`。如果调用的 API 作用于单个块（例如 `rex.session.set_block_label`），仍需传入 `block_id`；若针对获得焦点的块，可传入 `ctx.block_id`。[Lua API 参考](../reference/lua.md)提供了完整的 API 列表。
 
 ### 错误处理
 
@@ -191,9 +191,9 @@ rex.action{
 }
 ```
 
-在操作等待命令执行期间，服务端会继续处理按键和其他操作，因此耗时较长的命令不会阻塞其他流程。操作仍须在 30 秒内完成，且其启动的任何命令都会在操作返回时停止。如果要执行需要持续运行的命令，可以使用 [`rex.exec.start`](https://www.superlogical.com/rex/docs/reference/lua.md#rexexecstartargv-opts) 并设置 `detach = true`。
+在操作等待命令执行期间，服务端会继续处理按键和其他操作，因此耗时较长的命令不会阻塞其他流程。操作仍须在 30 秒内完成，且其启动的任何命令都会在操作返回时停止。如果要执行需要持续运行的命令，可以使用 [`rex.exec.start`](../reference/lua.md#rexexecstartargv-opts) 并设置 `detach = true`。
 
-[Lua 脚本](https://www.superlogical.com/rex/docs/automate/lua-scripts.md#running-commands)更详细地介绍了 `rex.exec`。
+[Lua 脚本](../automate/lua-scripts.md#运行命令)更详细地介绍了 `rex.exec`。
 
 ## 重新加载前测试操作
 

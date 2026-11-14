@@ -126,7 +126,7 @@ rex.bind("ctrl+shift+n", function(ctx, ev)
 end)
 ```
 
-该函数可以调用任意 Rex API，例如上例中的 `rex.session.new_window`。[Lua API 参考](https://www.superlogical.com/rex/docs/reference/lua.md)提供了完整列表。
+该函数可以调用任意 Rex API，例如上例中的 `rex.session.new_window`。[Lua API 参考](../reference/lua.md)提供了完整列表。
 
 如果函数返回 `false` 或未返回任何内容，Rex 会尝试绑定到同一按键的次新函数；若均未处理，则将按键发送给获得焦点的终端。
 
