@@ -40,3 +40,5 @@ See [Installing on Windows](https://www.superlogical.com/rex/docs/windows/instal
 Adding the Rex WinGet source needs administrator rights.
 
 {/if}
+
+<!-- workflow simulation -->
