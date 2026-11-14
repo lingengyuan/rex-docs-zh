@@ -153,6 +153,10 @@ def main() -> int:
 
         fetched_ok += 1
         sha = hashlib.sha256(data).hexdigest()
+        # 仅用于测试分支：模拟 installation 原文变化。
+        if page == "installation":
+            data += b"\n<!-- workflow simulation -->\n"
+            sha = hashlib.sha256(data).hexdigest()
         previous = old.get(page)
         if previous and previous[0] == sha:
             entries[page] = previous
