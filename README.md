@@ -12,17 +12,48 @@ Rex 官方文档的社区中文译文。
 
 已覆盖官方文档的全部公开页面，共 32 篇（均已译完）。登录 Discord 后才显示的内容（例如 Linux、FreeBSD 和 Windows 的安装命令）不在翻译范围内。
 
-译文存放在 `docs/` 下，目录结构与官方文档一致，可从 [安装指南](docs/installation.md) 开始阅读。译文与原文不一致时，以原文为准。
+译文存放在 `docs/` 下，目录结构与官方文档一致，完整导航也同步放在 [docs/README.md](docs/README.md)。译文与原文不一致时，以原文为准。
 
-| 章节 | 篇数 | 目录 |
-| --- | --- | --- |
-| Installation | 1 | [docs/installation.md](docs/installation.md) |
-| Customize | 5 | [docs/customize](docs/customize) |
-| Automate | 6 | [docs/automate](docs/automate) |
-| Build for Rex | 1 | [docs/build](docs/build) |
-| References | 9 | [docs/reference](docs/reference) |
-| Server | 9 | [docs/linux](docs/linux)、[docs/freebsd](docs/freebsd)、[docs/windows](docs/windows) |
-| Beta | 1 | [docs/beta](docs/beta) |
+### 阅读目录（按官网侧边栏顺序）
+
+- [安装](docs/installation.md)
+
+**Customize（自定义）**
+1. [配置文件](docs/customize/config.md)
+2. [快捷键](docs/customize/keyboard-shortcuts.md)
+3. [按键序列](docs/customize/key-sequences.md)
+4. [按键模式](docs/customize/key-modes.md)
+5. [自定义操作](docs/customize/actions.md)
+
+**Automate（自动化）**
+1. [CLI](docs/automate/cli.md)
+2. [智能体](docs/automate/agent-skill.md)
+3. [Lua 脚本](docs/automate/lua-scripts.md)
+4. [Lua 事件](docs/automate/lua-events.md)
+5. [Shell 脚本](docs/automate/shell-scripting.md)
+6. [服务端 API](docs/automate/server-api.md)
+
+**Build for Rex（面向 Rex 开发）**
+1. [程序状态协议（OSC 7501）](docs/build/program-status.md)
+
+**References（参考）**
+1. [CLI 命令](docs/reference/cli.md)
+2. [服务端 API](docs/reference/api.md)
+3. [Mac 操作](docs/reference/mac-actions.md)
+4. [Mac 设置](docs/reference/mac-settings.md)
+5. [iOS 操作](docs/reference/ios-actions.md)
+6. [iOS 设置](docs/reference/ios-settings.md)
+7. [Lua API](docs/reference/lua.md)
+8. [事件](docs/reference/events.md)
+9. [隐私与遥测](docs/reference/privacy.md)
+
+**Server（服务端）**
+- **Linux**：[在 Linux 上安装](docs/linux/installation.md) → [服务端运行模式](docs/linux/server-modes.md) → [共享服务端](docs/linux/shared-server.md) → [登录服务端](docs/linux/login-server.md) → [远程访问](docs/linux/remote-access.md) → [升级](docs/linux/upgrading.md)
+- **FreeBSD**：[在 FreeBSD 上安装](docs/freebsd/installation.md)
+- **Windows**：[在 Windows 上安装](docs/windows/installation.md) → [在 Windows 上运行](docs/windows/running.md)
+
+**Beta**
+1. [社区 MCP](docs/beta/community-mcp.md)
 
 ## 目录结构
 
