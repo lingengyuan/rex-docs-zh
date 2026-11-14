@@ -8,9 +8,11 @@ Rex 官方文档的社区中文译文。
 - 译文采用 [CC BY-NC-SA 4.0](LICENSE)，不用于商业用途
 - 官方要求时可随时下架
 
-## 范围
+## 范围与阅读
 
-覆盖官方文档的全部公开页面，共 32 篇。登录 Discord 后才显示的内容，例如 Linux、FreeBSD 和 Windows 的安装命令，不在翻译范围内。
+已覆盖官方文档的全部公开页面，共 32 篇（均已译完）。登录 Discord 后才显示的内容（例如 Linux、FreeBSD 和 Windows 的安装命令）不在翻译范围内。
+
+译文存放在 `docs/` 下，目录结构与官方文档一致，可从 [安装指南](docs/installation.md) 开始阅读。译文与原文不一致时，以原文为准。
 
 | 章节 | 篇数 | 目录 |
 | --- | --- | --- |
@@ -22,21 +24,19 @@ Rex 官方文档的社区中文译文。
 | Server | 9 | [docs/linux](docs/linux)、[docs/freebsd](docs/freebsd)、[docs/windows](docs/windows) |
 | Beta | 1 | [docs/beta](docs/beta) |
 
-## 阅读
-
-译文在 `docs/` 下，目录结构与官方文档一致。译文与原文不一致时，以原文为准。
-
 ## 目录结构
 
 ```text
 rex-docs-zh/
-├── .github/workflows/  # 每日更新检查
-├── docs/               # 中文译文
-├── originals/          # 原文快照与 manifest
-├── tools/              # sync.py
-├── pages.txt           # 页面清单
-├── TRANSLATION.md      # 翻译规范
-└── glossary.md         # 术语表
+├── .github/workflows/    # 每日更新检查
+├── docs/                 # 中文译文
+├── originals/            # 原文快照与 manifest
+├── tests/                # 验证工具单元测试
+├── tools/                # sync.py、verify.py
+├── pages.txt             # 页面清单
+├── TRANSLATION.md        # 翻译规范
+├── TRANSLATION-TASKS.md  # 翻译任务清单
+└── glossary.md           # 术语表
 ```
 
 ## 译文格式
@@ -53,8 +53,11 @@ rex-docs-zh/
 ## 维护
 
 ```sh
-tools/sync.py            # 抓取原文，更新 originals/ 和 manifest
-tools/sync.py --dry-run  # 只检测，不写入
+python3 tools/sync.py                  # 抓取原文，更新 originals/ 和 manifest
+python3 tools/sync.py --dry-run        # 只检测，不写入
+python3 tools/verify.py                # 校验清单中的全部 31 篇译文及任务清单
+python3 tools/verify.py --page <路径>  # 校验单篇译文，例如 docs/automate/cli.md
+python3 -m unittest discover tests     # 运行验证工具单元测试
 ```
 
 `.github/workflows/docs-watch.yml` 每天 01:00 UTC（北京时间 09:00）运行：
@@ -67,4 +70,6 @@ tools/sync.py --dry-run  # 只检测，不写入
 
 ## 贡献
 
-翻译规范见 [TRANSLATION.md](TRANSLATION.md)，术语以 `glossary.md` 为准。修改 `docs/` 后提交 Pull Request。
+翻译规范见 [TRANSLATION.md](TRANSLATION.md)，术语以 [glossary.md](glossary.md) 为准。修改 `docs/` 后请先运行 `python3 tools/verify.py` 确认校验通过，再提交 Pull Request。
+
+注：[docs/installation.md](docs/installation.md) 按官网渲染页面补全了 `## macOS` 等小节，单独运行 `python3 tools/verify.py --page docs/installation.md` 时 `AC2_Structure` 会因与 `.md` 导出标题数不同而提示不匹配，属于已知差异。
