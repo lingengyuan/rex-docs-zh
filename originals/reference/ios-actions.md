@@ -63,6 +63,7 @@ This page lists every action in the Rex for iOS command palette. Use the name to
 | --- | --- |
 | <span id="action-client-host-add" data-entry="Add Remote Host…"></span>Add Remote Host… | `client.host.add` <span hidden>host remote add server machine url http https connect</span> |
 | <span id="action-client-host-remove" data-entry="Remove Host…"></span>Remove Host… | `client.host.remove` <span hidden>remove forget delete disconnect host remote server machine</span> |
+| <span id="action-client-host-forward-port" data-entry="Forward Port…"></span>Forward Port… | `client.host.forward_port` <span hidden>port forward forwarding tunnel localhost open browser ssh `-L` local remote host</span> |
 
 ## Tab
 
