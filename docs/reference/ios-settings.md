@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/ios-settings
-> 原文版本：5568908f64e0（抓取于 2026-11-13）
+> 原文版本：1af343b09484（抓取于 2026-11-15）
 
 # iOS 设置
 
@@ -57,7 +57,7 @@
 
 ## 远程主机
 
-管理已保存的主机、连接以及每台主机启动的 shell。位于“设置”>“远程主机”。 <span hidden>server, add, pair, connect, reconnect, edit, delete, remove, startup command, shell, default shell, login shell, nushell, zsh, fish</span>
+管理已保存的主机、连接、端口转发以及每台主机启动的 shell。位于“设置”>“远程主机”。 <span hidden>server, add, pair, connect, reconnect, edit, delete, remove, startup command, shell, default shell, login shell, nushell, zsh, fish, port forwarding, forward, forwards, tunnel, localhost, ssh `-L`</span>
 
 | 设置项 | 说明 |
 | --- | --- |

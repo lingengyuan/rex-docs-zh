@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/mac-actions
-> 原文版本：bf71f75832d9（抓取于 2026-11-13）
+> 原文版本：ca85cf886545（抓取于 2026-11-15）
 
 # Mac 操作
 
@@ -64,6 +64,7 @@
 | <span id="action-client-host-switch" data-entry="Switch Host"></span>Switch Host（切换主机） | `client.host.switch` <span hidden>host remote machine server switch go</span> |  |
 | <span id="action-client-host-add" data-entry="Add Remote Host…"></span>Add Remote Host…（添加远程主机…） | `client.host.add` <span hidden>host remote add server machine url http https connect</span> |  |
 | <span id="action-client-host-remove" data-entry="Remove Host…"></span>Remove Host…（移除主机…） | `client.host.remove` <span hidden>remove forget delete disconnect host remote server machine</span> |  |
+| <span id="action-client-host-forward-port" data-entry="Forward Port…"></span>Forward Port…（端口转发…） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | `client.host.forward_port` <span hidden>port forward forwarding tunnel localhost open browser ssh `-L` local remote host</span> |  |
 
 ## 标签页
 

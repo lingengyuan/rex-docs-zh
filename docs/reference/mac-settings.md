@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/mac-settings
-> 原文版本：c4503387dd6e（抓取于 2026-11-13）
+> 原文版本：5dbf6aab1b41（抓取于 2026-11-15）
 
 # Mac 设置
 
@@ -341,7 +341,7 @@
 ## 远程主机
 
 ### 远程主机（Remote hosts）
-添加、重新排序和管理远程 Rex 主机，查看连接状态，回答 SSH 提示问题，并在连接失败时重试。位于“设置”>“远程主机”>“Remote hosts”。 <span hidden>remote, connections, machines, servers, add host, remove host, retry, host details, remote host status, remote host reconnect, connection warning, connection failure, host address, reorder hosts, host order, sort hosts, arrange hosts, move host up, move host down, drag hosts, ssh, ssh host, ssh passphrase, ssh password, host key, answer ssh question, waiting for an answer, needs your answer, finish setup, trust host</span>
+添加、重新排序和管理远程 Rex 主机，查看连接状态，回答 SSH 提示问题，在连接失败时重试，以及进行端口转发。位于“设置”>“远程主机”>“Remote hosts”。 <span hidden>remote, connections, machines, servers, add host, remove host, retry, host details, remote host status, remote host reconnect, connection warning, connection failure, host address, reorder hosts, host order, sort hosts, arrange hosts, move host up, move host down, drag hosts, ssh, ssh host, ssh passphrase, ssh password, host key, answer ssh question, waiting for an answer, needs your answer, finish setup, trust host, port forwarding, forward port, forwards, tunnel, ssh `-L`, localhost link</span>
 
 ### SSH
 
