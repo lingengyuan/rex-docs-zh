@@ -59,7 +59,7 @@ Configure the font, text colors, cursor, keyboard, key bar, scrolling, and title
 
 ## Remote Hosts
 
-Manage saved hosts, their connections, and the shell each one starts. In Settings > Remote Hosts. <span hidden>server, add, pair, connect, reconnect, edit, delete, remove, startup command, shell, default shell, login shell, nushell, zsh, fish</span>
+Manage saved hosts, their connections, port forwards, and the shell each one starts. In Settings > Remote Hosts. <span hidden>server, add, pair, connect, reconnect, edit, delete, remove, startup command, shell, default shell, login shell, nushell, zsh, fish, port forwarding, forward, forwards, tunnel, localhost, ssh `-L`</span>
 
 | Setting | Description |
 | --- | --- |

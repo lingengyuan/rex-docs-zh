@@ -380,7 +380,7 @@ Choose the command run when a new local terminal opens. In Settings > Terminal >
 
 ### Remote hosts
 
-Add, reorder, and manage remote Rex hosts, view connection status, answer SSH questions, and retry connection failures. In Settings > Remote Hosts > Remote hosts. <span hidden>remote, connections, machines, servers, add host, remove host, retry, host details, remote host status, remote host reconnect, connection warning, connection failure, host address, reorder hosts, host order, sort hosts, arrange hosts, move host up, move host down, drag hosts, ssh, ssh host, ssh passphrase, ssh password, host key, answer ssh question, waiting for an answer, needs your answer, finish setup, trust host</span>
+Add, reorder, and manage remote Rex hosts, view connection status, answer SSH questions, retry connection failures, and forward ports. In Settings > Remote Hosts > Remote hosts. <span hidden>remote, connections, machines, servers, add host, remove host, retry, host details, remote host status, remote host reconnect, connection warning, connection failure, host address, reorder hosts, host order, sort hosts, arrange hosts, move host up, move host down, drag hosts, ssh, ssh host, ssh passphrase, ssh password, host key, answer ssh question, waiting for an answer, needs your answer, finish setup, trust host, port forwarding, forward port, forwards, tunnel, ssh `-L`, localhost link</span>
 
 ### SSH
 
