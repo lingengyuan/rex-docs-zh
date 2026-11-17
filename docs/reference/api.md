@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/api
-> 原文版本：35c85c10203c（抓取于 2026-11-13）
+> 原文版本：ce3a63c8b078（抓取于 2026-11-17）
 
 # 服务端 API
 
@@ -309,17 +309,21 @@
 
 ### `client.reply`
 
-应答 client_call_requested 或 client_perform_requested 事件。
+应答 client_call_requested、client_perform_requested 或 client_prompt_requested 事件。
 
 | 字段 | 必需 | 说明 |
 | --- | --- | --- |
 | `call_id` | 是 | 所应答事件的 call_id。 |
-| `result` |  | 调用的结果或操作返回的内容。若无结果使用 null。此参数与 error 二选一设置，不能同时设置。 |
-| `error` |  | 调用失败或操作未执行的原因。此参数与 result 二选一设置，不能同时设置。 |
+| `result` |  | 调用的结果、操作返回的内容或提示的回答。若调用或操作无输出，请使用 null。对于提示，请发送提示结果：text、ids 或 cancelled。此参数与 error 二选一设置，不能同时设置。 |
+| `error` |  | 调用失败、操作未执行或无法显示提示的原因。此参数与 result 二选一设置，不能同时设置。 |
 
 `client_call_requested` 事件请求当前客户端在另一个服务端上执行一次调用，以配合仍在运行的 `client.action` 请求。必须应答每个事件，即使调用失败也是如此。在接收该事件的连接上发送事件的 `call_id`。
 
 `client_perform_requested` 事件请求当前客户端为另一个客户端的 `client.perform` 请求执行其自身的操作之一。以相同方式进行应答。`result` 为操作返回的内容，或者为 `null`。
+
+`client_prompt_requested` 事件请求当前客户端向使用它的用户提出一个问题，以响应调用了 `rex.ui` 的操作。待用户回答后进行应答：输入文本时将 `result` 设为 `{"text": "..."}`，选择项目时设为 `{"ids": ["..."]}`，若用户关闭了提示则设为 `{"cancelled": true}`。若发送提示不接受的结果（例如未提供的 ID），会返回 `bad_request` 并使提示继续处于等待状态。若无法显示提示，请将 `error.code` 设为 `not_supported`。
+
+服务端会将提示发送给每个能够显示它的已连接应用，因此同一提示可能会在多个设备上同时打开。首个回答会在所有设备上结束该提示，取消操作亦然。随后，其他所有应用都会收到一条带有各自 `call_id` 的 `client_prompt_ended` 事件。无论该事件的 `reason` 为何，都应关闭提示。此后发出的应答会失败并返回 `not_found`。
 
 同时设置了 `result` 和 `error`，或两者均未设置的回复会失败并返回 `bad_request`。对于没有结果的调用，发送 `"result": null`。
 
@@ -798,7 +802,7 @@ macOS 根据其认定对进程负责的应用程序来决定隐私权限。服�
 
 只有在 `initial_windows` 中的每个窗口均已就绪后，服务端才会发送 `session_created` 事件，因此没有任何客户端会看到半成品的会话。若有任何窗口创建失败，服务端会关闭会话及其所有块，且调用失败。
 
-调用客户端会成为初始窗口中每个块的所有者。
+初始窗口中的块在创建时没有所有者，因为调用客户端还无法附加到尚未存在的会话。若要拥有这些块，请先调用 `session.attach`，再调用 `session.own_block`。
 
 调用不会自动将连接附加到新会话。请调用 `session.attach` 以接收其事件。
 
@@ -1163,7 +1167,7 @@ macOS 根据其认定对进程负责的应用程序来决定隐私权限。服�
 
 块初始状态为分离（detached）：它运行、发送事件并响应方法调用，但没有任何窗口展示它。可使用 `session.move_block` 将其放置在窗口内的某个块旁边。
 
-调用客户端成为该块的所有者。
+如果调用客户端已附加到该会话，则会成为该块的所有者；否则该块没有所有者，直到已附加的客户端通过 `session.own_block` 认领它。
 
 格式错误的 `flavor` 或 `label` 失败并返回 `bad_request`。没有创建者提供的特点类型失败并返回 `not_found`。
 

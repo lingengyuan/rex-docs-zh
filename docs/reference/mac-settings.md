@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/mac-settings
-> 原文版本：5dbf6aab1b41（抓取于 2026-11-15）
+> 原文版本：5a511ea44ce9（抓取于 2026-11-17）
 
 # Mac 设置
 
@@ -39,7 +39,6 @@
 | --- | --- |
 | <span id="setting-program-activity-show-activity-in-tabs" data-entry="Show activity in tabs"></span>Show activity in tabs（在标签页中显示活动） | 当标签页中的程序报告其状态时，在标签页上显示运行指示点、进度饼图以及需要关注的点和消息。<span hidden>In Settings &gt; Notifications &gt; Program Activity.</span> <span hidden>program status, process status, osc 7501, agent, claude, progress, progress pie, blocked, waiting, question, permission, error, failed, status dot, status badges, notification dot, badge, working, tab status, indicator, needs attention</span> |
 | <span id="setting-program-activity-include-idle-processes-in-activity" data-entry="Include idle processes in activity"></span>Include idle processes in activity（在活动中包含空闲进程） | 即使查看后，仍在活动过滤器和弹出窗口中保留报告为空闲状态的标签页。<span hidden>In Settings &gt; Notifications &gt; Program Activity.</span> <span hidden>idle, idle processes, idle agents, ready, activity filter, activity popup, keep idle, show idle, include idle, always show idle processes in activity, eye</span> |
-| <span id="setting-program-activity-show-each-process-in-tabs" data-entry="Show each process in tabs"></span>Show each process in tabs（在标签页中显示每个进程） | 在活动过滤器和弹出窗口中，将包含多个活动窗格的标签页拆分为对应每个窗格的单行。点击单行可聚焦该窗格。<span hidden>In Settings &gt; Notifications &gt; Program Activity.</span> <span hidden>each process, each process in activity, every process, all processes, split processes, split tabs, panes, pane rows, agents, multiple agents, expand tabs, activity filter, activity popup, eye</span> |
 | <span id="setting-program-activity-show-system-notifications" data-entry="Show system notifications"></span>Show system notifications（显示系统通知） | 当 Rex 处于后台且程序报告状态时发送 macOS 系统通知，该设置独立于标签页指示符。点击通知可打开该程序的标签页。<span hidden>In Settings &gt; Notifications &gt; Program Activity.</span> <span hidden>program notifications, agent notifications, background notifications, claude notification, notify when done, notify when blocked, notifications without tab indicators</span> |
 | <span id="setting-program-activity-badge-dock-icon" data-entry="Badge Dock icon"></span>Badge Dock icon（在 Dock 图标上显示标记） | 在 Rex 的 Dock 图标上显示有多少个尚未查看且包含阻塞、失败或完成程序的标签页。<span hidden>In Settings &gt; Notifications &gt; Program Activity.</span> <span hidden>dock badge, badge count, app icon badge, unread count, red badge, badge application icon, dock icon</span> |
 | <span id="setting-program-activity-play-sounds" data-entry="Play sounds"></span>Play sounds（播放声音） | 当标签页中的程序被阻塞、报告错误或完成时播放提示音。<span hidden>In Settings &gt; Notifications &gt; Program Activity.</span> <span hidden>sound, audio, chime, alert sound, beep, bell, audible, monoh, sound effects, program finished, done sound, mute, silence</span> |
@@ -179,6 +178,13 @@
 | --- | --- |
 | <span id="setting-splits-focus-autobalance-splits" data-entry="Autobalance splits"></span>Autobalance splits（自动均分分栏） | 在窗格打开或关闭时均等调整标签页各窗格大小，同时保留手动拖拽的分隔线位置。<span hidden>In Settings &gt; Interface &gt; Splits &amp;amp; Focus.</span> <span hidden>balance panes, equalize, even, equal size, new pane, close pane, split, resize, divider, keep divider, dragged divider, manual split size</span> |
 | <span id="setting-splits-focus-focus-follows-mouse" data-entry="Focus follows mouse"></span>Focus follows mouse（焦点跟随鼠标） | 光标移至窗格上方即可聚焦该窗格，无需点击。<span hidden>In Settings &gt; Interface &gt; Splits &amp;amp; Focus.</span> <span hidden>hover, pointer, cursor, sloppy focus, mouse focus, active pane, select pane, without clicking</span> |
+
+### 悬浮窗口（Floating Windows）
+选择标签页存放最小化悬浮窗口的位置。从“界面”›“窗格”下的“自定窗格”打开。位于“设置”>“界面”>“Floating Windows”。 <span hidden>floating windows, floating panes, minimized, minimised, hidden windows, taskbar, dock</span>
+
+| 设置项 | 说明 |
+| --- | --- |
+| <span id="setting-floating-windows-minimized-floating-windows" data-entry="Minimized floating windows"></span>Minimized floating windows（最小化悬浮窗口） | 选择标签页中最小化悬浮窗口排列的角落位置，或直接将其拖拽至该处。<span hidden>In Settings &gt; Interface &gt; Floating Windows.</span> <span hidden>corner, anchor, minimized corner, capsules, chat heads, minimize, minimise, drag, taskbar corner, move minimized windows</span> |
 
 ### 手势（Gestures）
 开启或关闭用于窗格和边栏的触控板手势。位于“设置”>“界面”>“Gestures”。 <span hidden>gestures, trackpad, multi-touch, fingers</span>

@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/cli
-> 原文版本：793d49ff2ecf（抓取于 2026-11-13）
+> 原文版本：685cd528cc2c（抓取于 2026-11-17）
 
 # CLI 命令
 
@@ -109,6 +109,8 @@ rex split -- htop
 按名称执行操作，或运行 Lua 脚本。
 
 不带点的名称是由 init.lua 通过 rex.action 定义的操作。以客户端前缀开头的名称（如 pane.split）由目标客户端执行。以块类型创建者名称开头的名称（如 com.superlogical.terminal.reset）是块操作或方法。运行 “rex actions” 可列出这些操作。
+
+来自 init.lua 的操作可以使用 rex.ui.input 或 rex.ui.pick 提出问题。`rex do` 无法自行显示该问题，因此所有已连接的 Rex 应用都会显示它，`rex do` 则会等待有人在其中某个应用上作答。默认情况下，`rex do` 会一直等待直到操作完成，无论耗时多久。使用 `--timeout` 可限制等待时间。超过时限后，`rex do` 会停止该操作并以状态码 1 退出。
 
 若要运行 Lua 脚本，请提供其路径。当第一个参数包含斜杠（Windows 上为反斜杠）或以 .lua 结尾时，该参数被视为脚本路径。使用 - 从标准输入读取脚本，或使用 `-e` 在命令行中直接传入代码。脚本可以调用与 init.lua 相同的 API。其返回值与操作结果的打印方式相同。在脚本中，rex.invoke 会运行脚本自身定义的操作，并请求服务端运行其他操作。
 
@@ -245,13 +247,15 @@ rex capture -s build -w 2
 
 若转发对应的块被关闭（例如通过 `rex forward close`），该转发将停止。一旦没有剩余转发，`rex forward new` 便会退出。
 
+被终止的 `rex forward new` 会留下其转发对应的块。从同一台机器再次建立相同的转发时，会接管该块而非新建一个，因此重新运行相同的命令即可继续使用。端口为 0 的 `-R` 转发始终会分配新端口。其他机器上的客户端仍可能回来使用的块会保持原样。
+
 | 选项 | 说明 |
 | --- | --- |
 | `-L, --local stringArray` | 在本机监听 port 并从服务端连接到 host:hostport。 |
 | `-R, --remote stringArray` | 在服务端监听 port 并从本机连接到 host:hostport。 |
 | `-s, --session string` | 将转发对应的块保留在会话 SESSION 中。 |
 
-### `rex forward open [flags] (URL | [host:]port)`
+### `rex forward open [flags] (URL | [host:]port | BLOCK)`
 
 将本地端口转发至服务端目标并打开。
 
@@ -259,9 +263,13 @@ rex capture -s build -w 2
 
 目标可以是一个 URL（如 http://localhost:8080/app 或 postgres://db/app）、host:port，或单个端口（代表服务端 localhost 上的该端口）。不带协议 scheme 的目标默认视为 http。不带端口的 URL 使用该协议的常用默认端口（如果已知）。
 
+目标也可以是按 ID 或标签指定的终端块（即 rex block ls 中显示的标识）。此时转发会指向该终端中程序正在监听的端口（例如在其中启动的开发服务器），并以 http 方式打开。如果该终端中的程序监听了多个端口，`rex forward open` 会列出这些端口且不执行转发。凡是可被解析为 URL、host:port 或端口的参数都会始终按此类格式处理，因此若块的标签形如这类格式，请使用其 ID 来指定。服务端只查找仍附加到终端上的程序所监听的端口，因此会略过例如后台守护进程。
+
 转发监听 `--bind` 与 `--port`，默认为 127.0.0.1 和一个空闲端口。一旦开始监听，`rex forward open` 会打印将主机和端口替换为转发监听地址的目标 URL，并打开该 URL。http 或 https URL 会发送给 $BROWSER（若已设置，为冒号分隔的命令列表，其中 %s 代表 URL）。其他 URL 或 $BROWSER 无法打开的 URL 会交给系统该协议的默认处理程序。`--no-open` 仅打印 URL 而不打开。
 
 浏览器向 localhost 及转发端口发送请求，而非向目标自身的名称发送，因此检查 Host 头的网站，或使用自身名称证书提供 https 服务的网站，可能无法通过转发正常工作。
+
+转发块会保留在通过 `--session` 指定的会话或默认会话中。对于终端块，转发块会保留在该终端所属的会话中，此时 `--session` 用于指定在哪个会话中查找该终端。
 
 `rex forward open` 像 `rex forward new` 一样在前台运行，直到被中断或通过 `rex forward close` 关闭转发。
 
@@ -1036,6 +1044,7 @@ Ctrl+C、SIGTERM 和 `rex server stop` 会在服务端保存其会话后将其�
 | `--tailscale-auth-key-file FILE` | 使用从 FILE 读取的一次性认证密钥注册 `--tailscale`（'-' 代表标准输入）。 |
 | `--tailscale-advertise-tag TAG` | 在 `--tailscale` 注册节点时通告 ACL TAG（tag:name）（可重复指定）。 |
 | `--log-format FORMAT` | 将服务端日志写入为 FORMAT：text 或 json。默认为 `text`。 |
+| `--log-level LEVEL` <span class="row-tags"><span class="api-tag channel">[Snapshot](../linux/installation.md#发布通道)</span></span> | 记录 LEVEL 及以上级别的日志：debug、info、warn 或 error（默认为 info；若未指定此标志但传入了 `-v`，则为 debug）。 |
 
 ### `rex server start`
 
@@ -1069,6 +1078,7 @@ start 具有幂等性。start 选项仅在启动新服务端时生效。现有�
 | `--tailscale-auth-key-file FILE` | 使用从 FILE 读取的一次性认证密钥注册 `--tailscale`。 |
 | `--tailscale-advertise-tag TAG` | 在 `--tailscale` 注册节点时通告 ACL TAG（tag:name）（可重复指定）。 |
 | `--log-format FORMAT` | 将服务端日志写入为 FORMAT：text 或 json。默认为 `text`。 |
+| `--log-level LEVEL` <span class="row-tags"><span class="api-tag channel">[Snapshot](../linux/installation.md#发布通道)</span></span> | 记录 LEVEL 及以上级别的日志：debug、info、warn 或 error（默认为 info；若未指定此标志但传入了 `-v`，则为 debug）。 |
 | `--log-max-size SIZE` | 通过清理旧内容将活动的后台日志大小限制在 SIZE（0 表示禁用）。默认为 `50MiB`。 |
 | `--env NAME` | 将环境变量 NAME 或 NAME=VALUE 传递给新服务端（可重复指定）。 |
 | `--json` | 将服务端信息以 JSON 格式输出。 |
