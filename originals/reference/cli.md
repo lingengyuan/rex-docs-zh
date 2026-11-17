@@ -112,6 +112,8 @@ Perform an action by name, or run a Lua script.
 
 A name without a dot is an action init.lua defines with rex.action. A name that starts with a client prefix, such as pane.split, is performed by the targeted client. A name that starts with a block type's creator name, such as com.superlogical.terminal.reset, is a block action or method. Run "rex actions" to list them.
 
+An action from init.lua can ask a question with rex.ui.input or rex.ui.pick. `rex do` can't show the question itself, so every connected Rex app shows it, and `rex do` waits for someone to answer it on one of them. By default, `rex do` waits until the action finishes, however long that takes. Use `--timeout` to limit the wait. When the limit passes, `rex do` stops the action and exits with status 1.
+
 To run a Lua script instead, give its path. The first argument is a script path when it contains a slash (or a backslash on Windows) or ends in .lua. Use - to read the script from stdin, or `-e` to give it on the command line. A script can call the same API as init.lua. Its return value prints the same way as an action's result. In a script, rex.invoke runs the actions the script defines and asks the server to run any others.
 
 A script can also call the hosts that "rex hosts" lists. rex.servers() returns their labels, and rex.server(LABEL) returns the same API helpers as rex, with calls going to that host. `rex do` connects to a host on the script's first call to it, and stays connected until the script ends. `--server` chooses only the server that rex itself calls.
@@ -247,13 +249,15 @@ When the connection to the server drops, `rex forward new` reconnects and carrie
 
 A forward whose block is closed, for example with `rex forward close`, stops. `rex forward new` exits once it has no forwards left.
 
+A `rex forward new` that is killed leaves its forwards' blocks behind. Setting up the same forward again from this machine takes over its block instead of making a new one, so running the same command again works. A `-R` forward on port 0 always gets a new port. Blocks that a client on another machine may still come back for are left alone.
+
 | Flag | Description |
 | --- | --- |
 | `-L, --local stringArray` | Listen here on port and connect to host:hostport from the server. |
 | `-R, --remote stringArray` | Listen on the server on port and connect to host:hostport from here. |
 | `-s, --session string` | Keep the forwards' blocks in session SESSION. |
 
-### `rex forward open [flags] (URL | [host:]port)`
+### `rex forward open [flags] (URL | [host:]port | BLOCK)`
 
 Forward a local port to a server-side target and open it.
 
@@ -261,9 +265,13 @@ Forward a port on this machine to a target that the server can reach, and open i
 
 The target is a URL, such as http://localhost:8080/app or postgres://db/app, or host:port, or a port, which means that port on the server's localhost. A target without a scheme is taken to be http. A URL without a port uses the usual port for its scheme, if known.
 
+The target can also be a terminal block, given by its ID or label, as rex block ls shows them. The forward then goes to the port that a program in the terminal is listening on, such as a development server started there, and is opened as http. If the terminal's programs listen on several ports, `rex forward open` lists them and forwards none. An argument that reads as a URL, host:port or port is always taken as one, so name a block whose label reads that way by its ID. The server finds the ports of programs that are still attached to the terminal, so it misses e.g. a daemon.
+
 The forward listens on `--bind` and `--port`, by default 127.0.0.1 and a free port. Once it listens, `rex forward open` prints the target's URL with its host and port changed to where the forward listens, and opens that URL. An http or https URL goes to $BROWSER if it is set: a list of commands separated by colons, in which %s stands for the URL. Any other URL, or one $BROWSER cannot open, goes to the system's handler for its scheme. `--no-open` only prints it.
 
 A browser addresses what it sends to localhost and the forward's port rather than to the target's own name, so a site that checks the Host header, or that serves https with a certificate for its own name, may not work through the forward.
+
+The forward's block is kept in the session chosen with `--session`, or the default session. For a terminal block it is kept in the terminal's session, and `--session` says which session to look for the terminal in.
 
 `rex forward open` runs in the foreground like `rex forward new`, until it is interrupted or the forward is closed with `rex forward close`.
 
@@ -1035,6 +1043,7 @@ If nothing reads the server's output any more, for example because tee exited wh
 | `--tailscale-auth-key-file FILE` | Enroll `--tailscale` with the one-time auth key read from FILE ('-' for stdin). |
 | `--tailscale-advertise-tag TAG` | Advertise ACL TAG (tag:name) when `--tailscale` enrolls the node (repeatable). |
 | `--log-format FORMAT` | Write server logs as FORMAT: text or json. Defaults to `text`. |
+| `--log-level LEVEL` <span class="row-tags"><span class="api-tag channel">[Snapshot](https://www.superlogical.com/rex/docs/linux/installation.md#channels)</span></span> | Log at LEVEL and above: debug, info, warn, or error (default info, or debug if `-v` is given without this flag). |
 
 ### `rex server start`
 
@@ -1068,6 +1077,7 @@ The log size limit applies only to the file created for a detached server. Rex c
 | `--tailscale-auth-key-file FILE` | Enroll `--tailscale` with the one-time auth key read from FILE. |
 | `--tailscale-advertise-tag TAG` | Advertise ACL TAG (tag:name) when `--tailscale` enrolls the node (repeatable). |
 | `--log-format FORMAT` | Write server logs as FORMAT: text or json. Defaults to `text`. |
+| `--log-level LEVEL` <span class="row-tags"><span class="api-tag channel">[Snapshot](https://www.superlogical.com/rex/docs/linux/installation.md#channels)</span></span> | Log at LEVEL and above: debug, info, warn, or error (default info, or debug if `-v` is given without this flag). |
 | `--log-max-size SIZE` | Limit the active detached log to SIZE by clearing old contents (0 disables). Defaults to `50MiB`. |
 | `--env NAME` | Pass environment variable NAME or NAME=VALUE to a new server (repeatable). |
 | `--json` | Output server information as JSON. |

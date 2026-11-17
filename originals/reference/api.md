@@ -310,17 +310,21 @@ When a request ends, the server sends a `client_performed` event with the outcom
 
 ### `client.reply`
 
-Answer a client_call_requested or client_perform_requested event.
+Answer a client_call_requested, client_perform_requested, or client_prompt_requested event.
 
 | Field | Required | Description |
 | --- | --- | --- |
 | `call_id` | Yes | The call_id of the event you're answering. |
-| `result` |  | The call's result, or what the action returned. Use null if there is none. Set this or error, not both. |
-| `error` |  | Why the call failed or the action wasn't performed. Set this or result, not both. |
+| `result` |  | The call's result, what the action returned, or the prompt's answer. For a call or action with no output, use null. For a prompt, send a prompt result: text, ids, or cancelled. Set this or error, not both. |
+| `error` |  | Why the call failed, the action wasn't performed, or the prompt couldn't be shown. Set this or result, not both. |
 
 A `client_call_requested` event asks this client to make one call on another server, for a `client.action` request that is still running. Reply to every one, even when the call fails. Send the event's `call_id`, on the connection that received the event.
 
 A `client_perform_requested` event asks this client to perform one of its own actions for another client's `client.perform` request. Reply the same way. `result` is what the action returned, or `null`.
+
+A `client_prompt_requested` event asks this client to put a question to the person using it, for an action that called `rex.ui`. Reply once the person answers, with `result` set to `{"text": "..."}` for typed text, `{"ids": ["..."]}` for chosen items, or `{"cancelled": true}` if they closed the prompt. A result the prompt doesn't accept, such as an ID it didn't offer, fails with `bad_request` and leaves the prompt waiting. If you can't show the prompt, set `error.code` to `not_supported`.
+
+The server sends a prompt to every connected app that can show it, so the same prompt may be open on several devices. The first answer ends it on all of them, and so does a cancel. Every other app then receives a `client_prompt_ended` event with its own `call_id`. Close the prompt whatever the event's `reason` is. A reply after that fails with `not_found`.
 
 A reply that sets both `result` and `error`, or neither, fails with `bad_request`. For a call with no result, send `"result": null`.
 
@@ -797,7 +801,7 @@ If `label` is left out or empty, the server picks one that no other session has,
 
 The server sends `session_created` only once every window in `initial_windows` is ready, so no client sees a half-built session. If any window fails, the server closes the session and its blocks, and the call fails.
 
-The calling client becomes the owner of every block in the initial windows.
+The blocks in the initial windows start with no owner, because the calling client can't be attached to a session that doesn't exist yet. To own them, call `session.attach` and then `session.own_block`.
 
 The call doesn't attach the connection to the new session. Call `session.attach` to receive its events.
 
@@ -1161,7 +1165,7 @@ The server passes `options` to the flavor's creator unchanged.
 
 The block starts detached: it runs, sends events, and answers method calls, but no window shows it. `session.move_block` can place it beside a block that is in a window.
 
-The calling client becomes the block's owner.
+If the calling client is attached to the session, it becomes the block's owner. Otherwise the block has no owner until an attached client claims it with `session.own_block`.
 
 A malformed `flavor` or `label` fails with `bad_request`. A flavor that no creator provides fails with `not_found`.
 
