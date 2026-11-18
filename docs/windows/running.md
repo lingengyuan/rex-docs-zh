@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/windows/running
-> 原文版本：9f9b44a3ecc6（抓取于 2026-11-13）
+> 原文版本：698be7b3fa8d（抓取于 2026-11-18）
 
 # 在 Windows 上运行
 
@@ -13,7 +13,7 @@
 
 本节介绍快速搭建并运行的推荐配置。为了便于快速上手，本节刻意省略了许多关于系统运作细节的说明。建议深入阅读后续章节以全面了解相关机制。
 
-1. 使用 WinGet 安装 Rex，详见[在 Windows 上安装](installation.md#winget推荐)。
+1. 使用 WinGet 安装 Rex，详见[在 Windows 上安装](installation.md#winget)。
 
 2. 在通过**以管理员身份运行**打开的终端中，安装并启动 Microsoft 的 OpenSSH Server：
 

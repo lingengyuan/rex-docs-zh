@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/api
-> 原文版本：ce3a63c8b078（抓取于 2026-11-17）
+> 原文版本：a256ad704c3f（抓取于 2026-11-18）
 
 # 服务端 API
 
@@ -280,7 +280,7 @@
 | 字段 | 必需 | 说明 |
 | --- | --- | --- |
 | `client_id` | 是 | 要请求的客户端。若要按标签查找，调用 target.resolve 并将 kinds 设置为 client。 |
-| `action` | 是 | 该客户端声明的操作名称，如 pane.split。client.inspect 列出了这些操作。 |
+| `action` | 是 | 该客户端声明的操作名称，如 pane.split。client.inspect 列出了这些操作。最多 256 字节。 |
 | `args` |  | 操作的参数，以 JSON 对象形式传入。若无参数请省略。 |
 | `origin` |  | 引发该请求的原因，如 key、palette、api 或 cli。客户端将原样接收。留空代表 api。 |
 | `session_id` |  | 操作所应用到的会话（如果有）。客户端直接接收，服务端不进行校验。 |
@@ -295,7 +295,7 @@
 
 发往同一个客户端的请求会排队等待，客户端按到达顺序逐一应答。`timeout_ms` 从请求排到队首时开始计时。
 
-缺少 `client_id` 或 `action`、`timeout_ms` 为负数，或者 `args` 不是对象或与操作模式不符的请求会失败并返回 `bad_request`。若 `client_id` 未指向已连接的客户端，调用失败并返回 `not_found`。
+缺少 `client_id` 或 `action`、`action` 超过 256 字节、`timeout_ms` 为负数，或者 `args` 不是对象或与操作模式不符的请求会失败并返回 `bad_request`。若 `client_id` 未指向已连接的客户端，调用失败并返回 `not_found`。
 
 若客户端已列出其操作且 `action` 不在其中，调用失败并返回 `not_supported`。对于未列出任何操作的客户端仍会向其发送请求，它自身可能会回复 `not_supported`。
 
@@ -331,6 +331,8 @@
 
 对于未执行的操作，将 `error.code` 设置为 `not_supported`、`refused` 或 `internal`。发送 `client.perform` 的客户端将原样收到该代码。空代码作为 `internal` 发送。
 
+如果 `error.message` 超过 4096 字节，服务端会将其截断并在末尾加上省略号（…），但仍会接受该回复。
+
 回复一到达即会执行。它不会在此连接较早的 `client.key` 和 `client.action` 请求后面排队，因为等待该回复的 `client.action` 请求正阻塞着该队列。
 
 未处于等待状态的 `call_id` 会失败并返回 `not_found`。这包括已经应答的调用和已超时的调用。
@@ -355,7 +357,7 @@
 
 当标签发生变更时，服务端向将 `event_scope` 设为 `all` 调用了 `session.attach_all` 的连接发送 `client_changed` 事件。
 
-客户端在连接时也可以在其 `hello` 消息的 `client` 字段中发送标签。适用相同规则，但服务端会修正标签而非报错失败：截断超过 64 字节的标签，并丢弃其他无效标签。
+客户端在连接时也可以在其 `hello` 消息的 `client` 字段中发送标签。适用相同规则，但服务端会修正标签而非报错失败：截断超过 64 字节的标签，并丢弃其他无效标签。它还会截断超过 256 字节的 `name` 或 `version`。
 
 ### `client.set_script`
 
@@ -733,7 +735,7 @@ macOS 根据其认定对进程负责的应用程序来决定隐私权限。服�
 | 字段 | 必需 | 说明 |
 | --- | --- | --- |
 | `event_scope` | 是 | 要接收的事件范围。'session' 发送除 block_event 外的每个会话事件，外加 session_created、session_destroyed、session_moved 和 tailscale_status_changed。'all' 还会发送 block_event 和客户端事件（如 client_joined）。 |
-| `preferred_session_id` |  | 要附加的会话（若存在）。否则服务端附加第一个会话。设置 attach_session_ids 时忽略此项。 |
+| `preferred_session_id` |  | 要附加的会话（若存在）。否则服务端附加它能附加的第一个会话。设置 attach_session_ids 时忽略此项。 |
 | `attach_session_ids` |  | 要附加的会话列表，按顺序排列。未知和重复的 ID 会被跳过，空列表不附加任何会话。省略此项则由服务端选择一个。 |
 | `data_tickets` |  | 要为其签发数据凭证的块类型。响应中包含附加会话中匹配该类型的每个可见块的凭证。最多 8 个条目。 |
 

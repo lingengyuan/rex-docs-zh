@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/cli
-> 原文版本：685cd528cc2c（抓取于 2026-11-17）
+> 原文版本：709c82b8896f（抓取于 2026-11-18）
 
 # CLI 命令
 
@@ -245,7 +245,7 @@ rex capture -s build -w 2
 
 当与服务端的连接断开时，`rex forward new` 会重新连接并继续使用相同的块。断开时处于打开状态的 TCP 连接会被重置。
 
-若转发对应的块被关闭（例如通过 `rex forward close`），该转发将停止。一旦没有剩余转发，`rex forward new` 便会退出。
+若转发对应的块被关闭（例如通过 `rex forward close`），该转发将停止。一旦没有剩余转发，`rex forward new` 便会退出。若会话被销毁，它会以状态码 3 退出，与会话不存在时相同。
 
 被终止的 `rex forward new` 会留下其转发对应的块。从同一台机器再次建立相同的转发时，会接管该块而非新建一个，因此重新运行相同的命令即可继续使用。端口为 0 的 `-R` 转发始终会分配新端口。其他机器上的客户端仍可能回来使用的块会保持原样。
 
@@ -1044,7 +1044,7 @@ Ctrl+C、SIGTERM 和 `rex server stop` 会在服务端保存其会话后将其�
 | `--tailscale-auth-key-file FILE` | 使用从 FILE 读取的一次性认证密钥注册 `--tailscale`（'-' 代表标准输入）。 |
 | `--tailscale-advertise-tag TAG` | 在 `--tailscale` 注册节点时通告 ACL TAG（tag:name）（可重复指定）。 |
 | `--log-format FORMAT` | 将服务端日志写入为 FORMAT：text 或 json。默认为 `text`。 |
-| `--log-level LEVEL` <span class="row-tags"><span class="api-tag channel">[Snapshot](../linux/installation.md#发布通道)</span></span> | 记录 LEVEL 及以上级别的日志：debug、info、warn 或 error（默认为 info；若未指定此标志但传入了 `-v`，则为 debug）。 |
+| `--log-level LEVEL` | 记录 LEVEL 及以上级别的日志：debug、info、warn 或 error（默认为 info；若未指定此标志但传入了 `-v`，则为 debug）。 |
 
 ### `rex server start`
 
@@ -1078,7 +1078,7 @@ start 具有幂等性。start 选项仅在启动新服务端时生效。现有�
 | `--tailscale-auth-key-file FILE` | 使用从 FILE 读取的一次性认证密钥注册 `--tailscale`。 |
 | `--tailscale-advertise-tag TAG` | 在 `--tailscale` 注册节点时通告 ACL TAG（tag:name）（可重复指定）。 |
 | `--log-format FORMAT` | 将服务端日志写入为 FORMAT：text 或 json。默认为 `text`。 |
-| `--log-level LEVEL` <span class="row-tags"><span class="api-tag channel">[Snapshot](../linux/installation.md#发布通道)</span></span> | 记录 LEVEL 及以上级别的日志：debug、info、warn 或 error（默认为 info；若未指定此标志但传入了 `-v`，则为 debug）。 |
+| `--log-level LEVEL` | 记录 LEVEL 及以上级别的日志：debug、info、warn 或 error（默认为 info；若未指定此标志但传入了 `-v`，则为 debug）。 |
 | `--log-max-size SIZE` | 通过清理旧内容将活动的后台日志大小限制在 SIZE（0 表示禁用）。默认为 `50MiB`。 |
 | `--env NAME` | 将环境变量 NAME 或 NAME=VALUE 传递给新服务端（可重复指定）。 |
 | `--json` | 将服务端信息以 JSON 格式输出。 |

@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/mac-settings
-> 原文版本：5a511ea44ce9（抓取于 2026-11-17）
+> 原文版本：12e63d82cf69（抓取于 2026-11-18）
 
 # Mac 设置
 
@@ -201,11 +201,11 @@
 | <span id="setting-animation-animation-style" data-entry="Animation style"></span>Animation style（动画样式） | 为窗格移动、活动边框以及显示/隐藏边栏选择干脆（Snappy）、自然（Natural）或关闭（Off）。开启“减弱动态效果”时为关闭。<span hidden>In Settings &gt; Interface &gt; Animation.</span> <span hidden>snappy, natural, off, spring, bounce, no bounce, overshoot, disable animations, turn off animations, reduce motion, instant, fast, speed, pane animation, split animation, hyprland, sidebar animation</span> |
 
 ### 应用图标（App Icon）
-自定 Rex 的应用图标，以及在 Dock 和菜单栏中的图标可见性。位于“设置”>“界面”>“App Icon”。 <span hidden>app icon, application icon, dock icon, artwork, beta icon</span>
+自定 Rex 的应用图标，以及在 Dock 和菜单栏中的图标可见性。位于“设置”>“界面”>“App Icon”。 <span hidden>app icon, application icon, dock icon, artwork</span>
 
 | 设置项 | 说明 |
 | --- | --- |
-| <span id="setting-app-icon-app-icon" data-entry="App Icon"></span>App Icon（应用图标） | 为应用图标选择默认（动态）、明亮（Bright）或微光（Twilight）图形。<span hidden>In Settings &gt; Interface &gt; App Icon.</span> <span hidden>app icon, application icon, dock icon, custom icon, alternate icon, bright, bright icon, twilight, twilight icon, light icon, dark icon, beta, artwork, dynamic, dynamic icon</span> |
+| <span id="setting-app-icon-app-icon" data-entry="App Icon"></span>App Icon（应用图标） | 为应用图标选择默认（动态）、明亮（Bright）或微光（Twilight）图形。<span hidden>In Settings &gt; Interface &gt; App Icon.</span> <span hidden>app icon, application icon, dock icon, custom icon, alternate icon, bright, bright icon, twilight, twilight icon, light icon, dark icon, artwork, dynamic, dynamic icon</span> |
 | <span id="setting-app-icon-show-app-icon" data-entry="Show app icon"></span>Show app icon（显示应用图标） | 在 Dock 和菜单栏、仅 Dock，或未打开窗口时仅菜单栏中显示 Rex 图标。<span hidden>In Settings &gt; Interface &gt; App Icon.</span> <span hidden>dock and menu bar, dock only, menubar only, menu bar only, dock icon, hide dock icon, show dock icon, dock visibility, application switcher, app switcher, command tab, cmd tab, menubar, menu bar icon, status item, status bar, tray icon, hide menu bar icon, show menu bar icon, hide, show, visibility</span> |
 
 ### 启动（Launch）

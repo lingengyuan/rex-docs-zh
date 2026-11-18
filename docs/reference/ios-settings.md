@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/ios-settings
-> 原文版本：1af343b09484（抓取于 2026-11-15）
+> 原文版本：74c30507fd71（抓取于 2026-11-18）
 
 # iOS 设置
 
@@ -41,6 +41,7 @@
 | <span id="setting-terminal-force-style" data-entry="Force style"></span>Force style（强制光标样式） | 光标 · 当程序请求更改光标样式时，保持你设定的样式。<span hidden>In Settings &gt; Terminal.</span> <span hidden>cursor, override, ignore, lock, shape, decscusr</span> |
 | <span id="setting-terminal-autocorrect" data-entry="Autocorrect"></span>Autocorrect（自动更正） | 键盘 · 允许键盘自动更正和预测词语。<span hidden>In Settings &gt; Terminal.</span> <span hidden>typing, auto correction, autocorrection, predictive text, spelling</span> |
 | <span id="setting-terminal-keep-keyboard-open" data-entry="Keep keyboard open"></span>Keep keyboard open（保持键盘展开） | 键盘 · 返回终端时重新展开键盘。<span hidden>In Settings &gt; Terminal.</span> <span hidden>keyboard, background, reopen, restore, focus</span> |
+| <span id="setting-terminal-open-keyboard-manually" data-entry="Open keyboard manually"></span>Open keyboard manually（手动打开键盘） | 键盘 · 点击终端时保持键盘收起，通过键盘按钮手动打开。<span hidden>In Settings &gt; Terminal.</span> <span hidden>tap, tap to type, keyboard button, closed, hidden, show keyboard, key bar, keybar, manual</span> |
 | <span id="setting-terminal-key-repeat" data-entry="Key repeat"></span>Key repeat（按键重复） | 外接硬件键盘 · 在外接键盘上按住按键时重复输入。<span hidden>In Settings &gt; Terminal.</span> <span hidden>hardware keyboard, magic keyboard, external keyboard, hold, held, repeating, backspace, delete, arrows, accessibility</span> |
 | <span id="setting-terminal-delay-until-repeat" data-entry="Delay until repeat"></span>Delay until repeat（重复前延迟） | 外接硬件键盘 · 按住按键多长时间后开始重复输入。<span hidden>In Settings &gt; Terminal.</span> <span hidden>hardware keyboard, key repeat, delay, wait, hold, seconds, speed</span> |
 | <span id="setting-terminal-key-repeat-interval" data-entry="Key repeat interval"></span>Key repeat interval（按键重复间隔） | 外接硬件键盘 · 按住按键时重复输入的速率。<span hidden>In Settings &gt; Terminal.</span> <span hidden>hardware keyboard, key repeat, rate, speed, fast, slow, seconds, interval</span> |
@@ -65,12 +66,12 @@
 
 ## 开发者模式
 
-开发者 · 显示用于开发与调试的设置项。位于“设置”>“开发者模式”。 <span hidden>developer, debug, diagnostics</span>
+开发者 · 显示用于网络与终端的高级设置。位于“设置”>“开发者模式”。 <span hidden>developer, debug, diagnostics</span>
 
 | 设置项 | 说明 |
 | --- | --- |
 | <span id="setting-developer-mode-network-diagnostics" data-entry="Network Diagnostics"></span>Network Diagnostics（网络诊断） | 在开启“开发者模式”时，在屏幕上悬浮显示网络路径与主机连接状态。<span hidden>In Settings &gt; Developer Mode. Needs Developer Mode.</span> <span hidden>debug, network, path, wi-fi, cellular, reconnect, overlay</span> |
-| <span id="setting-developer-mode-cursor-shaders" data-entry="Cursor shaders"></span>Cursor shaders（光标着色器） | 实验性功能 · 在开启“开发者模式”时，在光标后方绘制拖尾着色器效果，例如 Warp、Comet 或 Blaze。<span hidden>In Settings &gt; Developer Mode. Needs Developer Mode.</span> <span hidden>cursor, cursor trail, cursor effect, cursor animation, smear, glow, warp, sweep, comet, blaze, tapered, rainbow, gradient, frozen, ghostty shader, custom-shader, shadertoy, shader, experimental</span> |
+| <span id="setting-developer-mode-cursor-shaders" data-entry="Cursor shaders"></span>Cursor shaders（光标着色器） | 光标 · 在开启“开发者模式”时，在光标后方绘制拖尾着色器效果，例如 Warp、Comet 或 Blaze。<span hidden>In Settings &gt; Developer Mode. Needs Developer Mode.</span> <span hidden>cursor, cursor trail, cursor effect, cursor animation, smear, glow, warp, sweep, comet, blaze, tapered, rainbow, gradient, frozen, ghostty shader, custom-shader, shadertoy, shader, experimental</span> |
 
 ## 关于
 

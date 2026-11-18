@@ -43,7 +43,7 @@ Rex 官方文档的社区中文译文。
 4. [Mac 设置](docs/reference/mac-settings.md)
 5. [iOS 操作](docs/reference/ios-actions.md)
 6. [iOS 设置](docs/reference/ios-settings.md)
-7. [Lua API](docs/reference/lua.md)
+7. [Rex Lua API](docs/reference/lua.md)
 8. [事件](docs/reference/events.md)
 9. [隐私与遥测](docs/reference/privacy.md)
 

@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/installation
-> 原文版本：1bbd80a7b3cc（抓取于 2026-11-13）
+> 原文版本：5db2caccdf27（抓取于 2026-11-18）
 
 # 安装
 
@@ -14,8 +14,6 @@
 [获取邀请](https://www.superlogical.com/updates/public-testing-beginning)
 
 已在测试？[使用 Discord 登录](https://www.superlogical.com/rex/docs/auth/login?returnTo=%2Frex%2Fdocs%2Finstallation)后下载。
-
-macOS 客户端完全自包含，自带本地服务端，安装后即可使用。我们计划以后让客户端支持更多平台。
 
 ## Linux（仅服务端）
 

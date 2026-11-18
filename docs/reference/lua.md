@@ -1,7 +1,7 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/lua
-> 原文版本：737ecc692c7f（抓取于 2026-11-13）
+> 原文版本：9dc7498bd92c（抓取于 2026-11-18）
 
-# Lua API
+# Rex Lua API
 
 本页列出 Rex 提供的完整 Lua API。Rex 仅向全局 `rex` 表添加 API。Rex 运行 Lua 5.1 并提供完整的标准库，包括 `io`、`os` 和 `require`。唯一的例外是 `io.popen` 和 `os.execute`，调用它们会引发错误。请改用 [`rex.exec`](#rexexecargv-opts) 运行命令。
 

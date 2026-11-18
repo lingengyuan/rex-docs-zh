@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/ios-actions
-> 原文版本：ff9a47203ec6（抓取于 2026-11-16）
+> 原文版本：09a4b86a8625（抓取于 2026-11-18）
 
 # iOS 操作
 
@@ -106,7 +106,7 @@
 | <span id="action-pane-move-to-tab" data-entry="Move Pane to Tab…"></span>Move Pane to Tab…（移动窗格至标签页…） | `pane.move_to_tab` <span hidden>pane block move tab window send other existing join</span> |
 | <span id="action-pane-go-to-directory" data-entry="Go to Directory…"></span>Go to Directory…（前往目录…） | `pane.go_to_directory` <span hidden>go to directory folder path cd new tab open navigate</span> |
 | <span id="action-pane-insert-path" data-entry="Insert Path…"></span>Insert Path…（插入路径…） | `pane.insert_path` <span hidden>insert path file folder directory cursor type paste complete browse</span> |
-| <span id="action-pane-copy-id" data-entry="Copy Pane ID"></span>Copy Pane ID（复制窗格 ID） 将获得焦点的窗格块 ID 复制到剪贴板。 | `pane.copy_id` <span hidden>pane block id identifier copy clipboard target agent capture</span> |
+| <span id="action-pane-copy-id" data-entry="Copy Block ID"></span>Copy Block ID（复制块 ID） 将获得焦点的块 ID 复制到剪贴板。 | `pane.copy_id` <span hidden>pane block id identifier copy clipboard target agent capture</span> |
 | <span id="action-pane-rename" data-entry="Rename Pane"></span>Rename Pane（重命名窗格） | `pane.rename` <span hidden>rename pane block name title label</span> |
 | <span id="action-pane-balance" data-entry="Balance Splits"></span>Balance Splits（均分分栏） | `pane.balance` <span hidden>pane split balance equalize equalise evenly distribute resize layout</span> |
 | <span id="action-pane-resize" data-entry="Resize Pane"></span>Resize Pane（调整窗格大小） | `pane.resize` <span hidden>pane resize grow shrink divider wider narrower taller shorter</span> |
@@ -122,6 +122,7 @@
 | <span id="action-client-prompt-next" data-entry="Jump to Next Prompt"></span>Jump to Next Prompt（跳至下一个提示符） | `client.prompt.next` <span hidden>jump scroll next prompt command mark shell integration down forward</span> |
 | <span id="action-client-scroll-page-up" data-entry="Scroll Page Up"></span>Scroll Page Up（向上翻页） | `client.scroll.page_up` <span hidden>scroll page up back scrollback history</span> |
 | <span id="action-client-scroll-page-down" data-entry="Scroll Page Down"></span>Scroll Page Down（向下翻页） | `client.scroll.page_down` <span hidden>scroll page down forward scrollback history</span> |
+| <span id="action-client-composer-open" data-entry="Compose Input…"></span>Compose Input…（撰写输入…） | `client.composer.open` <span hidden>compose composer message input prompt attach image photo file upload claude codex</span> |
 | <span id="action-pane-go-to" data-entry="Go to Anything…"></span>Go to Anything…（前往任意位置…） | `pane.go_to` <span hidden>go to anything pane block tab session agent jump switch navigate find search tree overview</span> |
 | <span id="action-pane-view-activity" data-entry="View Activity…"></span>View Activity…（查看活动…） | `pane.view_activity` <span hidden>view activity active working blocked failed done agents programs status priority</span> |
 

@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/windows/installation
-> 原文版本：d8ddbca6aab1（抓取于 2026-11-13）
+> 原文版本：ec7708acea08（抓取于 2026-11-18）
 
 # 在 Windows 上安装
 
@@ -23,21 +23,17 @@ Rex 目前尚未进行代码签名，因此在测试阶段，Windows 可能会�
 
 每种安装方式都会安装 `rex.exe` 并将其添加至 PATH 中，但**不会自动启动服务端或安装 Windows 服务。** 在安装 Rex 之后，必须使用 `rex server install` 手动执行此操作。
 
-### WinGet（推荐）
+请选择一种安装方式。推荐使用 WinGet。
 
-WinGet 是安装 Rex 服务端的推荐方式。你可以通过 WinGet 从 Zip 源（默认）或 MSI 进行安装：
+<span id="winget"></span>**WinGet**
 
-添加新的 WinGet 源需要管理员权限，因此请在以“以管理员身份运行”打开的终端中执行第一行命令。
+添加 Rex WinGet 源需要管理员权限，因此请在通过**以管理员身份运行**打开的终端中执行第一行命令。
 
-**WinGet** 标签页为你的个人账户安装 Rex，无需管理员权限。**WinGet (MSI)** 标签页则为整台机器安装，具体如 [MSI](#msi) 中所述。
-
-安装完成后，`rex` 会被添加至你的 `PATH` 中。PATH 的变动需要打开新的终端才能生效，因此请打开新的终端进行验证。
-
-### MSI
+<span id="msi"></span>**MSI**
 
 MSI 会为机器上的所有账户安装 Rex 至 `%ProgramFiles%\Rex Server`，并将该文件夹添加至系统 PATH 中。该方式需要管理员权限。
 
-上方提供的下载为 x86-64 MSI。在 ARM64 上，请使用 **WinGet (MSI)** 标签页或 [zip](#zip)。打开 MSI 即可运行其安装向导，或者在通过**以管理员身份运行**打开的终端中执行静默安装：
+上方提供的下载为 x86-64 MSI。在 ARM64 上，请使用 [WinGet (MSI)](#winget-msi) 或 [zip](#zip)。打开 MSI 即可运行其安装向导，或者在通过**以管理员身份运行**打开的终端中执行静默安装：
 
 ```powershell
 msiexec /i rex-windows-amd64.msi /qn
@@ -45,13 +41,15 @@ msiexec /i rex-windows-amd64.msi /qn
 
 若要安装至 `%ProgramFiles%\Rex Server` 之外的其他位置，请添加 `INSTALLDIR="D:\Tools\Rex Server"`。
 
-### Zip
+<span id="zip"></span>**Zip**
 
 Zip 包含 Rex 的所有文件，无需安装程序。
 
 拥有 Windows 角色的测试者可在此处获取下载。
 
 如果使用 Zip，需要自行将其移动至合适位置并将 `rex.exe` 添加到 `PATH` 中。
+
+安装完成后，`rex` 会位于你的 `PATH` 中。PATH 的变动仅对新打开的终端生效，因此请打开新的终端进行检查。
 
 ## 通道
 
@@ -79,11 +77,9 @@ Rex 面向三个通道发布，每个通道均有独立的 WinGet 软件包：
 
 不同的安装方式会将它们放置在各自对应的文件夹中：
 
-| 软件包 | 存放目录 | 添加至 |
-| --- | --- | --- |
-| WinGet | `%LocalAppData%\Microsoft\WinGet\Packages\Superlogical.RexServer.Preview_…` | 用户 PATH |
-| MSI | `%ProgramFiles%\Rex Server` | 系统 PATH |
-| Zip | 解压的目标文件夹 | 用户自行添加至用户 PATH |
+- **WinGet** 将其放在 `%LocalAppData%\Microsoft\WinGet\Packages` 下以 `Superlogical.RexServer.Preview_` 开头的文件夹中，并将该目录添加至用户 PATH。
+- **MSI** 将其放在 `%ProgramFiles%\Rex Server` 中，并将该目录添加至系统 PATH。
+- **Zip** 将其留在你解压的目标文件夹中。请自行将该文件夹添加至用户 PATH。
 
 ## 卸载 Rex
 

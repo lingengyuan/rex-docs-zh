@@ -33,7 +33,7 @@
 4. [Mac 设置](reference/mac-settings.md)
 5. [iOS 操作](reference/ios-actions.md)
 6. [iOS 设置](reference/ios-settings.md)
-7. [Lua API](reference/lua.md)
+7. [Rex Lua API](reference/lua.md)
 8. [事件](reference/events.md)
 9. [隐私与遥测](reference/privacy.md)
 

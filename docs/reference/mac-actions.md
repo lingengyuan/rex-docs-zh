@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/mac-actions
-> 原文版本：efeb2d92dd8c（抓取于 2026-11-17）
+> 原文版本：051b88981272（抓取于 2026-11-18）
 
 # Mac 操作
 
@@ -81,6 +81,7 @@
 | <span id="action-client-tab-move-backward" data-entry="Move Tab Backward"></span>Move Tab Backward（向后移动标签页） | `client.tab.move.backward` <span hidden>move tab window reorder left up earlier</span> |  <span hidden>默认快捷键：</span>`ctrl+shift+pageup` |
 | <span id="action-client-tab-move-forward" data-entry="Move Tab Forward"></span>Move Tab Forward（向前移动标签页） | `client.tab.move.forward` <span hidden>move tab window reorder right down later</span> |  <span hidden>默认快捷键：</span>`ctrl+shift+pagedown` |
 | <span id="action-client-tab-move-to-new-window" data-entry="Move Tab to New Window"></span>Move Tab to New Window（移动标签页至新窗口） | `client.tab.move_to_new_window` <span hidden>move tab new window tear off detach separate pop out own</span> |  |
+| <span id="action-client-tab-mute" data-entry="Mute Tab"></span>Mute Tab（静音标签页） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | `client.tab.mute` <span hidden>mute unmute silence quiet tab sound notification alert badge</span> |  |
 
 ## 窗格
 
@@ -119,7 +120,7 @@
 | <span id="action-pane-go-to" data-entry="Go to Anything…"></span>Go to Anything…（前往任意位置…） | `pane.go_to` <span hidden>go to anything pane block tab session agent jump switch navigate find search tree overview</span> |  <span hidden>默认快捷键：</span>`cmd+p` |
 | <span id="action-pane-view-activity" data-entry="View Activity…"></span>View Activity…（查看活动…） | `pane.view_activity` <span hidden>view activity active working blocked failed done agents programs status priority</span> |  |
 | <span id="action-pane-insert-path" data-entry="Insert Path…"></span>Insert Path…（插入路径…） | `pane.insert_path` <span hidden>insert path file folder directory cursor type paste complete browse</span> |  <span hidden>默认快捷键：</span>`ctrl+cmd+i` |
-| <span id="action-pane-copy-id" data-entry="Copy Pane ID"></span>Copy Pane ID（复制窗格 ID） 将获得焦点的窗格块 ID 复制到剪贴板。 | `pane.copy_id` <span hidden>pane block id identifier copy clipboard target agent capture</span> |  |
+| <span id="action-pane-copy-id" data-entry="Copy Block ID"></span>Copy Block ID（复制块 ID） 将获得焦点的块 ID 复制到剪贴板。 | `pane.copy_id` <span hidden>pane block id identifier copy clipboard target agent capture</span> |  |
 | <span id="action-pane-rename" data-entry="Rename Pane"></span>Rename Pane（重命名窗格） | `pane.rename` <span hidden>rename pane block name title label</span> |  |
 | <span id="action-pane-paste" data-entry="Paste into Pane"></span>Paste into Pane（粘贴至窗格） 将剪贴板内容粘贴到获得焦点的终端中。 | `pane.paste` <span hidden>paste clipboard insert text terminal</span> |  |
 | <span id="action-pane-copy" data-entry="Copy from Pane"></span>Copy from Pane（从窗格复制） 将获得焦点的终端选中内容复制到剪贴板。 | `pane.copy` <span hidden>copy selection clipboard text terminal</span> |  |
