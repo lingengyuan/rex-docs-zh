@@ -224,11 +224,11 @@ Choose how panes move, open, and close. In Settings > Interface > Animation. <sp
 
 ### App Icon
 
-Customize Rex's app icon and Dock and menu bar icon visibility. In Settings > Interface > App Icon. <span hidden>app icon, application icon, dock icon, artwork, beta icon</span>
+Customize Rex's app icon and Dock and menu bar icon visibility. In Settings > Interface > App Icon. <span hidden>app icon, application icon, dock icon, artwork</span>
 
 | Setting | Description |
 | --- | --- |
-| <span id="setting-app-icon-app-icon" data-entry="App Icon"></span>App Icon | Choose Default — Dynamic, Bright, or Twilight artwork for the app icon. <span hidden>In Settings &gt; Interface &gt; App Icon.</span> <span hidden>app icon, application icon, dock icon, custom icon, alternate icon, bright, bright icon, twilight, twilight icon, light icon, dark icon, beta, artwork, dynamic, dynamic icon</span> |
+| <span id="setting-app-icon-app-icon" data-entry="App Icon"></span>App Icon | Choose Default — Dynamic, Bright, or Twilight artwork for the app icon. <span hidden>In Settings &gt; Interface &gt; App Icon.</span> <span hidden>app icon, application icon, dock icon, custom icon, alternate icon, bright, bright icon, twilight, twilight icon, light icon, dark icon, artwork, dynamic, dynamic icon</span> |
 | <span id="setting-app-icon-show-app-icon" data-entry="Show app icon"></span>Show app icon | Show Rex's icon in the Dock and menu bar, the Dock only, or the menu bar only while no window is open. <span hidden>In Settings &gt; Interface &gt; App Icon.</span> <span hidden>dock and menu bar, dock only, menubar only, menu bar only, dock icon, hide dock icon, show dock icon, dock visibility, application switcher, app switcher, command tab, cmd tab, menubar, menu bar icon, status item, status bar, tray icon, hide menu bar icon, show menu bar icon, hide, show, visibility</span> |
 
 ### Launch

@@ -1,9 +1,9 @@
 ---
-title: "Lua API"
+title: "Rex Lua API"
 canonical_url: https://www.superlogical.com/rex/docs/reference/lua
 ---
 
-# Lua API
+# Rex Lua API
 
 This page lists the full Lua API Rex exposes. Rex only adds API to the
 global `rex` table.  Rex runs Lua 5.1 with the full standard library,
