@@ -281,7 +281,7 @@ Ask another client to perform one of its actions and wait for its answer.
 | Field | Required | Description |
 | --- | --- | --- |
 | `client_id` | Yes | The client to ask. To find one by its label, call target.resolve with kinds set to client. |
-| `action` | Yes | The name of an action the client declared, such as pane.split. client.inspect lists them. |
+| `action` | Yes | The name of an action the client declared, such as pane.split. client.inspect lists them. At most 256 bytes. |
 | `args` |  | The action's arguments, as a JSON object. Leave it out if there are none. |
 | `origin` |  | What caused the request, such as key, palette, api, or cli. The client receives it unchanged. Empty means api. |
 | `session_id` |  | The session the action applies to, if any. The client receives it without the server checking it. |
@@ -296,7 +296,7 @@ The connection doesn't need to be attached to `session_id`, because the server o
 
 Requests to one client wait in line, and the client answers them one at a time in the order they arrived. `timeout_ms` counts from when a request reaches the front of the line.
 
-A request without `client_id` or `action`, with a negative `timeout_ms`, or with `args` that aren't an object or don't match the action's schema fails with `bad_request`. If `client_id` names no connected client, the call fails with `not_found`.
+A request without `client_id` or `action`, with an `action` longer than 256 bytes, with a negative `timeout_ms`, or with `args` that aren't an object or don't match the action's schema fails with `bad_request`. If `client_id` names no connected client, the call fails with `not_found`.
 
 If the client has listed its actions and `action` isn't one of them, the call fails with `not_supported`. A client that listed none is asked anyway, and it may answer `not_supported` itself.
 
@@ -332,6 +332,8 @@ For a call that failed, use the code and message the other server returned, or e
 
 For an action you didn't perform, set `error.code` to `not_supported`, `refused`, or `internal`. The client that sent `client.perform` gets that code unchanged. An empty code is sent as `internal`.
 
+If `error.message` is longer than 4096 bytes, the server shortens it and ends it with an ellipsis (…). The reply is still accepted.
+
 A reply runs as soon as it arrives. It doesn't wait behind this connection's earlier `client.key` and `client.action` requests, because a `client.action` request that is waiting for the reply holds that line.
 
 A `call_id` that nothing is waiting for fails with `not_found`. That includes a call that was already answered and one that timed out.
@@ -356,7 +358,7 @@ Labels are for people to read. The server never uses one to decide what a client
 
 When the label changes, the server sends a `client_changed` event to connections that called `session.attach_all` with `event_scope` set to `all`.
 
-A client can also send a label when it connects, in the `client` field of its `hello` message. The same rules apply, but the server fixes the label instead of failing: it cuts a label longer than 64 bytes down to size and drops one that is otherwise invalid.
+A client can also send a label when it connects, in the `client` field of its `hello` message. The same rules apply, but the server fixes the label instead of failing: it cuts a label longer than 64 bytes down to size and drops one that is otherwise invalid. It also shortens a `name` or `version` that is longer than 256 bytes.
 
 ### `client.set_script`
 
@@ -732,7 +734,7 @@ Set up a new connection in one call: receive events, list sessions, and attach.
 | Field | Required | Description |
 | --- | --- | --- |
 | `event_scope` | Yes | Which events to receive. 'session' sends every session's events except block_event, plus session_created, session_destroyed, session_moved, and tailscale_status_changed. 'all' also sends block_event and the client events, such as client_joined. |
-| `preferred_session_id` |  | The session to attach to, if it exists. Otherwise the server attaches the first session. Ignored when attach_session_ids is set. |
+| `preferred_session_id` |  | The session to attach to, if it exists. Otherwise the server attaches the first session it can. Ignored when attach_session_ids is set. |
 | `attach_session_ids` |  | The sessions to attach to, in order. Unknown and repeated IDs are skipped, and an empty list attaches none. Leave it out to let the server pick one. |
 | `data_tickets` |  | The kinds of block to issue data tickets for. The response has a ticket for each visible block in an attached session that matches one. At most 8 entries. |
 

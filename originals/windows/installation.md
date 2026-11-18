@@ -36,31 +36,24 @@ Every installation scenario installs `rex.exe` and puts it on your PATH,
 but **does not automatically start a server or install a Windows Service.**
 You must do this manually with `rex server install` after Rex is installed.
 
-### WinGet (Recommended)
+Pick a way to install Rex. WinGet is the recommended way.
 
-WinGet is the recommended way to install Rex Server. You can install
-via WinGet from either a Zip source (default) or MSI:
+{:else}
+{/if}
 
+Adding the Rex WinGet source needs administrator rights, so run the first
+line in a terminal opened with **Run as administrator**.
 
-Administrator rights are required to add a new WinGet source, so run
-the first line in a terminal with "Run as Administrator" rights.
-
-The **WinGet** tab installs Rex for your own account, with no administrator
-rights. The **WinGet (MSI)** tab installs it for the whole machine instead,
-as explained in [MSI](#msi).
-
-After installation, `rex` is added to your `PATH`. PATH changes require
-opening a new terminal, so open a new terminal to verify this.
-
-### MSI
+{:else if item.anchor === 'msi'}
 
 
 The MSI installs Rex for every account, into `%ProgramFiles%\Rex Server`,
 and adds that folder to the system PATH. It needs administrator rights.
 
-The download above is the x86-64 MSI. On ARM64, use the **WinGet (MSI)**
-tab or the [zip](#zip). Open the MSI to run its setup wizard, or install
-it without a window from a terminal opened with **Run as administrator**:
+The download above is the x86-64 MSI. On ARM64, use
+[WinGet (MSI)](#winget-msi) or the [zip](#zip). Open the MSI to run its
+setup wizard, or install it without a window from a terminal opened with
+**Run as administrator**:
 
 ```powershell
 msiexec /i rex-windows-amd64.msi /qn
@@ -69,7 +62,7 @@ msiexec /i rex-windows-amd64.msi /qn
 To install somewhere other than `%ProgramFiles%\Rex Server`, add
 `INSTALLDIR="D:\Tools\Rex Server"`.
 
-### Zip
+{:else}
 
 The zip holds Rex's files with no installer.
 
@@ -91,6 +84,13 @@ The downloads show here for testers with the Windows role.
 
 If you are using the Zip, it is expected that you know how to move it into
 a proper location and add `rex.exe` to your `PATH`.
+
+{/if}
+{/snippet}
+</Tabs>
+
+After installation, `rex` is on your `PATH`. PATH changes only reach new
+terminals, so open a new terminal to check.
 
 ## Channels
 
@@ -122,11 +122,13 @@ All packages have the same set of files:
 
 Each way of installing puts them in its own folder:
 
-| Package | Folder                                                                  | Added to    |
-| ------- | ----------------------------------------------------------------------- | ----------- |
-| WinGet  | `%LocalAppData%\Microsoft\WinGet\Packages\Superlogical.RexServer.Preview_…` | User PATH   |
-| MSI     | `%ProgramFiles%\Rex Server`                                             | System PATH |
-| Zip     | The folder you extract it into                                          | User PATH, once you add it |
+- **WinGet** puts them in a folder under
+  `%LocalAppData%\Microsoft\WinGet\Packages` whose name starts with
+  `Superlogical.RexServer.Preview_`, and adds it to your user PATH.
+- **MSI** puts them in `%ProgramFiles%\Rex Server`, and adds it to the
+  system PATH.
+- **Zip** leaves them in the folder you extract it into. Add that folder to
+  your user PATH yourself.
 
 ## Removing Rex
 

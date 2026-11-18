@@ -14,29 +14,9 @@ readiness. We hope to expand the scope of public testing quickly, but they
 aren't part of testing yet.
 
 
-The macOS
-client is fully self-contained with a local server that lets you get up
-and running quickly. We plan on adding support for more platforms for the
-client in the future.
 
-<h2 id="linux"><OsIcon name="linux" />Linux <Tag>Server only</Tag></h2>
-
-See [Installing on Linux](https://www.superlogical.com/rex/docs/linux/installation.md) for the details.
+<h2 id="linux" class="flex items-center"><OsIcon name="linux" />Linux <Tag>Server only</Tag><a href={resolve('/linux/installation')} class="ml-auto text-nav tracking-normal">Installation Docs</a></h2>
 
 
-<h2 id="freebsd"><OsIcon name="freebsd" />FreeBSD <Tag>Server only</Tag></h2>
+<h2 id="freebsd" class="flex items-center"><OsIcon name="freebsd" />FreeBSD <Tag>Server only</Tag><a href={resolve('/freebsd/installation')} class="ml-auto text-nav tracking-normal">Installation Docs</a></h2>
 
-See [Installing on FreeBSD](https://www.superlogical.com/rex/docs/freebsd/installation.md) for the details.
-
-
-<h2 id="windows"><OsIcon name="windows" />Windows <Tag>Server only</Tag></h2>
-
-See [Installing on Windows](https://www.superlogical.com/rex/docs/windows/installation.md) for the details.
-
-
-
-{#if windowsMethods}
-
-Adding the Rex WinGet source needs administrator rights.
-
-{/if}

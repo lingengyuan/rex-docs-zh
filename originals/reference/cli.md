@@ -247,7 +247,7 @@ Each forward is a tunnel block in the session chosen with `--session`, or the de
 
 When the connection to the server drops, `rex forward new` reconnects and carries on with the same blocks. TCP connections that were open when it dropped are reset.
 
-A forward whose block is closed, for example with `rex forward close`, stops. `rex forward new` exits once it has no forwards left.
+A forward whose block is closed, for example with `rex forward close`, stops. `rex forward new` exits once it has no forwards left. If the session is destroyed, it exits with status 3, as for a session that does not exist.
 
 A `rex forward new` that is killed leaves its forwards' blocks behind. Setting up the same forward again from this machine takes over its block instead of making a new one, so running the same command again works. A `-R` forward on port 0 always gets a new port. Blocks that a client on another machine may still come back for are left alone.
 
@@ -1043,7 +1043,7 @@ If nothing reads the server's output any more, for example because tee exited wh
 | `--tailscale-auth-key-file FILE` | Enroll `--tailscale` with the one-time auth key read from FILE ('-' for stdin). |
 | `--tailscale-advertise-tag TAG` | Advertise ACL TAG (tag:name) when `--tailscale` enrolls the node (repeatable). |
 | `--log-format FORMAT` | Write server logs as FORMAT: text or json. Defaults to `text`. |
-| `--log-level LEVEL` <span class="row-tags"><span class="api-tag channel">[Snapshot](https://www.superlogical.com/rex/docs/linux/installation.md#channels)</span></span> | Log at LEVEL and above: debug, info, warn, or error (default info, or debug if `-v` is given without this flag). |
+| `--log-level LEVEL` | Log at LEVEL and above: debug, info, warn, or error (default info, or debug if `-v` is given without this flag). |
 
 ### `rex server start`
 
@@ -1077,7 +1077,7 @@ The log size limit applies only to the file created for a detached server. Rex c
 | `--tailscale-auth-key-file FILE` | Enroll `--tailscale` with the one-time auth key read from FILE. |
 | `--tailscale-advertise-tag TAG` | Advertise ACL TAG (tag:name) when `--tailscale` enrolls the node (repeatable). |
 | `--log-format FORMAT` | Write server logs as FORMAT: text or json. Defaults to `text`. |
-| `--log-level LEVEL` <span class="row-tags"><span class="api-tag channel">[Snapshot](https://www.superlogical.com/rex/docs/linux/installation.md#channels)</span></span> | Log at LEVEL and above: debug, info, warn, or error (default info, or debug if `-v` is given without this flag). |
+| `--log-level LEVEL` | Log at LEVEL and above: debug, info, warn, or error (default info, or debug if `-v` is given without this flag). |
 | `--log-max-size SIZE` | Limit the active detached log to SIZE by clearing old contents (0 disables). Defaults to `50MiB`. |
 | `--env NAME` | Pass environment variable NAME or NAME=VALUE to a new server (repeatable). |
 | `--json` | Output server information as JSON. |

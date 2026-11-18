@@ -43,6 +43,7 @@ Configure the font, text colors, cursor, keyboard, key bar, scrolling, and title
 | <span id="setting-terminal-force-style" data-entry="Force style"></span>Force style | Cursor · Keep your cursor style when programs ask for another. <span hidden>In Settings &gt; Terminal.</span> <span hidden>cursor, override, ignore, lock, shape, decscusr</span> |
 | <span id="setting-terminal-autocorrect" data-entry="Autocorrect"></span>Autocorrect | Keyboard · Let the keyboard correct and predict words. <span hidden>In Settings &gt; Terminal.</span> <span hidden>typing, auto correction, autocorrection, predictive text, spelling</span> |
 | <span id="setting-terminal-keep-keyboard-open" data-entry="Keep keyboard open"></span>Keep keyboard open | Keyboard · Open the keyboard again when you come back to a terminal. <span hidden>In Settings &gt; Terminal.</span> <span hidden>keyboard, background, reopen, restore, focus</span> |
+| <span id="setting-terminal-open-keyboard-manually" data-entry="Open keyboard manually"></span>Open keyboard manually | Keyboard · Leave the keyboard closed when you tap a terminal; open it from the keyboard button. <span hidden>In Settings &gt; Terminal.</span> <span hidden>tap, tap to type, keyboard button, closed, hidden, show keyboard, key bar, keybar, manual</span> |
 | <span id="setting-terminal-key-repeat" data-entry="Key repeat"></span>Key repeat | Hardware Keyboard · Repeat a key you hold down on a hardware keyboard. <span hidden>In Settings &gt; Terminal.</span> <span hidden>hardware keyboard, magic keyboard, external keyboard, hold, held, repeating, backspace, delete, arrows, accessibility</span> |
 | <span id="setting-terminal-delay-until-repeat" data-entry="Delay until repeat"></span>Delay until repeat | Hardware Keyboard · How long to hold a key before it starts repeating. <span hidden>In Settings &gt; Terminal.</span> <span hidden>hardware keyboard, key repeat, delay, wait, hold, seconds, speed</span> |
 | <span id="setting-terminal-key-repeat-interval" data-entry="Key repeat interval"></span>Key repeat interval | Hardware Keyboard · How quickly a held key repeats. <span hidden>In Settings &gt; Terminal.</span> <span hidden>hardware keyboard, key repeat, rate, speed, fast, slow, seconds, interval</span> |
@@ -67,12 +68,12 @@ Manage saved hosts, their connections, port forwards, and the shell each one sta
 
 ## Developer Mode
 
-Developer · Expose settings for development and debugging. In Settings > Developer Mode. <span hidden>developer, debug, diagnostics</span>
+Developer · Show advanced settings for networking and the terminal. In Settings > Developer Mode. <span hidden>developer, debug, diagnostics</span>
 
 | Setting | Description |
 | --- | --- |
 | <span id="setting-developer-mode-network-diagnostics" data-entry="Network Diagnostics"></span>Network Diagnostics | With Developer Mode on, float the network path and host connections over the screen. <span hidden>In Settings &gt; Developer Mode. Needs Developer Mode.</span> <span hidden>debug, network, path, wi-fi, cellular, reconnect, overlay</span> |
-| <span id="setting-developer-mode-cursor-shaders" data-entry="Cursor shaders"></span>Cursor shaders | Experimental · With Developer Mode on, draw a trail shader, such as Warp, Comet, or Blaze, behind the cursor. <span hidden>In Settings &gt; Developer Mode. Needs Developer Mode.</span> <span hidden>cursor, cursor trail, cursor effect, cursor animation, smear, glow, warp, sweep, comet, blaze, tapered, rainbow, gradient, frozen, ghostty shader, custom-shader, shadertoy, shader, experimental</span> |
+| <span id="setting-developer-mode-cursor-shaders" data-entry="Cursor shaders"></span>Cursor shaders | Cursor · With Developer Mode on, draw a trail shader, such as Warp, Comet, or Blaze, behind the cursor. <span hidden>In Settings &gt; Developer Mode. Needs Developer Mode.</span> <span hidden>cursor, cursor trail, cursor effect, cursor animation, smear, glow, warp, sweep, comet, blaze, tapered, rainbow, gradient, frozen, ghostty shader, custom-shader, shadertoy, shader, experimental</span> |
 
 ## About
 

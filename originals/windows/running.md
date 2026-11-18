@@ -19,7 +19,7 @@ It purposely omits many details about how everything works. We recommend
 you read the later sections in detail to understand.
 
 1. Install Rex with WinGet, as
-   [Installing on Windows](https://www.superlogical.com/rex/docs/windows/installation.md#winget-recommended)
+   [Installing on Windows](https://www.superlogical.com/rex/docs/windows/installation.md#winget)
    shows.
 
 2. Open a terminal with **Run as administrator**, and install and start

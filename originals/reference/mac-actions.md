@@ -83,6 +83,7 @@ This page lists every action in the Rex for Mac command palette. Use the name to
 | <span id="action-client-tab-move-backward" data-entry="Move Tab Backward"></span>Move Tab Backward | `client.tab.move.backward` <span hidden>move tab window reorder left up earlier</span> |  <span hidden>Default shortcut:</span>`ctrl+shift+pageup` |
 | <span id="action-client-tab-move-forward" data-entry="Move Tab Forward"></span>Move Tab Forward | `client.tab.move.forward` <span hidden>move tab window reorder right down later</span> |  <span hidden>Default shortcut:</span>`ctrl+shift+pagedown` |
 | <span id="action-client-tab-move-to-new-window" data-entry="Move Tab to New Window"></span>Move Tab to New Window | `client.tab.move_to_new_window` <span hidden>move tab new window tear off detach separate pop out own</span> |  |
+| <span id="action-client-tab-mute" data-entry="Mute Tab"></span>Mute Tab <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](https://www.superlogical.com/rex/docs/reference/mac-settings.md#setting-app-version-update-channel)</span></span> | `client.tab.mute` <span hidden>mute unmute silence quiet tab sound notification alert badge</span> |  |
 
 ## Pane
 
@@ -121,7 +122,7 @@ This page lists every action in the Rex for Mac command palette. Use the name to
 | <span id="action-pane-go-to" data-entry="Go to Anything…"></span>Go to Anything… | `pane.go_to` <span hidden>go to anything pane block tab session agent jump switch navigate find search tree overview</span> |  <span hidden>Default shortcut:</span>`cmd+p` |
 | <span id="action-pane-view-activity" data-entry="View Activity…"></span>View Activity… | `pane.view_activity` <span hidden>view activity active working blocked failed done agents programs status priority</span> |  |
 | <span id="action-pane-insert-path" data-entry="Insert Path…"></span>Insert Path… | `pane.insert_path` <span hidden>insert path file folder directory cursor type paste complete browse</span> |  <span hidden>Default shortcut:</span>`ctrl+cmd+i` |
-| <span id="action-pane-copy-id" data-entry="Copy Pane ID"></span>Copy Pane ID Copies the focused pane's block ID to the clipboard. | `pane.copy_id` <span hidden>pane block id identifier copy clipboard target agent capture</span> |  |
+| <span id="action-pane-copy-id" data-entry="Copy Block ID"></span>Copy Block ID Copies the focused block's ID to the clipboard. | `pane.copy_id` <span hidden>pane block id identifier copy clipboard target agent capture</span> |  |
 | <span id="action-pane-rename" data-entry="Rename Pane"></span>Rename Pane | `pane.rename` <span hidden>rename pane block name title label</span> |  |
 | <span id="action-pane-paste" data-entry="Paste into Pane"></span>Paste into Pane Pastes the clipboard into the focused terminal. | `pane.paste` <span hidden>paste clipboard insert text terminal</span> |  |
 | <span id="action-pane-copy" data-entry="Copy from Pane"></span>Copy from Pane Copies the focused terminal's selection to the clipboard. | `pane.copy` <span hidden>copy selection clipboard text terminal</span> |  |

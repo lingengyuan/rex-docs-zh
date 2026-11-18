@@ -108,7 +108,7 @@ This page lists every action in the Rex for iOS command palette. Use the name to
 | <span id="action-pane-move-to-tab" data-entry="Move Pane to Tab…"></span>Move Pane to Tab… | `pane.move_to_tab` <span hidden>pane block move tab window send other existing join</span> |
 | <span id="action-pane-go-to-directory" data-entry="Go to Directory…"></span>Go to Directory… | `pane.go_to_directory` <span hidden>go to directory folder path cd new tab open navigate</span> |
 | <span id="action-pane-insert-path" data-entry="Insert Path…"></span>Insert Path… | `pane.insert_path` <span hidden>insert path file folder directory cursor type paste complete browse</span> |
-| <span id="action-pane-copy-id" data-entry="Copy Pane ID"></span>Copy Pane ID Copies the focused pane's block ID to the clipboard. | `pane.copy_id` <span hidden>pane block id identifier copy clipboard target agent capture</span> |
+| <span id="action-pane-copy-id" data-entry="Copy Block ID"></span>Copy Block ID Copies the focused block's ID to the clipboard. | `pane.copy_id` <span hidden>pane block id identifier copy clipboard target agent capture</span> |
 | <span id="action-pane-rename" data-entry="Rename Pane"></span>Rename Pane | `pane.rename` <span hidden>rename pane block name title label</span> |
 | <span id="action-pane-balance" data-entry="Balance Splits"></span>Balance Splits | `pane.balance` <span hidden>pane split balance equalize equalise evenly distribute resize layout</span> |
 | <span id="action-pane-resize" data-entry="Resize Pane"></span>Resize Pane | `pane.resize` <span hidden>pane resize grow shrink divider wider narrower taller shorter</span> |
@@ -124,6 +124,7 @@ This page lists every action in the Rex for iOS command palette. Use the name to
 | <span id="action-client-prompt-next" data-entry="Jump to Next Prompt"></span>Jump to Next Prompt | `client.prompt.next` <span hidden>jump scroll next prompt command mark shell integration down forward</span> |
 | <span id="action-client-scroll-page-up" data-entry="Scroll Page Up"></span>Scroll Page Up | `client.scroll.page_up` <span hidden>scroll page up back scrollback history</span> |
 | <span id="action-client-scroll-page-down" data-entry="Scroll Page Down"></span>Scroll Page Down | `client.scroll.page_down` <span hidden>scroll page down forward scrollback history</span> |
+| <span id="action-client-composer-open" data-entry="Compose Input…"></span>Compose Input… | `client.composer.open` <span hidden>compose composer message input prompt attach image photo file upload claude codex</span> |
 | <span id="action-pane-go-to" data-entry="Go to Anything…"></span>Go to Anything… | `pane.go_to` <span hidden>go to anything pane block tab session agent jump switch navigate find search tree overview</span> |
 | <span id="action-pane-view-activity" data-entry="View Activity…"></span>View Activity… | `pane.view_activity` <span hidden>view activity active working blocked failed done agents programs status priority</span> |
 
