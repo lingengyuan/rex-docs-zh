@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/ios-actions
-> 原文版本：09a4b86a8625（抓取于 2026-11-18）
+> 原文版本：ad2c3837e674（抓取于 2026-11-19）
 
 # iOS 操作
 
@@ -123,6 +123,8 @@
 | <span id="action-client-scroll-page-up" data-entry="Scroll Page Up"></span>Scroll Page Up（向上翻页） | `client.scroll.page_up` <span hidden>scroll page up back scrollback history</span> |
 | <span id="action-client-scroll-page-down" data-entry="Scroll Page Down"></span>Scroll Page Down（向下翻页） | `client.scroll.page_down` <span hidden>scroll page down forward scrollback history</span> |
 | <span id="action-client-composer-open" data-entry="Compose Input…"></span>Compose Input…（撰写输入…） | `client.composer.open` <span hidden>compose composer message input prompt attach image photo file upload claude codex</span> |
+| <span id="action-pane-insert-photo" data-entry="Insert Photo…"></span>Insert Photo…（插入照片…） 将图库中的照片发送到终端并输入其路径。 | `pane.insert_photo` <span hidden>insert photo image picture library screenshot upload attach send path</span> |
+| <span id="action-pane-insert-file" data-entry="Insert File…"></span>Insert File…（插入文件…） 将本设备中的文件发送到终端并输入其路径。 | `pane.insert_file` <span hidden>insert file document files finder upload attach send path</span> |
 | <span id="action-pane-go-to" data-entry="Go to Anything…"></span>Go to Anything…（前往任意位置…） | `pane.go_to` <span hidden>go to anything pane block tab session agent jump switch navigate find search tree overview</span> |
 | <span id="action-pane-view-activity" data-entry="View Activity…"></span>View Activity…（查看活动…） | `pane.view_activity` <span hidden>view activity active working blocked failed done agents programs status priority</span> |
 

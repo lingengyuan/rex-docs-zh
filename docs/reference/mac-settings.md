@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/mac-settings
-> 原文版本：12e63d82cf69（抓取于 2026-11-18）
+> 原文版本：d7f6d8022b1f（抓取于 2026-11-19）
 
 # Mac 设置
 
@@ -386,17 +386,17 @@
 | --- | --- |
 | <span id="setting-app-version-update-channel" data-entry="Update Channel"></span>Update Channel（更新通道） | 在启用“开发者模式”时选择 Preview 或 Bleeding Edge 更新。<span hidden>In Settings &gt; Developer &gt; App Version. Needs Developer Mode.</span> <span hidden>bleeding edge, testing, snapshot, preview, version, upgrade</span> |
 
-### Rex 安装（Rex Installation）
-选择使用内置服务端或从源码仓库运行 Rex。位于“设置”>“开发者”>“Rex Installation”。 <span hidden>binary, install, source, development</span>
+### Rex 服务端（Rex Server）
+选择使用内置服务端或从源码仓库运行 Rex。位于“设置”>“开发者”>“Rex Server”。 <span hidden>binary, install, installation, source, development</span>
 
 | 设置项 | 说明 |
 | --- | --- |
-| <span id="setting-rex-installation-location" data-entry="Location"></span>Location（安装位置） | 使用 Rex.app 内置的服务端或本地源码仓库。<span hidden>In Settings &gt; Developer &gt; Rex Installation. Needs Developer Mode.</span> <span hidden>bundled, included, source checkout, installation</span> |
-| <span id="setting-rex-installation-source-directory" data-entry="Source Directory"></span>Source Directory（源码目录） | 选择包含 Rex 源码仓库的文件夹。<span hidden>In Settings &gt; Developer &gt; Rex Installation. Needs Developer Mode.</span> <span hidden>folder, path, repository, repo, checkout, choose</span> |
-| <span id="setting-rex-installation-installation-status" data-entry="Installation status"></span>Installation status（安装状态） | 检查所选的 Rex 安装是否已准备就绪可运行。<span hidden>In Settings &gt; Developer &gt; Rex Installation. Needs Developer Mode.</span> <span hidden>show details, hide details, version, binary, executable, copy, paths, status</span> |
-| <span id="setting-rex-installation-version" data-entry="Version"></span>Version（版本） | 在“显示详细信息”下查看并复制内置服务端版本。<span hidden>In Settings &gt; Developer &gt; Rex Installation. Needs Developer Mode.</span> <span hidden>release, build, included, bundled, copy</span> |
-| <span id="setting-rex-installation-commit" data-entry="Commit"></span>Commit（提交哈希） | 在“显示详细信息”下查看并复制内置服务端的源码提交。<span hidden>In Settings &gt; Developer &gt; Rex Installation. Needs Developer Mode.</span> <span hidden>revision, git, hash, build, copy</span> |
-| <span id="setting-rex-installation-final-sha-256" data-entry="Final SHA-256"></span>Final SHA-256（最终校验和） | 在“显示详细信息”下查看并复制内置服务端的校验和。<span hidden>In Settings &gt; Developer &gt; Rex Installation. Needs Developer Mode.</span> <span hidden>checksum, digest, hash, sha256, integrity, copy</span> |
+| <span id="setting-rex-server-location" data-entry="Location"></span>Location（安装位置） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 使用 Rex.app 内置的服务端或本地源码仓库。<span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>bundled, included, source checkout, installation</span> |
+| <span id="setting-rex-server-source-directory" data-entry="Source Directory"></span>Source Directory（源码目录） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 选择包含 Rex 源码仓库的文件夹。<span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>folder, path, repository, repo, checkout, choose</span> |
+| <span id="setting-rex-server-rex-server-status" data-entry="Rex Server status"></span>Rex Server status（Rex 服务端状态） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 检查所选的 Rex Server 是否已准备就绪、正在运行或等待重启。<span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>installation, running, included, update, restart, show details, hide details, version, binary, executable, copy, paths, status</span> |
+| <span id="setting-rex-server-included-version" data-entry="Included Version"></span>Included Version（内置版本） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 在“显示详细信息”下查看并复制内置服务端版本。<span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>release, build, included, bundled, copy</span> |
+| <span id="setting-rex-server-included-commit" data-entry="Included Commit"></span>Included Commit（内置提交哈希） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 在“显示详细信息”下查看并复制内置服务端的源码提交。<span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>revision, git, hash, build, copy</span> |
+| <span id="setting-rex-server-final-sha-256" data-entry="Final SHA-256"></span>Final SHA-256（最终校验和） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 在“显示详细信息”下查看并复制内置服务端的校验和。<span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>checksum, digest, hash, sha256, integrity, copy</span> |
 
 ### 本地 API（Local API）
 在启用“开发者模式”时检查本地服务端的 API 端点。位于“设置”>“开发者”>“Local API”。 <span hidden>local server, control api, development, connection</span>
