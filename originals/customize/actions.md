@@ -243,3 +243,9 @@ rex do ~/.config/rex/init.lua --action dev_layout file=app.log
 
 This is a quick way to iterate on an action. The action really runs, against
 the session you run the command in.
+
+## Asking for Input
+
+An action can stop partway and ask the person a question in the command
+palette, as a text field or a list to choose from. See
+[Custom UI](https://www.superlogical.com/rex/docs/customize/custom-ui.md).

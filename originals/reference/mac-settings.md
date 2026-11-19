@@ -99,7 +99,7 @@ Connect Rex to your tailnet and control who can access it. In Settings > Server 
 
 ### Client Info
 
-Choose how this Mac appears to Rex servers and the command line. In Settings > Server > Client Info. <span hidden>client, device, identity, `rex client ls`, command line, cli</span>
+Choose how this Mac appears to Rex Servers and the command line. In Settings > Server > Client Info. <span hidden>client, device, identity, `rex client ls`, command line, cli</span>
 
 | Setting | Description |
 | --- | --- |
@@ -428,18 +428,18 @@ Choose how Rex.app receives updates when Developer Mode is enabled. In Settings 
 | --- | --- |
 | <span id="setting-app-version-update-channel" data-entry="Update Channel"></span>Update Channel | Choose Preview or Bleeding Edge updates when Developer Mode is enabled. <span hidden>In Settings &gt; Developer &gt; App Version. Needs Developer Mode.</span> <span hidden>bleeding edge, testing, snapshot, preview, version, upgrade</span> |
 
-### Rex Installation
+### Rex Server
 
-Choose the included server or run Rex from a source checkout. In Settings > Developer > Rex Installation. <span hidden>binary, install, source, development</span>
+Choose the included server or run Rex from a source checkout. In Settings > Developer > Rex Server. <span hidden>binary, install, installation, source, development</span>
 
 | Setting | Description |
 | --- | --- |
-| <span id="setting-rex-installation-location" data-entry="Location"></span>Location | Use the server included with Rex.app or a local source checkout. <span hidden>In Settings &gt; Developer &gt; Rex Installation. Needs Developer Mode.</span> <span hidden>bundled, included, source checkout, installation</span> |
-| <span id="setting-rex-installation-source-directory" data-entry="Source Directory"></span>Source Directory | Choose the folder containing the Rex source checkout. <span hidden>In Settings &gt; Developer &gt; Rex Installation. Needs Developer Mode.</span> <span hidden>folder, path, repository, repo, checkout, choose</span> |
-| <span id="setting-rex-installation-installation-status" data-entry="Installation status"></span>Installation status | Check whether the selected Rex installation is ready to run. <span hidden>In Settings &gt; Developer &gt; Rex Installation. Needs Developer Mode.</span> <span hidden>show details, hide details, version, binary, executable, copy, paths, status</span> |
-| <span id="setting-rex-installation-version" data-entry="Version"></span>Version | View and copy the included server version under Show Details. <span hidden>In Settings &gt; Developer &gt; Rex Installation. Needs Developer Mode.</span> <span hidden>release, build, included, bundled, copy</span> |
-| <span id="setting-rex-installation-commit" data-entry="Commit"></span>Commit | View and copy the source commit of the included server under Show Details. <span hidden>In Settings &gt; Developer &gt; Rex Installation. Needs Developer Mode.</span> <span hidden>revision, git, hash, build, copy</span> |
-| <span id="setting-rex-installation-final-sha-256" data-entry="Final SHA-256"></span>Final SHA-256 | View and copy the included server checksum under Show Details. <span hidden>In Settings &gt; Developer &gt; Rex Installation. Needs Developer Mode.</span> <span hidden>checksum, digest, hash, sha256, integrity, copy</span> |
+| <span id="setting-rex-server-location" data-entry="Location"></span>Location <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](https://www.superlogical.com/rex/docs/reference/mac-settings.md#setting-app-version-update-channel)</span></span> | Use the server included with Rex.app or a local source checkout. <span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>bundled, included, source checkout, installation</span> |
+| <span id="setting-rex-server-source-directory" data-entry="Source Directory"></span>Source Directory <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](https://www.superlogical.com/rex/docs/reference/mac-settings.md#setting-app-version-update-channel)</span></span> | Choose the folder containing the Rex source checkout. <span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>folder, path, repository, repo, checkout, choose</span> |
+| <span id="setting-rex-server-rex-server-status" data-entry="Rex Server status"></span>Rex Server status <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](https://www.superlogical.com/rex/docs/reference/mac-settings.md#setting-app-version-update-channel)</span></span> | Check whether the selected Rex Server is ready, running, or waiting for a restart. <span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>installation, running, included, update, restart, show details, hide details, version, binary, executable, copy, paths, status</span> |
+| <span id="setting-rex-server-included-version" data-entry="Included Version"></span>Included Version <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](https://www.superlogical.com/rex/docs/reference/mac-settings.md#setting-app-version-update-channel)</span></span> | View and copy the included server version under Show Details. <span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>release, build, included, bundled, copy</span> |
+| <span id="setting-rex-server-included-commit" data-entry="Included Commit"></span>Included Commit <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](https://www.superlogical.com/rex/docs/reference/mac-settings.md#setting-app-version-update-channel)</span></span> | View and copy the source commit of the included server under Show Details. <span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>revision, git, hash, build, copy</span> |
+| <span id="setting-rex-server-final-sha-256" data-entry="Final SHA-256"></span>Final SHA-256 <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](https://www.superlogical.com/rex/docs/reference/mac-settings.md#setting-app-version-update-channel)</span></span> | View and copy the included server checksum under Show Details. <span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>checksum, digest, hash, sha256, integrity, copy</span> |
 
 ### Local API
 
