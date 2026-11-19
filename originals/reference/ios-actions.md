@@ -125,6 +125,8 @@ This page lists every action in the Rex for iOS command palette. Use the name to
 | <span id="action-client-scroll-page-up" data-entry="Scroll Page Up"></span>Scroll Page Up | `client.scroll.page_up` <span hidden>scroll page up back scrollback history</span> |
 | <span id="action-client-scroll-page-down" data-entry="Scroll Page Down"></span>Scroll Page Down | `client.scroll.page_down` <span hidden>scroll page down forward scrollback history</span> |
 | <span id="action-client-composer-open" data-entry="Compose Input…"></span>Compose Input… | `client.composer.open` <span hidden>compose composer message input prompt attach image photo file upload claude codex</span> |
+| <span id="action-pane-insert-photo" data-entry="Insert Photo…"></span>Insert Photo… Sends photos from your library to the terminal and types their paths. | `pane.insert_photo` <span hidden>insert photo image picture library screenshot upload attach send path</span> |
+| <span id="action-pane-insert-file" data-entry="Insert File…"></span>Insert File… Sends files from this device to the terminal and types their paths. | `pane.insert_file` <span hidden>insert file document files finder upload attach send path</span> |
 | <span id="action-pane-go-to" data-entry="Go to Anything…"></span>Go to Anything… | `pane.go_to` <span hidden>go to anything pane block tab session agent jump switch navigate find search tree overview</span> |
 | <span id="action-pane-view-activity" data-entry="View Activity…"></span>View Activity… | `pane.view_activity` <span hidden>view activity active working blocked failed done agents programs status priority</span> |
 
