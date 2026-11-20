@@ -128,6 +128,8 @@ Any script can pause. rex.sleep(SECONDS) waits for time to pass, and rex.wait(EV
 
 Arguments are KEY=VALUE pairs typed against the action's schema. Use `--args` to pass a JSON object instead, or @FILE to read one, or - for stdin. A script reads its arguments from rex.args. Scripts have no schema, so each value's type comes from how it is written: n=2 is a number and name=x is a string.
 
+Pass large arguments, such as a long list of items, with @FILE or -. Linux can refuse a single command-line argument longer than 128 KiB. A Rex server accepts a request of up to 1 MiB, arguments included.
+
 A client action needs a client. Use `-C` to name one, or REX_CLIENT. With neither, the app client is used when exactly one is connected. An init.lua action's queued client actions go to the same client, and so do a script's calls to rex.client.queue.
 
 | Flag | Description |

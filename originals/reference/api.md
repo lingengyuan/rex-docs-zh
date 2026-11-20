@@ -407,6 +407,20 @@ If `subprotocol` is left out, the block checks the subprotocol after the handsha
 
 The call fails with `bad_request` if `data_ref_id` or `subprotocol` is malformed, and with `not_found` if the block isn't in the session or has no data to offer.
 
+## focus_history
+
+### `focus_history.reverse`
+
+Step back through the focus changes the calling principal made.
+
+| Field | Required | Description |
+| --- | --- | --- |
+| `session_id` |  | Only go back to a block in this session. The client must be attached to it. |
+| `not_session_id` |  | Only go back to a block in another session than this one. |
+| `window_id` |  | Only go back to a block in this window. |
+| `not_window_id` |  | Only go back to a block in another window than this one. |
+| `cursor` |  | The cursor from an earlier result, to keep stepping back from where that call stopped. Leave it out to start from where focus is now. |
+
 ## help
 
 ### `help.all`
