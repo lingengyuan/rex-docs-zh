@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/api
-> 原文版本：a256ad704c3f（抓取于 2026-11-18）
+> 原文版本：598f733348b4（抓取于 2026-11-20）
 
 # 服务端 API
 
@@ -406,6 +406,20 @@
 若省略 `subprotocol`，块会在握手完成后检查子协议，并在不支持该子协议时以状态码 1008 关闭数据连接。
 
 若 `data_ref_id` 或 `subprotocol` 格式错误，调用失败并返回 `bad_request`；若块不在会话中或没有可提供的数据，调用失败并返回 `not_found`。
+
+## `focus_history`
+
+### `focus_history.reverse`
+
+按调用主体此前的焦点变更记录向后回退。
+
+| 字段 | 必需 | 说明 |
+| --- | --- | --- |
+| `session_id` |  | 仅回退到此会话中的块。客户端必须已附加到该会话。 |
+| `not_session_id` |  | 仅回退到非此会话中的块。 |
+| `window_id` |  | 仅回退到此窗口中的块。 |
+| `not_window_id` |  | 仅回退到非此窗口中的块。 |
+| `cursor` |  | 来自此前结果的游标，用于从上次调用停止处继续向后回退。省略则从当前焦点开始。 |
 
 ## `help`
 

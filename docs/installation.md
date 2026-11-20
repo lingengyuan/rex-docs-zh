@@ -1,11 +1,11 @@
 > 原文：https://www.superlogical.com/rex/docs/installation
-> 原文版本：5db2caccdf27（抓取于 2026-11-18）
+> 原文版本：bd7682f8c5df（抓取于 2026-11-20）
 
 # 安装
 
-**当前处于 Beta 测试阶段。macOS 应用以及 Linux 和 FreeBSD 服务端向所有测试者开放。Windows 服务端仅向 Discord 中拥有 Windows 角色的测试者开放。**
+**当前处于 Beta 测试阶段。macOS 应用以及 Linux 和 FreeBSD 服务端向所有测试者开放。iOS 应用以及 Windows 应用和服务端向已报名的测试者开放，报名方式见 Discord。**
 
-我们有处于不同准备阶段的 iOS、Linux 和 Windows 客户端。我们希望尽快扩大公开测试范围，但它们目前还不属于测试内容。
+我们还有尚未纳入测试的 Linux 版 Rex 客户端。我们希望能尽快扩大公开测试范围。
 
 ## macOS
 

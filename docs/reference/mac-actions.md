@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/mac-actions
-> 原文版本：e2af79e0de62（抓取于 2026-11-19）
+> 原文版本：01567c899fab（抓取于 2026-11-20）
 
 # Mac 操作
 
@@ -46,10 +46,13 @@
 | 操作 | 名称 | 默认快捷键 |
 | --- | --- | --- |
 | <span id="action-session-new" data-entry="New Session"></span>New Session（新建会话） | `session.new` <span hidden>create session add</span> |  <span hidden>默认快捷键：</span>`shift+cmd+n` |
+| <span id="action-session-new-on-host" data-entry="New Session on Host…"></span>New Session on Host…（在主机上新建会话…） | `session.new.on_host` <span hidden>create session add host remote server machine choose</span> |  <span hidden>默认快捷键：</span>`alt+shift+cmd+n` |
 | <span id="action-session-switch" data-entry="Change Session…"></span>Change Session…（切换会话…） | `session.switch` <span hidden>session switch jump go</span> |  <span hidden>默认快捷键：</span>`cmd+k` |
 | <span id="action-session-select" data-entry="Go to Session"></span>Go to Session（前往会话） | `session.select` <span hidden>session select show jump go identifier id</span> |  |
 | <span id="action-session-next" data-entry="Next Session"></span>Next Session（下一个会话） | `session.next` <span hidden>cycle session forward</span> |  |
 | <span id="action-session-previous" data-entry="Previous Session"></span>Previous Session（上一个会话） | `session.previous` <span hidden>cycle session back</span> |  |
+| <span id="action-session-back" data-entry="Go Back One Session"></span>Go Back One Session（返回上一个会话） 显示此前的会话。重复执行可继续向后回退。 | `session.back` <span hidden>session history back last recent return previous</span> |  |
+| <span id="action-session-recent" data-entry="Go to Recent Session"></span>Go to Recent Session（前往最近会话） 显示此前的会话。再次执行可切回原会话。 | `session.recent` <span hidden>session history recent toggle alternate</span> |  |
 | <span id="action-session-rename" data-entry="Rename Session"></span>Rename Session（重命名会话） | `session.rename` <span hidden>rename session name title</span> |  |
 | <span id="action-session-close" data-entry="Close Session"></span>Close Session（关闭会话） | `session.close` <span hidden>close kill destroy delete session</span> |  |
 | <span id="action-session-refresh" data-entry="Refresh Sessions"></span>Refresh Sessions（刷新会话） | `session.refresh` <span hidden>reload sync sessions</span> |  <span hidden>默认快捷键：</span>`cmd+r` |
@@ -76,6 +79,10 @@
 | <span id="action-client-tab-rename" data-entry="Rename Tab"></span>Rename Tab（重命名标签页） | `client.tab.rename` <span hidden>rename tab window name title</span> |  |
 | <span id="action-client-tab-next" data-entry="Show Next Tab"></span>Show Next Tab（显示下一个标签页） | `client.tab.next` <span hidden>cycle tab window forward</span> |  <span hidden>默认快捷键：</span>`ctrl+tab`, `shift+cmd+]` |
 | <span id="action-client-tab-previous" data-entry="Show Previous Tab"></span>Show Previous Tab（显示上一个标签页） | `client.tab.previous` <span hidden>cycle tab window back</span> |  <span hidden>默认快捷键：</span>`ctrl+shift+tab`, `shift+cmd+[` |
+| <span id="action-client-tab-back" data-entry="Go Back One Tab"></span>Go Back One Tab（返回上一个标签页） 显示此前在任意会话中访问的标签页。重复执行可继续向后回退。 | `client.tab.back` <span hidden>tab window history back last recent return previous</span> |  |
+| <span id="action-client-tab-back-in-session" data-entry="Go Back One Tab in Session"></span>Go Back One Tab in Session（在会话中返回上一个标签页） 显示当前会话中此前访问的标签页。重复执行可继续向后回退。 | `client.tab.back.in_session` <span hidden>tab window session history back last recent return previous</span> |  |
+| <span id="action-client-tab-recent" data-entry="Go to Recent Tab"></span>Go to Recent Tab（前往最近标签页） 显示此前在任意会话中访问的标签页。再次执行可切回原标签页。 | `client.tab.recent` <span hidden>tab window history recent toggle alternate</span> |  |
+| <span id="action-client-tab-recent-in-session" data-entry="Go to Recent Tab in Session"></span>Go to Recent Tab in Session（在会话中前往最近标签页） 显示当前会话中此前访问的标签页。再次执行可切回原标签页。 | `client.tab.recent.in_session` <span hidden>tab window session history recent toggle alternate</span> |  <span hidden>默认快捷键：</span>`cmd+'` |
 | <span id="action-client-tab-goto" data-entry="Go to Tab"></span>Go to Tab（前往标签页） | `client.tab.goto` <span hidden>tab window select number index jump go</span> |  <span hidden>默认快捷键：</span>`cmd+[Digit1]`, `cmd+[Digit2]`, `cmd+[Digit3]`, `cmd+[Digit4]`, `cmd+[Digit5]`, `cmd+[Digit6]`, `cmd+[Digit7]`, `cmd+[Digit8]`, `cmd+[Digit9]` |
 | <span id="action-client-tab-move" data-entry="Move Tab"></span>Move Tab（移动标签页） | `client.tab.move` <span hidden>move tab window reorder</span> |  |
 | <span id="action-client-tab-move-backward" data-entry="Move Tab Backward"></span>Move Tab Backward（向后移动标签页） | `client.tab.move.backward` <span hidden>move tab window reorder left up earlier</span> |  <span hidden>默认快捷键：</span>`ctrl+shift+pageup` |
@@ -100,6 +107,11 @@
 | <span id="action-pane-focus-down" data-entry="Focus Pane Down"></span>Focus Pane Down（聚焦下方窗格） | `pane.focus.down` <span hidden>pane focus navigate down below</span> |  <span hidden>默认快捷键：</span>`alt+cmd+down` |
 | <span id="action-pane-focus-next" data-entry="Focus Next Pane"></span>Focus Next Pane（聚焦下一个窗格） | `pane.focus_next` <span hidden>pane focus next forward</span> |  <span hidden>默认快捷键：</span>`cmd+]` |
 | <span id="action-pane-focus-previous" data-entry="Focus Previous Pane"></span>Focus Previous Pane（聚焦上一个窗格） | `pane.focus_previous` <span hidden>pane focus previous back</span> |  <span hidden>默认快捷键：</span>`cmd+[` |
+| <span id="action-pane-focus-back" data-entry="Go Back One Pane"></span>Go Back One Pane（返回上一个窗格） 聚焦此前在任意标签页或会话中访问的窗格。重复执行可继续向后回退。 | `pane.focus_back` <span hidden>pane focus history back last recent return previous</span> |  |
+| <span id="action-pane-focus-back-in-tab" data-entry="Go Back One Pane in Tab"></span>Go Back One Pane in Tab（在标签页中返回上一个窗格） 聚焦当前标签页中此前访问的窗格。重复执行可继续向后回退。 | `pane.focus_back.in_tab` <span hidden>pane focus tab history back last recent return previous</span> |  |
+| <span id="action-pane-focus-back-in-session" data-entry="Go Back One Pane in Session"></span>Go Back One Pane in Session（在会话中返回上一个窗格） 聚焦当前会话中此前访问的窗格。重复执行可继续向后回退。 | `pane.focus_back.in_session` <span hidden>pane focus session history back last recent return previous</span> |  |
+| <span id="action-pane-focus-recent" data-entry="Go to Recent Pane"></span>Go to Recent Pane（前往最近窗格） 聚焦此前在任意标签页或会话中访问的窗格。再次执行可切回原窗格。 | `pane.focus_recent` <span hidden>pane focus history recent toggle alternate</span> |  |
+| <span id="action-pane-focus-recent-in-tab" data-entry="Go to Recent Pane in Tab"></span>Go to Recent Pane in Tab（在标签页中前往最近窗格） 聚焦当前标签页中此前访问的窗格。再次执行可切回原窗格。 | `pane.focus_recent.in_tab` <span hidden>pane focus tab history recent toggle alternate</span> |  <span hidden>默认快捷键：</span>`cmd+;` |
 | <span id="action-pane-move" data-entry="Move Pane"></span>Move Pane（移动窗格） | `pane.move` <span hidden>pane move swap rearrange</span> |  |
 | <span id="action-pane-move-left" data-entry="Move Pane Left"></span>Move Pane Left（向左移动窗格） | `pane.move.left` <span hidden>pane move swap rearrange left</span> |  <span hidden>默认快捷键：</span>`alt+shift+cmd+left` |
 | <span id="action-pane-move-right" data-entry="Move Pane Right"></span>Move Pane Right（向右移动窗格） | `pane.move.right` <span hidden>pane move swap rearrange right</span> |  <span hidden>默认快捷键：</span>`alt+shift+cmd+right` |
