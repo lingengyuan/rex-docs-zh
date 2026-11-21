@@ -84,6 +84,14 @@ Check serving progress, copy the address, or pair another device. In Settings > 
 | --- | --- |
 | <span id="setting-remote-address-remote-address" data-entry="Remote Address"></span>Remote Address | Check serving progress and certificate readiness, retry, copy the address, or pair a device using its QR code. <span hidden>In Settings &gt; Server &gt; Remote Address.</span> <span hidden>copy remote address, tailscale connection progress, https, dns, hostname, endpoint, copy, qr, scan, pair, device, iphone, ipad, certificate, waiting for certificate, tls, ssl, secure, starting, stopping, connection progress, retry, connected, disconnected, approval, error, dns recovery</span> |
 
+### Server Version
+
+See the server's version and whether it works with this app, and install another. In Settings > Server > Server Version. <span hidden>version, release, what's new, download</span>
+
+| Setting | Description |
+| --- | --- |
+| <span id="setting-server-version-installed" data-entry="Installed"></span>Installed <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](https://www.superlogical.com/rex/docs/reference/mac-settings.md#setting-app-version-update-channel)</span></span> | See which Rex Server is running and whether this app can use all of it. Its info button chooses the server channel. <span hidden>In Settings &gt; Server &gt; Server Version.</span> <span hidden>server version, running version, bundled, downloaded, works with this app, works with limits, unavailable features, release notes, changelog, server channel, bundled server, install server, download server, server release, update server, snapshot server, preview server, source checkout, source directory, checkout, repository, repo, build from source, local build, development server, installation</span> |
+
 ### Tailscale
 
 Connect Rex to your tailnet and control who can access it. In Settings > Server > Tailscale. <span hidden>network, vpn, remote, secure, sharing</span>
@@ -96,15 +104,6 @@ Connect Rex to your tailnet and control who can access it. In Settings > Server 
 | <span id="setting-tailscale-tags" data-entry="Tags"></span>Tags | See this device’s Tailscale tags. Sign out and back in to change them. <span hidden>In Settings &gt; Server &gt; Tailscale.</span> <span hidden>tag, tagged, acl tags, advertise tags, tailnet policy, machine identity, owner, access</span> |
 | <span id="setting-tailscale-control-server" data-entry="Control Server"></span>Control Server | See which control server this device signs in with. Sign out and back in to change it. <span hidden>In Settings &gt; Server &gt; Tailscale.</span> <span hidden>control url, control plane, coordination server, login server, self-hosted, custom server</span> |
 | <span id="setting-tailscale-sign-in-to-tailscale" data-entry="Sign in to Tailscale"></span>Sign in to Tailscale | Check your account and sign-out progress, configure a hostname and sign in, reopen or cancel enrollment, turn off serving while signed out, or sign out. <span hidden>In Settings &gt; Server &gt; Tailscale.</span> <span hidden>login, tailscale login, sign in, sign in to tailscale, log in, sign out, turn off, turn off tailscale, disable tailscale, needs login, stop asking to sign in, account, status, signed in to tailscale, enrolled account, signing in to tailscale, browser sign in, open browser, reopen browser, preparing to sign in, this may take a moment, ready to connect, awaiting connection, finish the process in your browser, taking longer than usual, slow sign in, cancel sign in, cancel login, signing out of tailscale, remove saved login, sign out progress</span> |
-
-### Client Info
-
-Choose how this Mac appears to Rex Servers and the command line. In Settings > Server > Client Info. <span hidden>client, device, identity, `rex client ls`, command line, cli</span>
-
-| Setting | Description |
-| --- | --- |
-| <span id="setting-client-info-label" data-entry="Label"></span>Label | Name this Mac in client lists and for targeting it from rex commands. <span hidden>In Settings &gt; Server &gt; Client Info.</span> <span hidden>device label, client label, name, computer, identify, rename, rename this mac, this device, `-C`, target, targeting, client ls</span> |
-| <span id="setting-client-info-remote-control" data-entry="Remote Control"></span>Remote Control | Let Rex and other clients perform actions in this app. <span hidden>In Settings &gt; Server &gt; Client Info.</span> <span hidden>remote, control, allow, allow actions, actions, command line, `rex do`, perform, security</span> |
 
 ## Interface
 
@@ -222,22 +221,42 @@ Choose how panes move, open, and close. In Settings > Interface > Animation. <sp
 | --- | --- |
 | <span id="setting-animation-animation-style" data-entry="Animation style"></span>Animation style | Choose Snappy, Natural, or Off for pane motion, the active border, and showing or hiding the sidebar. Off while Reduce Motion is on. <span hidden>In Settings &gt; Interface &gt; Animation.</span> <span hidden>snappy, natural, off, spring, bounce, no bounce, overshoot, disable animations, turn off animations, reduce motion, instant, fast, speed, pane animation, split animation, hyprland, sidebar animation</span> |
 
-### App Icon
+## General
 
-Customize Rex's app icon and Dock and menu bar icon visibility. In Settings > Interface > App Icon. <span hidden>app icon, application icon, dock icon, artwork</span>
+### App Version
+
+Check for, download, and install Rex.app updates, and choose how they arrive. In Settings > General > App Version. <span hidden>application, release, update, channel, upgrade, software update</span>
 
 | Setting | Description |
 | --- | --- |
-| <span id="setting-app-icon-app-icon" data-entry="App Icon"></span>App Icon | Choose Default — Dynamic, Bright, or Twilight artwork for the app icon. <span hidden>In Settings &gt; Interface &gt; App Icon.</span> <span hidden>app icon, application icon, dock icon, custom icon, alternate icon, bright, bright icon, twilight, twilight icon, light icon, dark icon, artwork, dynamic, dynamic icon</span> |
-| <span id="setting-app-icon-show-app-icon" data-entry="Show app icon"></span>Show app icon | Show Rex's icon in the Dock and menu bar, the Dock only, or the menu bar only while no window is open. <span hidden>In Settings &gt; Interface &gt; App Icon.</span> <span hidden>dock and menu bar, dock only, menubar only, menu bar only, dock icon, hide dock icon, show dock icon, dock visibility, application switcher, app switcher, command tab, cmd tab, menubar, menu bar icon, status item, status bar, tray icon, hide menu bar icon, show menu bar icon, hide, show, visibility</span> |
+| <span id="setting-app-version-software-update" data-entry="Software Update"></span>Software Update <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](https://www.superlogical.com/rex/docs/reference/mac-settings.md#setting-app-version-update-channel)</span></span> | See whether Rex is up to date, check for updates, and download or install one. <span hidden>In Settings &gt; General &gt; App Version.</span> <span hidden>check for updates, check now, update now, up to date, latest version, current version, last checked, relaunch to update, restart to update, install update, download update, new version, sparkle</span> |
+| <span id="setting-app-version-update-channel" data-entry="Update Channel"></span>Update Channel <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](https://www.superlogical.com/rex/docs/reference/mac-settings.md#setting-app-version-update-channel)</span></span> | Choose Preview or Snapshot updates. Its info button sets whether updates download and install on their own. <span hidden>In Settings &gt; General &gt; App Version.</span> <span hidden>bleeding edge, testing, snapshot, preview, version, upgrade, automatic updates, auto update, auto download, background download, download new updates, install on quit, auto install, auto relaunch, auto restart, install updates automatically, silent update, unattended update, relaunch when idle, low data mode, hotspot, tethering, cellular, metered, expensive network, save data, download paused</span> |
+
+### Client Info
+
+Choose how this Mac appears to Rex Servers and the command line. In Settings > General > Client Info. <span hidden>client, device, identity, `rex client ls`, command line, cli</span>
+
+| Setting | Description |
+| --- | --- |
+| <span id="setting-client-info-label" data-entry="Label"></span>Label <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](https://www.superlogical.com/rex/docs/reference/mac-settings.md#setting-app-version-update-channel)</span></span> | Name this Mac in client lists and for targeting it from rex commands. <span hidden>In Settings &gt; General &gt; Client Info.</span> <span hidden>device label, client label, name, computer, identify, rename, rename this mac, this device, `-C`, target, targeting, client ls</span> |
+| <span id="setting-client-info-remote-control" data-entry="Remote Control"></span>Remote Control <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](https://www.superlogical.com/rex/docs/reference/mac-settings.md#setting-app-version-update-channel)</span></span> | Let Rex and other clients perform actions in this app. <span hidden>In Settings &gt; General &gt; Client Info.</span> <span hidden>remote, control, allow, allow actions, actions, command line, `rex do`, perform, security</span> |
+
+### App Icon
+
+Customize Rex's app icon and Dock and menu bar icon visibility. In Settings > General > App Icon. <span hidden>app icon, application icon, dock icon, artwork</span>
+
+| Setting | Description |
+| --- | --- |
+| <span id="setting-app-icon-app-icon" data-entry="App Icon"></span>App Icon <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](https://www.superlogical.com/rex/docs/reference/mac-settings.md#setting-app-version-update-channel)</span></span> | Choose Rexie, the Dynamic default icon, or one of the Alternates: Bright, Twilight, Vibe, Shell, or Spookie. <span hidden>In Settings &gt; General &gt; App Icon.</span> <span hidden>app icon, application icon, dock icon, custom icon, alternate icon, bright, bright icon, twilight, twilight icon, light icon, dark icon, artwork, dynamic, dynamic icon, rexie, vibe, vibe icon, glowing prompt, prompt icon, terminal prompt icon, spook, spook icon, spookie, ghost icon, blue icon</span> |
+| <span id="setting-app-icon-show-app-icon" data-entry="Show app icon"></span>Show app icon <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](https://www.superlogical.com/rex/docs/reference/mac-settings.md#setting-app-version-update-channel)</span></span> | Show Rex's icon in the Dock and menu bar, the Dock only, or the menu bar only while no window is open. <span hidden>In Settings &gt; General &gt; App Icon.</span> <span hidden>dock and menu bar, dock only, menubar only, menu bar only, dock icon, hide dock icon, show dock icon, dock visibility, application switcher, app switcher, command tab, cmd tab, menubar, menu bar icon, status item, status bar, tray icon, hide menu bar icon, show menu bar icon, hide, show, visibility</span> |
 
 ### Launch
 
-Choose whether Rex opens workspace windows at startup. In Settings > Interface > Launch. <span hidden>launch, startup, start up, opening, background</span>
+Choose whether Rex opens workspace windows at startup. In Settings > General > Launch. <span hidden>launch, startup, start up, opening, background</span>
 
 | Setting | Description |
 | --- | --- |
-| <span id="setting-launch-show-window-on-launch" data-entry="Show window on launch"></span>Show window on launch | Automatically open workspace windows when Rex launches. <span hidden>In Settings &gt; Interface &gt; Launch.</span> <span hidden>show window on launch, open window on startup, launch in background, hide window on launch, restore windows, start minimized</span> |
+| <span id="setting-launch-show-window-on-launch" data-entry="Show window on launch"></span>Show window on launch <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](https://www.superlogical.com/rex/docs/reference/mac-settings.md#setting-app-version-update-channel)</span></span> | Automatically open workspace windows when Rex launches. <span hidden>In Settings &gt; General &gt; Launch.</span> <span hidden>show window on launch, open window on startup, launch in background, hide window on launch, restore windows, start minimized</span> |
 
 ## Themes
 
@@ -407,39 +426,16 @@ Reveal settings for development and debugging. In Settings > Developer. <span hi
 
 | Setting | Description |
 | --- | --- |
-| <span id="setting-developer-developer-mode" data-entry="Developer Mode"></span>Developer Mode | Show update-channel, installation, local API, web-client origin, and experiment settings. <span hidden>In Settings &gt; Developer.</span> <span hidden>enable, advanced, development, debugging</span> |
+| <span id="setting-developer-developer-mode" data-entry="Developer Mode"></span>Developer Mode | Show experiment, local API, and web-client origin settings. <span hidden>In Settings &gt; Developer.</span> <span hidden>enable, advanced, development, debugging</span> |
 
-### Experimental
+### Experimental Features
 
-Try features that aren't finished when Developer Mode is enabled. In Settings > Developer > Experimental. <span hidden>experiment, beta, unfinished, labs</span>
-
-| Setting | Description |
-| --- | --- |
-| <span id="setting-experimental-download-new-updates-when-available" data-entry="Download new updates when available"></span>Download new updates when available | Download updates in the background, except on a Low Data Mode or hotspot network, and ask before restarting. <span hidden>In Settings &gt; Developer &gt; Experimental. Needs Developer Mode.</span> <span hidden>auto download, background download, install on quit, download new updates, auto update, sparkle, low data mode, hotspot, tethering, cellular, metered, expensive network, save data, download paused</span> |
-| <span id="setting-experimental-install-updates-automatically" data-entry="Install updates automatically"></span>Install updates automatically | Relaunch into the new version while Rex is not visible. <span hidden>In Settings &gt; Developer &gt; Experimental. Needs Developer Mode.</span> <span hidden>auto install, auto relaunch, auto restart, silent update, unattended update, relaunch when idle</span> |
-| <span id="setting-experimental-terminal-anchoring" data-entry="Terminal anchoring"></span>Terminal anchoring | Pin terminal text to the top or the bottom of each pane. <span hidden>In Settings &gt; Developer &gt; Experimental. Needs Developer Mode.</span> <span hidden>anchor, terminal alignment, grid gravity, leftover row</span> |
-| <span id="setting-experimental-new-quick-switcher" data-entry="New quick switcher"></span>New quick switcher | Open one list of every session, block, and reporting process from Go to Anything. <span hidden>In Settings &gt; Developer &gt; Experimental. Needs Developer Mode.</span> <span hidden>go to anything, go to session, view activity, switcher, command palette, cmd p, jump, navigate, panes, blocks, sessions, experiment</span> |
-
-### App Version
-
-Choose how Rex.app receives updates when Developer Mode is enabled. In Settings > Developer > App Version. <span hidden>application, release, update, channel, upgrade</span>
+Try features that aren't finished when Developer Mode is enabled. In Settings > Developer > Experimental Features. <span hidden>experiment, beta, unfinished, labs</span>
 
 | Setting | Description |
 | --- | --- |
-| <span id="setting-app-version-update-channel" data-entry="Update Channel"></span>Update Channel | Choose Preview or Bleeding Edge updates when Developer Mode is enabled. <span hidden>In Settings &gt; Developer &gt; App Version. Needs Developer Mode.</span> <span hidden>bleeding edge, testing, snapshot, preview, version, upgrade</span> |
-
-### Rex Server
-
-Choose the included server or run Rex from a source checkout. In Settings > Developer > Rex Server. <span hidden>binary, install, installation, source, development</span>
-
-| Setting | Description |
-| --- | --- |
-| <span id="setting-rex-server-location" data-entry="Location"></span>Location | Use the server included with Rex.app or a local source checkout. <span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>bundled, included, source checkout, installation</span> |
-| <span id="setting-rex-server-source-directory" data-entry="Source Directory"></span>Source Directory | Choose the folder containing the Rex source checkout. <span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>folder, path, repository, repo, checkout, choose</span> |
-| <span id="setting-rex-server-rex-server-status" data-entry="Rex Server status"></span>Rex Server status | Check whether the selected Rex Server is ready, running, or waiting for a restart. <span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>installation, running, included, update, restart, show details, hide details, version, binary, executable, copy, paths, status</span> |
-| <span id="setting-rex-server-included-version" data-entry="Included Version"></span>Included Version | View and copy the included server version under Show Details. <span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>release, build, included, bundled, copy</span> |
-| <span id="setting-rex-server-included-commit" data-entry="Included Commit"></span>Included Commit | View and copy the source commit of the included server under Show Details. <span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>revision, git, hash, build, copy</span> |
-| <span id="setting-rex-server-final-sha-256" data-entry="Final SHA-256"></span>Final SHA-256 | View and copy the included server checksum under Show Details. <span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>checksum, digest, hash, sha256, integrity, copy</span> |
+| <span id="setting-experimental-features-terminal-anchoring" data-entry="Terminal anchoring"></span>Terminal anchoring <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](https://www.superlogical.com/rex/docs/reference/mac-settings.md#setting-app-version-update-channel)</span></span> | Pin terminal text to the top or the bottom of each pane. <span hidden>In Settings &gt; Developer &gt; Experimental Features. Needs Developer Mode.</span> <span hidden>anchor, terminal alignment, grid gravity, leftover row</span> |
+| <span id="setting-experimental-features-new-quick-switcher" data-entry="New quick switcher"></span>New quick switcher <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](https://www.superlogical.com/rex/docs/reference/mac-settings.md#setting-app-version-update-channel)</span></span> | Open one list of every session, block, and reporting process from Go to Anything. <span hidden>In Settings &gt; Developer &gt; Experimental Features. Needs Developer Mode.</span> <span hidden>go to anything, go to session, view activity, switcher, command palette, cmd p, jump, navigate, panes, blocks, sessions, experiment</span> |
 
 ### Local API
 
