@@ -1053,6 +1053,8 @@ Start a persistent server.
 
 Start is idempotent. Start options apply only when a new server is launched. An existing server retains its active configuration until explicitly restarted.
 
+If you pass `--env` and this command does not launch the server, it prints a warning that names the variables it could not apply. To apply them, stop the server and run this command again, or set them in the service that starts the server, such as a systemd unit.
+
 The log size limit applies only to the file created for a detached server. Rex clears that file before a write would exceed `--log-max-size`.
 
 | Flag | Description |

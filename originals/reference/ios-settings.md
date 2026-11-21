@@ -18,6 +18,7 @@ Choose the color scheme, theme tint, panes, and how panes move. In Settings > In
 | <span id="setting-interface-color-scheme" data-entry="Color Scheme"></span>Color Scheme | Appearance · Use Auto, Light, or Dark appearance. <span hidden>In Settings &gt; Interface.</span> <span hidden>appearance, display, system, device, mode, automatic, light mode, dark mode</span> |
 | <span id="setting-interface-tint-with-theme" data-entry="Tint with Theme"></span>Tint with Theme | Appearance · Match terminal colors or use standard iOS colors. <span hidden>In Settings &gt; Interface.</span> <span hidden>theme tint, use theme tint, tinting, matching, neutral, system colors, on, off</span> |
 | <span id="setting-interface-match-program-backgrounds" data-entry="Match Program Backgrounds"></span>Match Program Backgrounds | Panes · Color the screen with a full-screen program's background. <span hidden>In Settings &gt; Interface.</span> <span hidden>tint, screen color, header color, terminal background, program background, editor, full screen, tui, neovim, vim, extend, blend, match terminal</span> |
+| <span id="setting-interface-app-icon" data-entry="App Icon"></span>App Icon | App Icon · Choose Rexie, Bright, Twilight, Vibe, Shell, or Spookie for the Home Screen. <span hidden>In Settings &gt; Interface.</span> <span hidden>app icon, home screen icon, alternate icon, custom icon, change icon, rexie, default icon, bright, twilight, vibe, shell icon, spook, spookie, ghost, terminal prompt, dark icon, light icon</span> |
 
 ## Themes
 
