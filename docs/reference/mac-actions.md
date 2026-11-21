@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/mac-actions
-> 原文版本：01567c899fab（抓取于 2026-11-20）
+> 原文版本：b2c3aba15a92（抓取于 2026-11-21）
 
 # Mac 操作
 
@@ -241,7 +241,7 @@
 | <span id="action-client-setting-interface-splits-focus-focus-follows-mouse" data-entry="Focus Follows Mouse"></span>Focus Follows Mouse（焦点跟随鼠标） 指针移到窗格上时即聚焦该窗格。 | `client.setting.interface.splits_focus.focus_follows_mouse` <span hidden>hover pointer cursor sloppy focus mouse active pane without clicking setting preference</span> |  |
 | <span id="action-client-setting-interface-gestures-use-gestures" data-entry="Use Trackpad Gestures"></span>Use Trackpad Gestures（使用触控板手势） 开启或关闭用于窗格和边栏的触控板手势。 | `client.setting.interface.gestures.use_gestures` <span hidden>gestures pinch zoom magnify spread swipe sidebar trackpad two finger disable setting preference</span> |  |
 | <span id="action-client-setting-interface-animation-style" data-entry="Animation Style"></span>Animation Style（动画样式） 选择窗格移动、打开和关闭时的动画效果。 | `client.setting.interface.animation.style` <span hidden>snappy natural off spring bounce motion disable animations instant speed pane split sidebar setting preference</span> |  |
-| <span id="action-client-setting-interface-app-icon-selection" data-entry="App Icon"></span>App Icon（应用图标） 选择 Rex 应用图标的样式。 | `client.setting.interface.app_icon.selection` <span hidden>application dock icon custom alternate bright twilight default dynamic artwork setting preference</span> |  |
+| <span id="action-client-setting-interface-app-icon-selection" data-entry="App Icon"></span>App Icon（应用图标） 选择 Rex 应用图标的样式。 | `client.setting.interface.app_icon.selection` <span hidden>application dock icon custom alternate bright twilight vibe shell spook terminal prompt ghost default dynamic artwork setting preference</span> |  |
 | <span id="action-client-setting-interface-app-icon-show-app-icon" data-entry="Show App Icon"></span>Show App Icon（显示应用图标） 在程序坞、菜单栏或两者中显示 Rex 图标。 | `client.setting.interface.app_icon.show_app_icon` <span hidden>dock menu bar menubar status item tray icon hide show visibility app switcher setting preference</span> |  |
 | <span id="action-client-setting-interface-launch-show-window" data-entry="Show Window on Launch"></span>Show Window on Launch（启动时显示窗口） 在启动 Rex 时打开工作区窗口。 | `client.setting.interface.launch.show_window` <span hidden>open window startup launch in background hide restore windows start minimized setting preference</span> |  |
 | <span id="action-client-setting-themes-light-palette" data-entry="Light Theme"></span>Light Theme（浅色主题） 选择浅色外观下使用的主题。 | `client.setting.themes.light.palette` <span hidden>light mode theme day bright colors colour scheme palette setting preference</span> |  |

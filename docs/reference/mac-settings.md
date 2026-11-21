@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/mac-settings
-> 原文版本：c368052abcce（抓取于 2026-11-20）
+> 原文版本：5db0ac46ab2e（抓取于 2026-11-21）
 
 # Mac 设置
 
@@ -75,6 +75,13 @@
 | --- | --- |
 | <span id="setting-remote-address-remote-address" data-entry="Remote Address"></span>Remote Address（远程地址） | 查看服务进度与证书就绪状态，重试连接、复制地址，或使用其二维码配对设备。<span hidden>In Settings &gt; Server &gt; Remote Address.</span> <span hidden>copy remote address, tailscale connection progress, https, dns, hostname, endpoint, copy, qr, scan, pair, device, iphone, ipad, certificate, waiting for certificate, tls, ssl, secure, starting, stopping, connection progress, retry, connected, disconnected, approval, error, dns recovery</span> |
 
+### 服务端版本（Server Version）
+查看服务端版本、其是否与当前应用兼容，以及安装其他版本。位于“设置”>“服务端”>“Server Version”。 <span hidden>version, release, what's new, download</span>
+
+| 设置项 | 说明 |
+| --- | --- |
+| <span id="setting-server-version-installed" data-entry="Installed"></span>Installed（已安装） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 查看正在运行的 Rex Server 版本，以及当前应用是否支持其全部功能。点击信息按钮可选择服务端更新通道。<span hidden>In Settings &gt; Server &gt; Server Version.</span> <span hidden>server version, running version, bundled, downloaded, works with this app, works with limits, unavailable features, release notes, changelog, server channel, bundled server, install server, download server, server release, update server, snapshot server, preview server, source checkout, source directory, checkout, repository, repo, build from source, local build, development server, installation</span> |
+
 ### Tailscale
 
 将 Rex 连接至你的 tailnet 并控制访问权限。位于“设置”>“服务端”>“Tailscale”。 <span hidden>network, vpn, remote, secure, sharing</span>
@@ -87,14 +94,6 @@
 | <span id="setting-tailscale-tags" data-entry="Tags"></span>Tags（标签） | 查看此设备的 Tailscale 标签。退出登录并重新登录以更改它们。<span hidden>In Settings &gt; Server &gt; Tailscale.</span> <span hidden>tag, tagged, acl tags, advertise tags, tailnet policy, machine identity, owner, access</span> |
 | <span id="setting-tailscale-control-server" data-entry="Control Server"></span>Control Server（控制服务器） | 查看此设备登录所使用的控制服务器。退出登录并重新登录以更改它。<span hidden>In Settings &gt; Server &gt; Tailscale.</span> <span hidden>control url, control plane, coordination server, login server, self-hosted, custom server</span> |
 | <span id="setting-tailscale-sign-in-to-tailscale" data-entry="Sign in to Tailscale"></span>Sign in to Tailscale（登录至 Tailscale） | 查看账户信息与退出登录进度，配置主机名并登录，重新打开或取消注册，在未登录时关闭服务，或退出登录。<span hidden>In Settings &gt; Server &gt; Tailscale.</span> <span hidden>login, tailscale login, sign in, sign in to tailscale, log in, sign out, turn off, turn off tailscale, disable tailscale, needs login, stop asking to sign in, account, status, signed in to tailscale, enrolled account, signing in to tailscale, browser sign in, open browser, reopen browser, preparing to sign in, this may take a moment, ready to connect, awaiting connection, finish the process in your browser, taking longer than usual, slow sign in, cancel sign in, cancel login, signing out of tailscale, remove saved login, sign out progress</span> |
-
-### 客户端信息（Client Info）
-选择此 Mac 在 Rex 服务端和命令行中的显示方式。位于“设置”>“服务端”>“Client Info”。 <span hidden>client, device, identity, `rex client ls`, command line, cli</span>
-
-| 设置项 | 说明 |
-| --- | --- |
-| <span id="setting-client-info-label" data-entry="Label"></span>Label（标签） | 在客户端列表中为此 Mac 命名，以便在 rex 命令中作为目标指定。<span hidden>In Settings &gt; Server &gt; Client Info.</span> <span hidden>device label, client label, name, computer, identify, rename, rename this mac, this device, `-C`, target, targeting, client ls</span> |
-| <span id="setting-client-info-remote-control" data-entry="Remote Control"></span>Remote Control（远程控制） | 允许 Rex 和其他客户端在此应用中执行操作。<span hidden>In Settings &gt; Server &gt; Client Info.</span> <span hidden>remote, control, allow, allow actions, actions, command line, `rex do`, perform, security</span> |
 
 ## 界面
 
@@ -200,20 +199,38 @@
 | --- | --- |
 | <span id="setting-animation-animation-style" data-entry="Animation style"></span>Animation style（动画样式） | 为窗格移动、活动边框以及显示/隐藏边栏选择干脆（Snappy）、自然（Natural）或关闭（Off）。开启“减弱动态效果”时为关闭。<span hidden>In Settings &gt; Interface &gt; Animation.</span> <span hidden>snappy, natural, off, spring, bounce, no bounce, overshoot, disable animations, turn off animations, reduce motion, instant, fast, speed, pane animation, split animation, hyprland, sidebar animation</span> |
 
-### 应用图标（App Icon）
-自定 Rex 的应用图标，以及在 Dock 和菜单栏中的图标可见性。位于“设置”>“界面”>“App Icon”。 <span hidden>app icon, application icon, dock icon, artwork</span>
+## 通用
+
+### 应用版本（App Version）
+检查、下载并安装 Rex.app 更新，以及选择接收更新的方式。位于“设置”>“通用”>“App Version”。 <span hidden>application, release, update, channel, upgrade, software update</span>
 
 | 设置项 | 说明 |
 | --- | --- |
-| <span id="setting-app-icon-app-icon" data-entry="App Icon"></span>App Icon（应用图标） | 为应用图标选择默认（动态）、明亮（Bright）或微光（Twilight）图形。<span hidden>In Settings &gt; Interface &gt; App Icon.</span> <span hidden>app icon, application icon, dock icon, custom icon, alternate icon, bright, bright icon, twilight, twilight icon, light icon, dark icon, artwork, dynamic, dynamic icon</span> |
-| <span id="setting-app-icon-show-app-icon" data-entry="Show app icon"></span>Show app icon（显示应用图标） | 在 Dock 和菜单栏、仅 Dock，或未打开窗口时仅菜单栏中显示 Rex 图标。<span hidden>In Settings &gt; Interface &gt; App Icon.</span> <span hidden>dock and menu bar, dock only, menubar only, menu bar only, dock icon, hide dock icon, show dock icon, dock visibility, application switcher, app switcher, command tab, cmd tab, menubar, menu bar icon, status item, status bar, tray icon, hide menu bar icon, show menu bar icon, hide, show, visibility</span> |
+| <span id="setting-app-version-software-update" data-entry="Software Update"></span>Software Update（软件更新） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 查看 Rex 是否为最新版本，检查更新，以及下载或安装更新。<span hidden>In Settings &gt; General &gt; App Version.</span> <span hidden>check for updates, check now, update now, up to date, latest version, current version, last checked, relaunch to update, restart to update, install update, download update, new version, sparkle</span> |
+| <span id="setting-app-version-update-channel" data-entry="Update Channel"></span>Update Channel（更新通道） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 选择接收 Preview 或 Snapshot 更新。点击信息按钮可设置是否自动下载并安装更新。<span hidden>In Settings &gt; General &gt; App Version.</span> <span hidden>bleeding edge, testing, snapshot, preview, version, upgrade, automatic updates, auto update, auto download, background download, download new updates, install on quit, auto install, auto relaunch, auto restart, install updates automatically, silent update, unattended update, relaunch when idle, low data mode, hotspot, tethering, cellular, metered, expensive network, save data, download paused</span> |
+
+### 客户端信息（Client Info）
+选择此 Mac 在 Rex 服务端和命令行中的显示方式。位于“设置”>“通用”>“Client Info”。 <span hidden>client, device, identity, `rex client ls`, command line, cli</span>
+
+| 设置项 | 说明 |
+| --- | --- |
+| <span id="setting-client-info-label" data-entry="Label"></span>Label（标签） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 在客户端列表中为此 Mac 命名，以便在 rex 命令中作为目标指定。<span hidden>In Settings &gt; General &gt; Client Info.</span> <span hidden>device label, client label, name, computer, identify, rename, rename this mac, this device, `-C`, target, targeting, client ls</span> |
+| <span id="setting-client-info-remote-control" data-entry="Remote Control"></span>Remote Control（远程控制） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 允许 Rex 和其他客户端在此应用中执行操作。<span hidden>In Settings &gt; General &gt; Client Info.</span> <span hidden>remote, control, allow, allow actions, actions, command line, `rex do`, perform, security</span> |
+
+### 应用图标（App Icon）
+自定 Rex 的应用图标，以及在 Dock 和菜单栏中的图标可见性。位于“设置”>“通用”>“App Icon”。 <span hidden>app icon, application icon, dock icon, artwork</span>
+
+| 设置项 | 说明 |
+| --- | --- |
+| <span id="setting-app-icon-app-icon" data-entry="App Icon"></span>App Icon（应用图标） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 为应用图标选择 Rexie（动态默认图标），或备选图标之一：Bright、Twilight、Vibe、Shell 或 Spookie。<span hidden>In Settings &gt; General &gt; App Icon.</span> <span hidden>app icon, application icon, dock icon, custom icon, alternate icon, bright, bright icon, twilight, twilight icon, light icon, dark icon, artwork, dynamic, dynamic icon, rexie, vibe, vibe icon, glowing prompt, prompt icon, terminal prompt icon, spook, spook icon, spookie, ghost icon, blue icon</span> |
+| <span id="setting-app-icon-show-app-icon" data-entry="Show app icon"></span>Show app icon（显示应用图标） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 在 Dock 和菜单栏、仅 Dock，或未打开窗口时仅菜单栏中显示 Rex 图标。<span hidden>In Settings &gt; General &gt; App Icon.</span> <span hidden>dock and menu bar, dock only, menubar only, menu bar only, dock icon, hide dock icon, show dock icon, dock visibility, application switcher, app switcher, command tab, cmd tab, menubar, menu bar icon, status item, status bar, tray icon, hide menu bar icon, show menu bar icon, hide, show, visibility</span> |
 
 ### 启动（Launch）
-选择 Rex 启动时是否打开工作区窗口。位于“设置”>“界面”>“Launch”。 <span hidden>launch, startup, start up, opening, background</span>
+选择 Rex 启动时是否打开工作区窗口。位于“设置”>“通用”>“Launch”。 <span hidden>launch, startup, start up, opening, background</span>
 
 | 设置项 | 说明 |
 | --- | --- |
-| <span id="setting-launch-show-window-on-launch" data-entry="Show window on launch"></span>Show window on launch（启动时显示窗口） | 在 Rex 启动时自动打开工作区窗口。<span hidden>In Settings &gt; Interface &gt; Launch.</span> <span hidden>show window on launch, open window on startup, launch in background, hide window on launch, restore windows, start minimized</span> |
+| <span id="setting-launch-show-window-on-launch" data-entry="Show window on launch"></span>Show window on launch（启动时显示窗口） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 在 Rex 启动时自动打开工作区窗口。<span hidden>In Settings &gt; General &gt; Launch.</span> <span hidden>show window on launch, open window on startup, launch in background, hide window on launch, restore windows, start minimized</span> |
 
 ## 主题
 
@@ -367,36 +384,15 @@
 
 | 设置项 | 说明 |
 | --- | --- |
-| <span id="setting-developer-developer-mode" data-entry="Developer Mode"></span>Developer Mode（开发者模式） | 显示更新通道、安装方式、本地 API、Web 客户端源以及实验性设置项。<span hidden>In Settings &gt; Developer.</span> <span hidden>enable, advanced, development, debugging</span> |
+| <span id="setting-developer-developer-mode" data-entry="Developer Mode"></span>Developer Mode（开发者模式） | 显示实验性功能、本地 API 与 Web 客户端源设置。<span hidden>In Settings &gt; Developer.</span> <span hidden>enable, advanced, development, debugging</span> |
 
-### 实验性功能（Experimental）
-在启用“开发者模式”时体验未正式发布的特性。位于“设置”>“开发者”>“Experimental”。 <span hidden>experiment, beta, unfinished, labs</span>
-
-| 设置项 | 说明 |
-| --- | --- |
-| <span id="setting-experimental-download-new-updates-when-available" data-entry="Download new updates when available"></span>Download new updates when available（有可用更新时自动下载） | 在后台下载更新（低数据模式或热点网络除外），并在重启前进行提示。<span hidden>In Settings &gt; Developer &gt; Experimental. Needs Developer Mode.</span> <span hidden>auto download, background download, install on quit, download new updates, auto update, sparkle, low data mode, hotspot, tethering, cellular, metered, expensive network, save data, download paused</span> |
-| <span id="setting-experimental-install-updates-automatically" data-entry="Install updates automatically"></span>Install updates automatically（自动安装更新） | 在 Rex 未处于前台显示状态时重启进入新版本。<span hidden>In Settings &gt; Developer &gt; Experimental. Needs Developer Mode.</span> <span hidden>auto install, auto relaunch, auto restart, silent update, unattended update, relaunch when idle</span> |
-| <span id="setting-experimental-terminal-anchoring" data-entry="Terminal anchoring"></span>Terminal anchoring（终端锚定） | 将终端文本固定在每个窗格的顶部或底部。<span hidden>In Settings &gt; Developer &gt; Experimental. Needs Developer Mode.</span> <span hidden>anchor, terminal alignment, grid gravity, leftover row</span> |
-| <span id="setting-experimental-new-quick-switcher" data-entry="New quick switcher"></span>New quick switcher（新版快速切换器） | 在“前往任意位置”中打开一个汇总所有会话、块和报告中进程的统一列表。<span hidden>In Settings &gt; Developer &gt; Experimental. Needs Developer Mode.</span> <span hidden>go to anything, go to session, view activity, switcher, command palette, cmd p, jump, navigate, panes, blocks, sessions, experiment</span> |
-
-### 应用版本（App Version）
-在启用“开发者模式”时选择 Rex.app 接收更新的方式。位于“设置”>“开发者”>“App Version”。 <span hidden>application, release, update, channel, upgrade</span>
+### 实验性功能（Experimental Features）
+在启用“开发者模式”时体验未正式发布的特性。位于“设置”>“开发者”>“Experimental Features”。 <span hidden>experiment, beta, unfinished, labs</span>
 
 | 设置项 | 说明 |
 | --- | --- |
-| <span id="setting-app-version-update-channel" data-entry="Update Channel"></span>Update Channel（更新通道） | 在启用“开发者模式”时选择 Preview 或 Bleeding Edge 更新。<span hidden>In Settings &gt; Developer &gt; App Version. Needs Developer Mode.</span> <span hidden>bleeding edge, testing, snapshot, preview, version, upgrade</span> |
-
-### Rex 服务端（Rex Server）
-选择使用内置服务端或从源码仓库运行 Rex。位于“设置”>“开发者”>“Rex Server”。 <span hidden>binary, install, installation, source, development</span>
-
-| 设置项 | 说明 |
-| --- | --- |
-| <span id="setting-rex-server-location" data-entry="Location"></span>Location（安装位置） | 使用 Rex.app 内置的服务端或本地源码仓库。<span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>bundled, included, source checkout, installation</span> |
-| <span id="setting-rex-server-source-directory" data-entry="Source Directory"></span>Source Directory（源码目录） | 选择包含 Rex 源码仓库的文件夹。<span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>folder, path, repository, repo, checkout, choose</span> |
-| <span id="setting-rex-server-rex-server-status" data-entry="Rex Server status"></span>Rex Server status（Rex 服务端状态） | 检查所选的 Rex Server 是否已准备就绪、正在运行或等待重启。<span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>installation, running, included, update, restart, show details, hide details, version, binary, executable, copy, paths, status</span> |
-| <span id="setting-rex-server-included-version" data-entry="Included Version"></span>Included Version（内置版本） | 在“显示详细信息”下查看并复制内置服务端版本。<span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>release, build, included, bundled, copy</span> |
-| <span id="setting-rex-server-included-commit" data-entry="Included Commit"></span>Included Commit（内置提交哈希） | 在“显示详细信息”下查看并复制内置服务端的源码提交。<span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>revision, git, hash, build, copy</span> |
-| <span id="setting-rex-server-final-sha-256" data-entry="Final SHA-256"></span>Final SHA-256（最终校验和） | 在“显示详细信息”下查看并复制内置服务端的校验和。<span hidden>In Settings &gt; Developer &gt; Rex Server. Needs Developer Mode.</span> <span hidden>checksum, digest, hash, sha256, integrity, copy</span> |
+| <span id="setting-experimental-features-terminal-anchoring" data-entry="Terminal anchoring"></span>Terminal anchoring（终端锚定） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 将终端文本固定在每个窗格的顶部或底部。<span hidden>In Settings &gt; Developer &gt; Experimental Features. Needs Developer Mode.</span> <span hidden>anchor, terminal alignment, grid gravity, leftover row</span> |
+| <span id="setting-experimental-features-new-quick-switcher" data-entry="New quick switcher"></span>New quick switcher（新版快速切换器） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 在“前往任意位置”中打开一个汇总所有会话、块和报告中进程的统一列表。<span hidden>In Settings &gt; Developer &gt; Experimental Features. Needs Developer Mode.</span> <span hidden>go to anything, go to session, view activity, switcher, command palette, cmd p, jump, navigate, panes, blocks, sessions, experiment</span> |
 
 ### 本地 API（Local API）
 在启用“开发者模式”时检查本地服务端的 API 端点。位于“设置”>“开发者”>“Local API”。 <span hidden>local server, control api, development, connection</span>

@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/ios-settings
-> 原文版本：b2cbf3ed8da7（抓取于 2026-11-19）
+> 原文版本：10f9ad2f8d46（抓取于 2026-11-21）
 
 # iOS 设置
 
@@ -16,6 +16,7 @@
 | <span id="setting-interface-color-scheme" data-entry="Color Scheme"></span>Color Scheme（配色方案） | 外观 · 使用自动、浅色或深色外观。<span hidden>In Settings &gt; Interface.</span> <span hidden>appearance, display, system, device, mode, automatic, light mode, dark mode</span> |
 | <span id="setting-interface-tint-with-theme" data-entry="Tint with Theme"></span>Tint with Theme（随主题着色） | 外观 · 匹配终端颜色或使用标准 iOS 颜色。<span hidden>In Settings &gt; Interface.</span> <span hidden>theme tint, use theme tint, tinting, matching, neutral, system colors, on, off</span> |
 | <span id="setting-interface-match-program-backgrounds" data-entry="Match Program Backgrounds"></span>Match Program Backgrounds（匹配程序背景） | 窗格 · 使用全屏程序的背景为屏幕着色。<span hidden>In Settings &gt; Interface.</span> <span hidden>tint, screen color, header color, terminal background, program background, editor, full screen, tui, neovim, vim, extend, blend, match terminal</span> |
+| <span id="setting-interface-app-icon" data-entry="App Icon"></span>App Icon（应用图标） | 应用图标 · 为主屏幕选择 Rexie、Bright、Twilight、Vibe、Shell 或 Spookie 图标。<span hidden>In Settings &gt; Interface.</span> <span hidden>app icon, home screen icon, alternate icon, custom icon, change icon, rexie, default icon, bright, twilight, vibe, shell icon, spook, spookie, ghost, terminal prompt, dark icon, light icon</span> |
 
 ## 主题
 
