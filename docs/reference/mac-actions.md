@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/mac-actions
-> 原文版本：b2c3aba15a92（抓取于 2026-11-21）
+> 原文版本：dddd4338c9c4（抓取于 2026-11-22）
 
 # Mac 操作
 
@@ -89,6 +89,7 @@
 | <span id="action-client-tab-move-forward" data-entry="Move Tab Forward"></span>Move Tab Forward（向前移动标签页） | `client.tab.move.forward` <span hidden>move tab window reorder right down later</span> |  <span hidden>默认快捷键：</span>`ctrl+shift+pagedown` |
 | <span id="action-client-tab-move-to-new-window" data-entry="Move Tab to New Window"></span>Move Tab to New Window（移动标签页至新窗口） | `client.tab.move_to_new_window` <span hidden>move tab new window tear off detach separate pop out own</span> |  |
 | <span id="action-client-tab-mute" data-entry="Mute Tab"></span>Mute Tab（静音标签页） | `client.tab.mute` <span hidden>mute unmute silence quiet tab sound notification alert badge</span> |  |
+| <span id="action-client-tab-unread" data-entry="Mark as Unread"></span>Mark as Unread（标记为未读） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | `client.tab.unread` <span hidden>mark unread read tab pane later remind come back dot flag inbox</span> |  <span hidden>默认快捷键：</span>`alt+cmd+u` |
 
 ## 窗格
 
