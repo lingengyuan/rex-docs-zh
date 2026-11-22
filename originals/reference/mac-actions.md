@@ -91,6 +91,7 @@ This page lists every action in the Rex for Mac command palette. Use the name to
 | <span id="action-client-tab-move-forward" data-entry="Move Tab Forward"></span>Move Tab Forward | `client.tab.move.forward` <span hidden>move tab window reorder right down later</span> |  <span hidden>Default shortcut:</span>`ctrl+shift+pagedown` |
 | <span id="action-client-tab-move-to-new-window" data-entry="Move Tab to New Window"></span>Move Tab to New Window | `client.tab.move_to_new_window` <span hidden>move tab new window tear off detach separate pop out own</span> |  |
 | <span id="action-client-tab-mute" data-entry="Mute Tab"></span>Mute Tab | `client.tab.mute` <span hidden>mute unmute silence quiet tab sound notification alert badge</span> |  |
+| <span id="action-client-tab-unread" data-entry="Mark as Unread"></span>Mark as Unread <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](https://www.superlogical.com/rex/docs/reference/mac-settings.md#setting-app-version-update-channel)</span></span> | `client.tab.unread` <span hidden>mark unread read tab pane later remind come back dot flag inbox</span> |  <span hidden>Default shortcut:</span>`alt+cmd+u` |
 
 ## Pane
 
