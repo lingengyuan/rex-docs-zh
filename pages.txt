@@ -6,6 +6,7 @@ customize/keyboard-shortcuts
 customize/key-sequences
 customize/key-modes
 customize/actions
+customize/custom-ui
 automate/cli
 automate/agent-skill
 automate/lua-scripts

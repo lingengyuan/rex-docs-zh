@@ -1,6 +1,6 @@
 # Rex 官方文档中文译文目录
 
-本目录按官网侧边栏顺序排列，与 [pages.txt](../pages.txt) 保持一致，共 32 篇（均已译完）。译文与原文不一致时，以 [官方文档](https://www.superlogical.com/rex/docs) 为准。
+本目录按官网侧边栏顺序排列，与 [pages.txt](../pages.txt) 保持一致，共 33 篇（均已译完）。译文与原文不一致时，以 [官方文档](https://www.superlogical.com/rex/docs) 为准。
 
 - [安装](installation.md)
 
@@ -11,6 +11,7 @@
 3. [按键序列](customize/key-sequences.md)
 4. [按键模式](customize/key-modes.md)
 5. [自定义操作](customize/actions.md)
+6. [自定义 UI](customize/custom-ui.md)
 
 ## Automate（自动化）
 

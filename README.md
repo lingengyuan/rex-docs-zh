@@ -10,7 +10,7 @@ Rex 官方文档的社区中文译文。
 
 ## 范围与阅读
 
-已覆盖官方文档的全部公开页面，共 32 篇（均已译完）。登录 Discord 后才显示的内容（例如 Linux、FreeBSD 和 Windows 的安装命令）不在翻译范围内。
+已覆盖官方文档的全部公开页面，共 33 篇（均已译完）。登录 Discord 后才显示的内容（例如 Linux、FreeBSD 和 Windows 的安装命令）不在翻译范围内。
 
 译文存放在 `docs/` 下，目录结构与官方文档一致，完整导航也同步放在 [docs/README.md](docs/README.md)。译文与原文不一致时，以原文为准。
 
@@ -24,6 +24,7 @@ Rex 官方文档的社区中文译文。
 3. [按键序列](docs/customize/key-sequences.md)
 4. [按键模式](docs/customize/key-modes.md)
 5. [自定义操作](docs/customize/actions.md)
+6. [自定义 UI](docs/customize/custom-ui.md)
 
 **Automate（自动化）**
 1. [CLI](docs/automate/cli.md)

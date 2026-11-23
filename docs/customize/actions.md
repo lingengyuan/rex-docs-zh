@@ -207,4 +207,4 @@ rex do ~/.config/rex/init.lua --action dev_layout file=app.log
 
 ## 请求输入
 
-操作可以中途暂停，在命令面板中以文本输入框或选项列表的形式向用户提问。详见 [Custom UI](https://www.superlogical.com/rex/docs/customize/custom-ui.md)。
+操作可以中途暂停，在命令面板中以文本输入框或选项列表的形式向用户提问。详见[自定义 UI](custom-ui.md)。
