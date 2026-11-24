@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/automate/server-api
-> 原文版本：6e3111864904（抓取于 2026-11-13）
+> 原文版本：418ffcbcd337（抓取于 2026-11-24）
 
 # 服务端 API
 
@@ -118,7 +118,7 @@ echo '{"label": "work"}' | rex api call session.create -
 rex api call -s work session.view
 ```
 
-与其他 `rex` 命令不同，`rex api call` 默认不会自动采用当前所处的会话。在 Rex 终端内部，请传入 `-s "$REX_SESSION"` 以使用当前会话。
+与其他 `rex` 命令不同，`rex api call` 默认不会自动采用当前所处的会话。在 Rex 终端内部，请传入 `-s "$REX_BLOCK"` 以使用当前会话。块的 ID 即代表持有该块的会话。
 
 其他 ID 绝不会自动填入。作用于块的方法必须在参数中显式包含其 `block_id`。
 

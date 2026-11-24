@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/mac-settings
-> 原文版本：5db0ac46ab2e（抓取于 2026-11-21）
+> 原文版本：3b477be22a45（抓取于 2026-11-24）
 
 # Mac 设置
 
@@ -80,7 +80,7 @@
 
 | 设置项 | 说明 |
 | --- | --- |
-| <span id="setting-server-version-installed" data-entry="Installed"></span>Installed（已安装） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 查看正在运行的 Rex Server 版本，以及当前应用是否支持其全部功能。点击信息按钮可选择服务端更新通道。<span hidden>In Settings &gt; Server &gt; Server Version.</span> <span hidden>server version, running version, bundled, downloaded, works with this app, works with limits, unavailable features, release notes, changelog, server channel, bundled server, install server, download server, server release, update server, snapshot server, preview server, source checkout, source directory, checkout, repository, repo, build from source, local build, development server, installation</span> |
+| <span id="setting-server-version-installed" data-entry="Installed"></span>Installed（已安装） | 查看正在运行的 Rex Server 版本，以及当前应用是否支持其全部功能。点击信息按钮可选择服务端更新通道。<span hidden>In Settings &gt; Server &gt; Server Version.</span> <span hidden>server version, running version, bundled, downloaded, works with this app, works with limits, unavailable features, release notes, changelog, server channel, bundled server, install server, download server, server release, update server, snapshot server, preview server, source checkout, source directory, checkout, repository, repo, build from source, local build, development server, installation</span> |
 
 ### Tailscale
 
@@ -146,6 +146,7 @@
 | --- | --- |
 | <span id="setting-window-sidebar-text-size" data-entry="Sidebar text size"></span>Sidebar text size（边栏文字大小） | 在垂直标签页下可用：设置边栏中会话和标签页标题的大小，或跟随系统设置中的边栏图标大小。<span hidden>In Settings &gt; Interface &gt; Window.</span> <span hidden>sidebar text, text size, tab title size, session title size, larger text, bigger text, sidebar icon size, sidebar row size, row height, follow system size</span> |
 | <span id="setting-window-preserve-width-when-resizing-sidebar" data-entry="Preserve width when resizing sidebar"></span>Preserve width when resizing sidebar（调整边栏大小时保持窗口宽度） | 在垂直标签页下可用：在显示或隐藏边栏时调整窗格大小，保持窗口总宽度不变。<span hidden>In Settings &gt; Interface &gt; Window.</span> <span hidden>keep window width, preserve window width, fixed window width, resizing sidebar, window size, resize window, shrink window, grow window, keep window size, show sidebar, hide sidebar, toggle sidebar, collapse sidebar, fold sidebar, pane width, maximized, full screen</span> |
+| <span id="setting-window-show-back-and-forward-buttons" data-entry="Show Back and Forward buttons"></span>Show Back and Forward buttons（显示后退与前进按钮） | 添加“后退”和“前进”箭头以步进浏览曾聚焦的窗格：位于标签栏的会话选择器之前，或边栏标题行的“活动”按钮旁。<span hidden>In Settings &gt; Interface &gt; Window.</span> <span hidden>navigate, navigation, history, browser, arrows, back, forward, previous, next, chevron, focus history, title row, sidebar buttons, tab bar buttons, navigate back, navigate forward, go back, pane history</span> |
 | <span id="setting-window-use-a-gesture-to-toggle-the-sidebar" data-entry="Use a gesture to toggle the sidebar"></span>Use a gesture to toggle the sidebar（使用手势切换边栏） | 在垂直标签页下可用：选择使用单指/双指轻扫或 Option+轻扫显示/隐藏边栏，亦可关闭手势。按住 ⌥ 键可改为水平滚动内容。<span hidden>In Settings &gt; Interface &gt; Window.</span> <span hidden>show or hide sidebar, option-swipe, option swipe, ⌥, off, disable swipe, turn off swipe, no gesture, disable gesture, magic mouse, mouse, one finger, option scroll, alt scroll, option key, alt key, hold option, modifier, swipe, two finger swipe, two fingers, trackpad, gesture, trackpad gesture, sidebar swipe, swipe sidebar, fold sidebar, horizontal scroll, scroll sideways, sideways, side scroll, scroll left, scroll right, tui, diff, long lines</span> |
 
 ### 内边距（Padding）
@@ -206,31 +207,31 @@
 
 | 设置项 | 说明 |
 | --- | --- |
-| <span id="setting-app-version-software-update" data-entry="Software Update"></span>Software Update（软件更新） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 查看 Rex 是否为最新版本，检查更新，以及下载或安装更新。<span hidden>In Settings &gt; General &gt; App Version.</span> <span hidden>check for updates, check now, update now, up to date, latest version, current version, last checked, relaunch to update, restart to update, install update, download update, new version, sparkle</span> |
-| <span id="setting-app-version-update-channel" data-entry="Update Channel"></span>Update Channel（更新通道） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 选择接收 Preview 或 Snapshot 更新。点击信息按钮可设置是否自动下载并安装更新。<span hidden>In Settings &gt; General &gt; App Version.</span> <span hidden>bleeding edge, testing, snapshot, preview, version, upgrade, automatic updates, auto update, auto download, background download, download new updates, install on quit, auto install, auto relaunch, auto restart, install updates automatically, silent update, unattended update, relaunch when idle, low data mode, hotspot, tethering, cellular, metered, expensive network, save data, download paused</span> |
+| <span id="setting-app-version-software-update" data-entry="Software Update"></span>Software Update（软件更新） | 查看 Rex 是否为最新版本，检查更新，以及下载或安装更新。<span hidden>In Settings &gt; General &gt; App Version.</span> <span hidden>check for updates, check now, update now, up to date, latest version, current version, last checked, relaunch to update, restart to update, install update, download update, new version, sparkle</span> |
+| <span id="setting-app-version-update-channel" data-entry="Update Channel"></span>Update Channel（更新通道） | 选择接收 Preview 或 Snapshot 更新。点击信息按钮可设置是否自动下载并安装更新。<span hidden>In Settings &gt; General &gt; App Version.</span> <span hidden>bleeding edge, testing, snapshot, preview, version, upgrade, automatic updates, auto update, auto download, background download, download new updates, install on quit, auto install, auto relaunch, auto restart, install updates automatically, silent update, unattended update, relaunch when idle, low data mode, hotspot, tethering, cellular, metered, expensive network, save data, download paused</span> |
 
 ### 客户端信息（Client Info）
 选择此 Mac 在 Rex 服务端和命令行中的显示方式。位于“设置”>“通用”>“Client Info”。 <span hidden>client, device, identity, `rex client ls`, command line, cli</span>
 
 | 设置项 | 说明 |
 | --- | --- |
-| <span id="setting-client-info-label" data-entry="Label"></span>Label（标签） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 在客户端列表中为此 Mac 命名，以便在 rex 命令中作为目标指定。<span hidden>In Settings &gt; General &gt; Client Info.</span> <span hidden>device label, client label, name, computer, identify, rename, rename this mac, this device, `-C`, target, targeting, client ls</span> |
-| <span id="setting-client-info-remote-control" data-entry="Remote Control"></span>Remote Control（远程控制） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 允许 Rex 和其他客户端在此应用中执行操作。<span hidden>In Settings &gt; General &gt; Client Info.</span> <span hidden>remote, control, allow, allow actions, actions, command line, `rex do`, perform, security</span> |
+| <span id="setting-client-info-label" data-entry="Label"></span>Label（标签） | 在客户端列表中为此 Mac 命名，以便在 rex 命令中作为目标指定。<span hidden>In Settings &gt; General &gt; Client Info.</span> <span hidden>device label, client label, name, computer, identify, rename, rename this mac, this device, `-C`, target, targeting, client ls</span> |
+| <span id="setting-client-info-remote-control" data-entry="Remote Control"></span>Remote Control（远程控制） | 允许 Rex 和其他客户端在此应用中执行操作。<span hidden>In Settings &gt; General &gt; Client Info.</span> <span hidden>remote, control, allow, allow actions, actions, command line, `rex do`, perform, security</span> |
 
 ### 应用图标（App Icon）
 自定 Rex 的应用图标，以及在 Dock 和菜单栏中的图标可见性。位于“设置”>“通用”>“App Icon”。 <span hidden>app icon, application icon, dock icon, artwork</span>
 
 | 设置项 | 说明 |
 | --- | --- |
-| <span id="setting-app-icon-app-icon" data-entry="App Icon"></span>App Icon（应用图标） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 为应用图标选择 Rexie（动态默认图标），或备选图标之一：Bright、Twilight、Vibe、Shell 或 Spookie。<span hidden>In Settings &gt; General &gt; App Icon.</span> <span hidden>app icon, application icon, dock icon, custom icon, alternate icon, bright, bright icon, twilight, twilight icon, light icon, dark icon, artwork, dynamic, dynamic icon, rexie, vibe, vibe icon, glowing prompt, prompt icon, terminal prompt icon, spook, spook icon, spookie, ghost icon, blue icon</span> |
-| <span id="setting-app-icon-show-app-icon" data-entry="Show app icon"></span>Show app icon（显示应用图标） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 在 Dock 和菜单栏、仅 Dock，或未打开窗口时仅菜单栏中显示 Rex 图标。<span hidden>In Settings &gt; General &gt; App Icon.</span> <span hidden>dock and menu bar, dock only, menubar only, menu bar only, dock icon, hide dock icon, show dock icon, dock visibility, application switcher, app switcher, command tab, cmd tab, menubar, menu bar icon, status item, status bar, tray icon, hide menu bar icon, show menu bar icon, hide, show, visibility</span> |
+| <span id="setting-app-icon-app-icon" data-entry="App Icon"></span>App Icon（应用图标） | 为应用图标选择 Rexie（动态默认图标），或备选图标之一：Bright、Twilight、Vibe、Shell 或 Spookie。<span hidden>In Settings &gt; General &gt; App Icon.</span> <span hidden>app icon, application icon, dock icon, custom icon, alternate icon, bright, bright icon, twilight, twilight icon, light icon, dark icon, artwork, dynamic, dynamic icon, rexie, vibe, vibe icon, glowing prompt, prompt icon, terminal prompt icon, spook, spook icon, spookie, ghost icon, blue icon</span> |
+| <span id="setting-app-icon-show-app-icon" data-entry="Show app icon"></span>Show app icon（显示应用图标） | 在 Dock 和菜单栏、仅 Dock，或未打开窗口时仅菜单栏中显示 Rex 图标。<span hidden>In Settings &gt; General &gt; App Icon.</span> <span hidden>dock and menu bar, dock only, menubar only, menu bar only, dock icon, hide dock icon, show dock icon, dock visibility, application switcher, app switcher, command tab, cmd tab, menubar, menu bar icon, status item, status bar, tray icon, hide menu bar icon, show menu bar icon, hide, show, visibility</span> |
 
 ### 启动（Launch）
 选择 Rex 启动时是否打开工作区窗口。位于“设置”>“通用”>“Launch”。 <span hidden>launch, startup, start up, opening, background</span>
 
 | 设置项 | 说明 |
 | --- | --- |
-| <span id="setting-launch-show-window-on-launch" data-entry="Show window on launch"></span>Show window on launch（启动时显示窗口） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 在 Rex 启动时自动打开工作区窗口。<span hidden>In Settings &gt; General &gt; Launch.</span> <span hidden>show window on launch, open window on startup, launch in background, hide window on launch, restore windows, start minimized</span> |
+| <span id="setting-launch-show-window-on-launch" data-entry="Show window on launch"></span>Show window on launch（启动时显示窗口） | 在 Rex 启动时自动打开工作区窗口。<span hidden>In Settings &gt; General &gt; Launch.</span> <span hidden>show window on launch, open window on startup, launch in background, hide window on launch, restore windows, start minimized</span> |
 
 ## 主题
 
@@ -364,7 +365,7 @@
 ## 远程主机
 
 ### 远程主机（Remote hosts）
-添加、重新排序和管理远程 Rex 主机，查看连接状态，回答 SSH 提示问题，在连接失败时重试，以及进行端口转发。位于“设置”>“远程主机”>“Remote hosts”。 <span hidden>remote, connections, machines, servers, add host, remove host, retry, host details, remote host status, remote host reconnect, connection warning, connection failure, host address, reorder hosts, host order, sort hosts, arrange hosts, move host up, move host down, drag hosts, ssh, ssh host, ssh passphrase, ssh password, host key, answer ssh question, waiting for an answer, needs your answer, finish setup, trust host, port forwarding, forward port, forwards, tunnel, ssh `-L`, localhost link</span>
+添加、重新排序和管理远程 Rex 主机，查看连接状态，断开未使用的主机，回答 SSH 提示问题，在连接失败时重试，以及进行端口转发。位于“设置”>“远程主机”>“Remote hosts”。 <span hidden>remote, connections, machines, servers, add host, remove host, retry, disconnect host, connect host, pause host, stop connecting, turn off host, offline host, disable host, keep host, disconnected, host details, remote host status, remote host reconnect, connection warning, connection failure, host address, reorder hosts, host order, sort hosts, arrange hosts, move host up, move host down, drag hosts, ssh, ssh host, ssh passphrase, ssh password, host key, answer ssh question, waiting for an answer, needs your answer, finish setup, trust host, port forwarding, forward port, forwards, tunnel, ssh `-L`, localhost link</span>
 
 ### SSH
 
@@ -391,8 +392,8 @@
 
 | 设置项 | 说明 |
 | --- | --- |
-| <span id="setting-experimental-features-terminal-anchoring" data-entry="Terminal anchoring"></span>Terminal anchoring（终端锚定） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 将终端文本固定在每个窗格的顶部或底部。<span hidden>In Settings &gt; Developer &gt; Experimental Features. Needs Developer Mode.</span> <span hidden>anchor, terminal alignment, grid gravity, leftover row</span> |
-| <span id="setting-experimental-features-new-quick-switcher" data-entry="New quick switcher"></span>New quick switcher（新版快速切换器） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 在“前往任意位置”中打开一个汇总所有会话、块和报告中进程的统一列表。<span hidden>In Settings &gt; Developer &gt; Experimental Features. Needs Developer Mode.</span> <span hidden>go to anything, go to session, view activity, switcher, command palette, cmd p, jump, navigate, panes, blocks, sessions, experiment</span> |
+| <span id="setting-experimental-features-terminal-anchoring" data-entry="Terminal anchoring"></span>Terminal anchoring（终端锚定） | 将终端文本固定在每个窗格的顶部或底部。<span hidden>In Settings &gt; Developer &gt; Experimental Features. Needs Developer Mode.</span> <span hidden>anchor, terminal alignment, grid gravity, leftover row</span> |
+| <span id="setting-experimental-features-new-quick-switcher" data-entry="New quick switcher"></span>New quick switcher（新版快速切换器） | 在“前往任意位置”中打开一个汇总所有会话、块和报告中进程的统一列表。<span hidden>In Settings &gt; Developer &gt; Experimental Features. Needs Developer Mode.</span> <span hidden>go to anything, go to session, view activity, switcher, command palette, cmd p, jump, navigate, panes, blocks, sessions, experiment</span> |
 
 ### 本地 API（Local API）
 在启用“开发者模式”时检查本地服务端的 API 端点。位于“设置”>“开发者”>“Local API”。 <span hidden>local server, control api, development, connection</span>

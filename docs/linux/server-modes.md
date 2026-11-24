@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/linux/server-modes
-> 原文版本：6347050ac0f5（抓取于 2026-11-13）
+> 原文版本：42ecdaf1d5ba（抓取于 2026-11-24）
 
 # 服务端运行模式
 
@@ -55,6 +55,24 @@ rex -S PATH server start
 ```
 
 若要彻底禁止 `rex` 命令自动启动服务端，请设置 `REX_AUTOSTART=0`。
+
+### 共享主目录
+
+即使用户的主目录跨多台机器共享（例如通过 NFS），Rex 也能作为个人服务端正常运行。Rex 使用机器 ID 来区分本地状态，因此通常会自动处理，本节将说明其具体机制。
+
+第一台使用 `~/.local/state/rex` 的机器会声明归属权，并照常将状态保存在该目录中。这样一来，对于不使用共享文件系统的普通用户，本地状态目录仍能保持整洁。
+
+后续访问同一状态目录的其他机器，会将其状态保存在按机器 ID 区分的子目录 `~/.local/state/rex/machines/<key>` 中。每台机器各自拥有独立的服务端、会话、主机 ID 和主机列表。`~/.config/rex` 中的配置则保持共享。
+
+Rex 通过 `/etc/machine-id`（在 FreeBSD 上则为 `kern.hostuuid`）来确定机器 ID。
+
+当某台机器的 ID 发生变化时（例如重装系统后），它会被视为一台新机器，并在启动时没有任何会话。如果它原本是第一台声明归属权的机器，可以收回其旧状态：移除归属标记，然后停止当前服务端，使下一条 `rex` 命令使用旧状态启动服务端：
+
+```sh
+rm ~/.local/state/rex/machine-owner
+rex server stop
+rex ls
+```
 
 ## 共享服务端
 

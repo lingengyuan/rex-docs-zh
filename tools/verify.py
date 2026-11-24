@@ -389,7 +389,7 @@ def check_ac5_cleanup(
 
     # 5. windows/installation.md 必须包含特定后备文本
     if page == "windows/installation":
-        fallback_text = "拥有 Windows 角色的测试者可在此处获取下载。"
+        fallback_text = "使用 Discord 登录后，此处会显示下载链接。"
         if fallback_text not in doc_text:
             report.add(
                 page,

@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/linux/upgrading
-> 原文版本：22d295cc8467（抓取于 2026-11-13）
+> 原文版本：6b6e945a2f44（抓取于 2026-11-24）
 
 # 升级
 
@@ -124,7 +124,7 @@ this server is too old for rex client ls; it needs Rex 0.1.0 or later
 | zypper | `zypper search -s -x rex` | `sudo zypper install --oldpackage rex-VERSION` |
 | pacman | 仅保留一个版本。详见 [Arch Linux 发行版](installation.md#arch-linux-发行版)。 | `sudo pacman -U URL` |
 | apk | `apk search -a -x rex` | `apk add rex=VERSION` |
-| pkg | `pkg search -r rex rex` | 参阅 [FreeBSD](#freebsd)。 |
+| pkg | 仅保留一个版本。详见 [FreeBSD](#freebsd)。 | 参阅 [FreeBSD](#freebsd)。 |
 
 降级重启服务的方式与升级相同。在降级过程中你的数据是安全的。当某个版本的 Rex 发现由更高版本格式写入的数据时，它会拒绝使用该数据，而非将其覆盖。
 
@@ -189,10 +189,18 @@ pkg 无法通过 `pkg install` 直接执行降级，因此请先删除较新版�
 
 ```sh
 pkg delete rex
-pkg install -r rex rex-VERSION
+pkg install -r rex rex
 ```
 
-`VERSION` 为完整版本号，例如 `0.0.1792508098.g07b896`。`pkg info rex` 可显示已安装的版本。
+软件源中同一时间只保留一个版本的 Rex，即该通道上的最新版本。较旧的软件包仍留在通道目录中，因此若要回退到旧版本，请将其 URL 传给 `pkg add`，然后[锁定版本](#锁定版本)：
+
+```sh
+pkg delete rex
+pkg add https://pkgs.superlogical.com/rex/freebsd/snapshot/amd64/rex-VERSION.pkg
+pkg lock rex
+```
+
+`VERSION` 为完整版本号，例如 `0.1.0.alpha2514`。在 ARM64 上请将 `amd64` 替换为 `aarch64`。`pkg info rex` 可显示已安装的版本。
 
 ## Windows
 

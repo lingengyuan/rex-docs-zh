@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/freebsd/installation
-> 原文版本：283ca2fca487（抓取于 2026-11-13）
+> 原文版本：fa5dcc4be7fc（抓取于 2026-11-24）
 
 # 在 FreeBSD 上安装
 
@@ -36,7 +36,7 @@ Rex 可以在 FreeBSD 上作为服务端运行，以便客户端将其作为远�
 | 要求 | 支持情况 |
 | --- | --- |
 | 发行版本 | FreeBSD 14.0 或更高版本 |
-| 架构 | x86-64、ARM64 |
+| 架构 | 支持 SSE4.2 的 x86-64、ARM64 |
 | 依赖项 | 无。Rex 仅使用基础系统组件。 |
 | 系统服务 | rc.d（适用于共享服务端和登录服务端）。`rex` 命令无需这两者即可直接运行。 |
 | 软件包格式 | `.pkg`，来自 Rex 软件源 |
@@ -54,6 +54,8 @@ FreeBSD 默认同样没有 curl，因此命令使用 FreeBSD 自带的 `fetch` �
 如果某个通道暂无 FreeBSD 软件包，脚本仅会将 `rex` 二进制文件安装至 `/usr/local/bin`（行为同 `--tarball`），且不包含系统服务。一旦该通道发布了软件包，再次运行该脚本即可自动切换至软件包安装。
 
 pkg 通过 `/usr/local/etc/pkg/fingerprints/rex` 中的签名密钥指纹信任 Rex 软件源。如果密钥发生变更，请重新运行安装脚本以信任新密钥。
+
+FreeBSD 官方软件源中存在一个同名但无关的 `rex` 软件包，且版本号更高，因此 `pkg version` 会提示 Rex 已过期。请忽略该提示，并按[升级](../linux/upgrading.md#升级软件包)中的说明使用 `pkg upgrade -r rex rex` 进行升级。
 
 ## 通道
 

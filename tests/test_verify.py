@@ -326,7 +326,7 @@ class TestAC5Cleanup(unittest.TestCase):
     def test_windows_installation_fallback_present(self):
         report = verify.Report()
         orig = "# Installing on Windows\n\n{#if download}\nZip\n{/if}"
-        doc = "# 在 Windows 上安装\n\n拥有 Windows 角色的测试者可在此处获取下载。"
+        doc = "# 在 Windows 上安装\n\n使用 Discord 登录后，此处会显示下载链接。"
         verify.check_ac5_cleanup("windows/installation", orig, doc, report)
         self.assertTrue(report.passed)
 

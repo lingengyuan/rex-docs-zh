@@ -1,11 +1,21 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/ios-settings
-> 原文版本：10f9ad2f8d46（抓取于 2026-11-21）
+> 原文版本：d1eb1a667a55（抓取于 2026-11-24）
 
 # iOS 设置
 
 本页列出 Rex for iOS 中的所有设置项及其所在位置。
 
 <div class="reference-page settings" hidden></div>
+
+## 通用
+
+选择此设备在 Rex 服务端中的显示方式、允许远程控制，以及选择应用图标。位于“设置”>“通用”。 <span hidden>app, client info, device, preferences, basics</span>
+
+| 设置项 | 说明 |
+| --- | --- |
+| <span id="setting-general-label" data-entry="Label"></span>Label（标签） | 客户端信息 · 选择此设备在 Rex 服务端与命令行中的显示名称。<span hidden>In Settings &gt; General.</span> <span hidden>client label, client name, device name, rename device, `rex client ls`, identify, nickname</span> |
+| <span id="setting-general-remote-control" data-entry="Remote Control"></span>Remote Control（远程控制） | 客户端信息 · 允许 Rex 和其他客户端在此应用中执行操作。<span hidden>In Settings &gt; General.</span> <span hidden>remote, control, actions, cli, `rex do`, automation, allow</span> |
+| <span id="setting-general-app-icon" data-entry="App Icon"></span>App Icon（应用图标） | 应用图标 · 为主屏幕选择 Rexie、Bright、Twilight、Vibe、Shell 或 Spookie 图标。<span hidden>In Settings &gt; General.</span> <span hidden>app icon, home screen icon, alternate icon, custom icon, change icon, rexie, default icon, bright, twilight, vibe, shell icon, spook, spookie, ghost, terminal prompt, dark icon, light icon</span> |
 
 ## 界面
 
@@ -16,7 +26,6 @@
 | <span id="setting-interface-color-scheme" data-entry="Color Scheme"></span>Color Scheme（配色方案） | 外观 · 使用自动、浅色或深色外观。<span hidden>In Settings &gt; Interface.</span> <span hidden>appearance, display, system, device, mode, automatic, light mode, dark mode</span> |
 | <span id="setting-interface-tint-with-theme" data-entry="Tint with Theme"></span>Tint with Theme（随主题着色） | 外观 · 匹配终端颜色或使用标准 iOS 颜色。<span hidden>In Settings &gt; Interface.</span> <span hidden>theme tint, use theme tint, tinting, matching, neutral, system colors, on, off</span> |
 | <span id="setting-interface-match-program-backgrounds" data-entry="Match Program Backgrounds"></span>Match Program Backgrounds（匹配程序背景） | 窗格 · 使用全屏程序的背景为屏幕着色。<span hidden>In Settings &gt; Interface.</span> <span hidden>tint, screen color, header color, terminal background, program background, editor, full screen, tui, neovim, vim, extend, blend, match terminal</span> |
-| <span id="setting-interface-app-icon" data-entry="App Icon"></span>App Icon（应用图标） | 应用图标 · 为主屏幕选择 Rexie、Bright、Twilight、Vibe、Shell 或 Spookie 图标。<span hidden>In Settings &gt; Interface.</span> <span hidden>app icon, home screen icon, alternate icon, custom icon, change icon, rexie, default icon, bright, twilight, vibe, shell icon, spook, spookie, ghost, terminal prompt, dark icon, light icon</span> |
 
 ## 主题
 
@@ -26,6 +35,7 @@
 | --- | --- |
 | <span id="setting-themes-light-theme" data-entry="Light Theme"></span>Light Theme（浅色主题） | 浅色模式 · 选择浅色外观下的终端调色板。<span hidden>In Settings &gt; Themes.</span> <span hidden>colors, day, scheme, light mode</span> |
 | <span id="setting-themes-dark-theme" data-entry="Dark Theme"></span>Dark Theme（深色主题） | 深色模式 · 选择深色外观下的终端调色板。<span hidden>In Settings &gt; Themes.</span> <span hidden>colors, night, scheme, dark mode</span> |
+| <span id="setting-themes-custom-themes" data-entry="Custom Themes"></span>Custom Themes（自定主题） | 新增浅色或深色主题、复制现有主题或从 Ghostty / iTerm 导入，以及通过菜单编辑或删除自定主题。<span hidden>In Settings &gt; Themes.</span> <span hidden>add theme, new theme, create theme, new light theme, new dark theme, custom theme, edit theme, duplicate theme, fork, copy theme, delete theme, import theme, ghostty theme, paste theme, theme file, iterm, itermcolors, theme editor, colors, ansi, palette</span> |
 
 ## 终端
 
@@ -33,7 +43,7 @@
 
 | 设置项 | 说明 |
 | --- | --- |
-| <span id="setting-terminal-terminal-font" data-entry="Terminal Font"></span>Terminal Font（终端字体） | 版式 · 选择终端的字体系列。<span hidden>In Settings &gt; Terminal.</span> <span hidden>font, typeface, monospace, family, menlo, sf mono, system font, jetbrains mono, geist mono, ioskeley mono, roboto mono</span> |
+| <span id="setting-terminal-terminal-font" data-entry="Terminal Font"></span>Terminal Font（终端字体） | 版式 · 选择终端的字体系列。<span hidden>In Settings &gt; Terminal.</span> <span hidden>font, typeface, monospace, family, menlo, sf mono, system font, jetbrains mono, geist mono, iosevka, ioskeley mono, roboto mono, condensed, narrow</span> |
 | <span id="setting-terminal-font-size" data-entry="Font Size"></span>Font Size（字号） | 版式 · 设置此设备上的终端文本大小。<span hidden>In Settings &gt; Terminal.</span> <span hidden>text size, bigger, larger, smaller, zoom, points, pt</span> |
 | <span id="setting-terminal-improve-text-contrast" data-entry="Improve Text Contrast"></span>Improve Text Contrast（提升文本对比度） | 颜色 · 调整低对比度文本与其背景的对比度；在强制使用主题调色板时生效。<span hidden>In Settings &gt; Terminal.</span> <span hidden>minimum contrast, automatic, legibility, readability, accessibility, unreadable, faint, pale, colors, on, off</span> |
 | <span id="setting-terminal-force-theme-palette-for-text" data-entry="Force Theme Palette for Text"></span>Force Theme Palette for Text（对文本强制使用主题调色板） | 颜色 · 将 RGB 与扩展文本颜色映射到最接近的主题颜色，随后修正对比度。<span hidden>In Settings &gt; Terminal.</span> <span hidden>force theme colors, 256 colors, truecolor, rgb, ansi, extended colors, nearest, palette</span> |
@@ -84,3 +94,13 @@
 ## 关于
 
 关于 · 查看 App 的版本和设备信息，并可将其复制以用于提交错误报告。位于“设置”>“关于”。 <span hidden>version, build, commit, device, model, ios, system, bug report, feedback, copy version info, copy debug info, diagnostics, support, license, open source, acknowledgements, fonts</span>
+
+## 调试
+
+调试 · 选择“活动”行布局、检查 Hub 以及导出日志。位于“设置”>“调试”。 <span hidden>debug build, internal, testing, tools</span>
+
+| 设置项 | 说明 |
+| --- | --- |
+| <span id="setting-debug-activity-row-layout" data-entry="Activity Row Layout"></span>Activity Row Layout（活动行布局） | 活动行 · 选择会话列表在显示“活动”时如何布局标签页行。<span hidden>In Settings &gt; Debug.</span> <span hidden>activity, row, layout, session name, sessions list, style</span> |
+| <span id="setting-debug-hub" data-entry="Hub"></span>Hub（Hub） | Hub · 查看每个服务端的连接状态，并统计 Hub 的会话与请求数。<span hidden>In Settings &gt; Debug.</span> <span hidden>sync, connection, servers, sessions, demands, structure, content</span> |
+| <span id="setting-debug-export-log" data-entry="Export Log"></span>Export Log（导出日志） | 日志 · 导出日志、添加标记以及复制调试信息。<span hidden>In Settings &gt; Debug.</span> <span hidden>log, export, share, mark, note, debug info</span> |

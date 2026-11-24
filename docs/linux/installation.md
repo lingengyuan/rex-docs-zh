@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/linux/installation
-> 原文版本：650bbc3546d5（抓取于 2026-11-13）
+> 原文版本：8df491c7f953（抓取于 2026-11-24）
 
 # 在 Linux 上安装
 
@@ -41,7 +41,7 @@ Rex 可以在 Linux 上作为服务端运行，以便客户端将其作为远程
 
 | 要求 | 支持情况 |
 | --- | --- |
-| 架构 | x86-64、ARM64 |
+| 架构 | 支持 SSE4.2 的 x86-64、ARM64 |
 | C 语言运行库 | glibc 2.26 或更高版本（Amazon Linux 2、Ubuntu 18.04、Debian 10、RHEL 8 或更新版本），或 Alpine 3.21 及更高版本上的 musl |
 | Init 系统 | systemd，或 Alpine 上的 OpenRC（适用于共享服务端和登录服务端）。`rex` 命令无需这两者即可直接运行。 |
 | 软件包格式 | `.deb`（Debian、Ubuntu）、`.rpm`（Fedora、RHEL 及其衍生版本、openSUSE）、`.pkg.tar.zst`（Arch Linux 及其衍生版）、`.apk`（Alpine）、Nix |

@@ -1,11 +1,11 @@
 > 原文：https://www.superlogical.com/rex/docs/windows/installation
-> 原文版本：ec7708acea08（抓取于 2026-11-18）
+> 原文版本：9a86ad799ac0（抓取于 2026-11-24）
 
 # 在 Windows 上安装
 
 Rex 可以在 Windows 上作为服务端运行，以便客户端将其作为远程主机访问。
 
-**重要提示：** Windows 版 Rex 目前处于测试阶段，仅向 Discord 中拥有 Windows 角色的测试者开放。我们很快会将测试范围扩大至更多人员。
+**重要提示：** Windows 版 Rex Server 目前处于测试阶段。请使用 Discord 登录后查看安装命令和下载链接。
 
 在 Windows 上，所有服务端均为以你自有账户运行的个人服务端。你可以配置 Rex 服务端随系统开机启动或随用户登录启动，详见[在 Windows 上运行](running.md)。[服务端模式](../linux/server-modes.md)、[共享服务端](../linux/shared-server.md)和[登录服务端](../linux/login-server.md) *不适用于 Windows*。
 
@@ -14,7 +14,7 @@ Rex 可以在 Windows 上作为服务端运行，以便客户端将其作为远�
 | 要求 | 支持情况 |
 | --- | --- |
 | 发行版本 | Windows 10 1809 或更高版本 |
-| 架构 | x86-64、ARM64 |
+| 架构 | 支持 SSE4.2 的 x86-64、ARM64 |
 | 软件包格式 | WinGet、MSI 或 Zip |
 
 ## 安装
@@ -45,7 +45,7 @@ msiexec /i rex-windows-amd64.msi /qn
 
 Zip 包含 Rex 的所有文件，无需安装程序。
 
-拥有 Windows 角色的测试者可在此处获取下载。
+使用 Discord 登录后，此处会显示下载链接。
 
 如果使用 Zip，需要自行将其移动至合适位置并将 `rex.exe` 添加到 `PATH` 中。
 

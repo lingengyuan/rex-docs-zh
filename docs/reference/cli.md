@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/cli
-> 原文版本：7924c15eb3b9（抓取于 2026-11-21）
+> 原文版本：f6638770d801（抓取于 2026-11-24）
 
 # CLI 命令
 
@@ -267,7 +267,7 @@ rex capture -s build -w 2
 
 目标也可以是按 ID 或标签指定的终端块（即 rex block ls 中显示的标识）。此时转发会指向该终端中程序正在监听的端口（例如在其中启动的开发服务器），并以 http 方式打开。如果该终端中的程序监听了多个端口，`rex forward open` 会列出这些端口且不执行转发。凡是可被解析为 URL、host:port 或端口的参数都会始终按此类格式处理，因此若块的标签形如这类格式，请使用其 ID 来指定。服务端只查找仍附加到终端上的程序所监听的端口，因此会略过例如后台守护进程。
 
-转发监听 `--bind` 与 `--port`，默认为 127.0.0.1 和一个空闲端口。一旦开始监听，`rex forward open` 会打印将主机和端口替换为转发监听地址的目标 URL，并打开该 URL。http 或 https URL 会发送给 $BROWSER（若已设置，为冒号分隔的命令列表，其中 %s 代表 URL）。其他 URL 或 $BROWSER 无法打开的 URL 会交给系统该协议的默认处理程序。`--no-open` 仅打印 URL 而不打开。
+转发监听 `--bind` 与 `--port`，默认为 127.0.0.1 和一个空闲端口。一旦开始监听，`rex forward open` 会打印将主机和端口替换为转发监听地址的目标 URL，并打开该 URL。http 或 https URL 会发送给 $BROWSER（若已设置，为冒号分隔的命令列表，其中 %s 代表 URL）。其他 URL 或 $BROWSER 无法打开的 URL 会交给系统该协议的默认处理程序。指定 `--url-only` 时，仅打印 URL 而不打开。
 
 浏览器向 localhost 及转发端口发送请求，而非向目标自身的名称发送，因此检查 Host 头的网站，或使用自身名称证书提供 https 服务的网站，可能无法通过转发正常工作。
 
@@ -280,7 +280,7 @@ rex capture -s build -w 2
 | `-b, --bind ADDRESS` | 监听 ADDRESS；* 代表所有网络接口。默认为 `127.0.0.1`。 |
 | `-p, --port PORT` | 监听 PORT；0 会选择空闲端口。 |
 | `-s, --session string` | 将转发对应的块保留在会话 SESSION 中。 |
-| `--no-open` | 打印 URL 而不打开。 |
+| `--url-only` | 仅打印 URL 而不打开。 |
 
 ### `rex forward share [flags] (URL | [host:]port)`
 
@@ -471,11 +471,11 @@ rex swap c2a9f3 1bc2a9
 
 将会话移动至会话顺序中的新位置。
 
-会话顺序即 session ls 打印的顺序。它还决定了数字所指代的会话，因此在移动之后，“rex session inspect 1” 会显示当前排在第一位的会话。
+会话顺序即 session ls 打印的顺序。SESSION、`--before` 和 `--after` 通过标签或 ID 指定会话，而不是通过其在顺序中的位置。
 
 `--before`、`--after` 或 `--index` 必须且只能指定其中一个。位置从 1 开始计数。超出末尾的索引会将该会话移至最后。将会话移动到其当前所在位置不会产生任何影响并返回成功。
 
-若省略 SESSION，当设置了 REX_SESSION 时 Rex 将使用该变量；否则使用默认会话。
+若省略 SESSION，当 REX_BLOCK 可用时 Rex 会使用包含它的会话；否则使用 REX_SESSION 中的会话，或者在只有一个会话时使用该唯一会话。
 
 | 选项 | 说明 |
 | --- | --- |
@@ -485,7 +485,7 @@ rex swap c2a9f3 1bc2a9
 
 ```sh
 rex session move logs --before work
-rex session move 3 --after 1
+rex session move build --after logs
 rex session move --index 1
 rex session move build --index 99
 ```
