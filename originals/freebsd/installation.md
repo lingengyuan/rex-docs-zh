@@ -50,7 +50,7 @@ people need Rex on one machine, see [Server Modes](https://www.superlogical.com/
 | Requirement  | Supported                                                                     |
 | ------------ | ----------------------------------------------------------------------------- |
 | Release      | FreeBSD 14.0 or later                                                         |
-| Architecture | x86-64, ARM64                                                                 |
+| Architecture | x86-64 with SSE4.2, ARM64                                                     |
 | Dependencies | None. Rex uses only the base system.                                          |
 | Services     | rc.d, for the shared server and the login server. The `rex` command runs without them. |
 | Packages     | `.pkg`, from the Rex repository                                               |
@@ -82,6 +82,11 @@ package.
 pkg trusts the Rex repository by the fingerprint of its signing key, in
 `/usr/local/etc/pkg/fingerprints/rex`. If the key changes, run the install
 script again to trust the new one.
+
+FreeBSD's own repository has an unrelated package also named `rex`, with a
+higher version, so `pkg version` shows Rex as out of date. Ignore it, and
+upgrade with `pkg upgrade -r rex rex`, as
+[Upgrading](https://www.superlogical.com/rex/docs/linux/upgrading.md#upgrading-the-package) shows.
 
 ## Channels
 

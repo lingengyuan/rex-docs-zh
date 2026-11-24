@@ -8,9 +8,8 @@ canonical_url: https://www.superlogical.com/rex/docs/windows/installation
 Rex can run as a server on Windows so that clients can access it as a
 remote host.
 
-**IMPORTANT:** Rex on Windows is in testing and is currently open to
-a subset of testers in Discord. We will extend testing to more people
-soon.
+**IMPORTANT:** Rex Server on Windows is in testing. Log in with Discord
+to see the install commands and downloads.
 
 On Windows, every server is a personal server, which runs as your own
 account. You can configure the Rex server to start at boot or at sign-in,
@@ -24,7 +23,7 @@ as [Running on Windows](https://www.superlogical.com/rex/docs/windows/running.md
 | Requirement  | Supported                                                                 |
 | ------------ | ------------------------------------------------------------------------- |
 | Release      | Windows 10 1809 or later                                                  |
-| Architecture | x86-64, ARM64                                                             |
+| Architecture | x86-64 with SSE4.2, ARM64                                                 |
 | Packages     | WinGet, MSI, or Zip
 
 ## Install
@@ -46,6 +45,9 @@ line in a terminal opened with **Run as administrator**.
 
 {:else if item.anchor === 'msi'}
 
+{#if download}
+{:else}
+{/if}
 
 The MSI installs Rex for every account, into `%ProgramFiles%\Rex Server`,
 and adds that folder to the system PATH. It needs administrator rights.
@@ -78,7 +80,7 @@ Download the newest preview for your machine:
 
 {:else}
 
-The downloads show here for testers with the Windows role.
+The downloads show here once you log in with Discord.
 
 {/if}
 

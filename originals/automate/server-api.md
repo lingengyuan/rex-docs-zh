@@ -132,7 +132,8 @@ rex api call -s work session.view
 ```
 
 Unlike other `rex` commands, `rex api call` doesn't default to the session
-you are in. Inside a Rex terminal, pass `-s "$REX_SESSION"` to use it.
+you are in. Inside a Rex terminal, pass `-s "$REX_BLOCK"` to use it. A
+block's ID names the session that holds the block.
 
 Other IDs are never filled in. A method that acts on a block needs its
 `block_id` in the arguments.

@@ -50,12 +50,11 @@ clients can also have a label, which is a name you choose and can change.
 
 With no options, a CLI command acts based on its context. Inside a Rex
 terminal that is the terminal's own block and session, so `rex split` splits the terminal you
-typed it in. Rex knows where you are from three environment variables it sets
+typed it in. Rex knows where you are from two environment variables it sets
 in every terminal:
 
 | Variable | Holds |
 | --- | --- |
-| `REX_SESSION` | The ID of the session the terminal belongs to |
 | `REX_BLOCK` | The ID of the terminal's own block |
 | `REX_SERVER` | The address of the server that runs the terminal |
 
@@ -74,6 +73,10 @@ rex send -s build -w 2 'make test'   # type into window 2 of the "build" session
 rex capture -b logs                  # print the screen of the block labeled "logs"
 rex -S studio ls                     # list the sessions on the host labeled "studio"
 ```
+
+Anywhere a command takes a session, you can also pass the full ID of a block.
+Rex uses the session that holds the block, so `-s "$REX_BLOCK"` always means
+the session of the terminal you're typing in.
 
 ### Targets
 

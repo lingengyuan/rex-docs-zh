@@ -174,7 +174,7 @@ happen on its own, so ask for the version you want:
 | zypper          | `zypper search -s -x rex`           | `sudo zypper install --oldpackage rex-VERSION`    |
 | pacman          | One version only. See [Arch Linux](https://www.superlogical.com/rex/docs/linux/installation.md#arch-linux). | `sudo pacman -U URL`        |
 | apk             | `apk search -a -x rex`              | `apk add rex=VERSION`                             |
-| pkg             | `pkg search -r rex rex`             | See [FreeBSD](#freebsd).                          |
+| pkg             | One version only. See [FreeBSD](#freebsd). | See [FreeBSD](#freebsd).                   |
 
 A downgrade restarts services the same way an upgrade does. Your data is
 safe across a downgrade. A version of Rex that finds data written in a
@@ -265,11 +265,22 @@ shared server:
 
 ```sh
 pkg delete rex
-pkg install -r rex rex-VERSION
+pkg install -r rex rex
 ```
 
-`VERSION` is the full version, such as `0.0.1792508098.g07b896`.
-`pkg info rex` shows the one that's installed.
+The repository lists one version of Rex at a time, the newest on its
+channel. Older packages stay in the channel's directory, so to go back to
+one, pass its URL to `pkg add`, then [hold it](#holding-an-upgrade):
+
+```sh
+pkg delete rex
+pkg add https://pkgs.superlogical.com/rex/freebsd/snapshot/amd64/rex-VERSION.pkg
+pkg lock rex
+```
+
+`VERSION` is the full version, such as `0.1.0.alpha2514`. On ARM64, use
+`aarch64` in place of `amd64`. `pkg info rex` shows the one that's
+installed.
 
 ## Windows
 
