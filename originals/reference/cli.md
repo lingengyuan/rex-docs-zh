@@ -269,7 +269,7 @@ The target is a URL, such as http://localhost:8080/app or postgres://db/app, or 
 
 The target can also be a terminal block, given by its ID or label, as rex block ls shows them. The forward then goes to the port that a program in the terminal is listening on, such as a development server started there, and is opened as http. If the terminal's programs listen on several ports, `rex forward open` lists them and forwards none. An argument that reads as a URL, host:port or port is always taken as one, so name a block whose label reads that way by its ID. The server finds the ports of programs that are still attached to the terminal, so it misses e.g. a daemon.
 
-The forward listens on `--bind` and `--port`, by default 127.0.0.1 and a free port. Once it listens, `rex forward open` prints the target's URL with its host and port changed to where the forward listens, and opens that URL. An http or https URL goes to $BROWSER if it is set: a list of commands separated by colons, in which %s stands for the URL. Any other URL, or one $BROWSER cannot open, goes to the system's handler for its scheme. `--no-open` only prints it.
+The forward listens on `--bind` and `--port`, by default 127.0.0.1 and a free port. Once it listens, `rex forward open` prints the target's URL with its host and port changed to where the forward listens, and opens that URL. An http or https URL goes to $BROWSER if it is set: a list of commands separated by colons, in which %s stands for the URL. Any other URL, or one $BROWSER cannot open, goes to the system's handler for its scheme. With `--url-only`, it is only printed.
 
 A browser addresses what it sends to localhost and the forward's port rather than to the target's own name, so a site that checks the Host header, or that serves https with a certificate for its own name, may not work through the forward.
 
@@ -282,7 +282,7 @@ The forward's block is kept in the session chosen with `--session`, or the defau
 | `-b, --bind ADDRESS` | Listen on ADDRESS; * means every interface. Defaults to `127.0.0.1`. |
 | `-p, --port PORT` | Listen on PORT; 0 picks a free port. |
 | `-s, --session string` | Keep the forward's block in session SESSION. |
-| `--no-open` | Print the URL without opening it. |
+| `--url-only` | Print the URL without opening it. |
 
 ### `rex forward share [flags] (URL | [host:]port)`
 
@@ -472,11 +472,11 @@ Rename a session.
 
 Move a session to a new place in the session order.
 
-The session order is the order that session ls prints. It also decides which session a number names, so after a move, "rex session inspect 1" shows whichever session is now first.
+The session order is the order that session ls prints. SESSION, `--before`, and `--after` name a session by its label or ID, not by its position in the order.
 
 Exactly one of `--before`, `--after`, or `--index` is required. Positions count from one. An index past the end moves the session last. Moving a session to where it already is does nothing and succeeds.
 
-If SESSION is omitted, Rex uses REX_SESSION when it is set. Otherwise, Rex uses the default session.
+If SESSION is omitted, Rex uses the session containing REX_BLOCK when available. Otherwise, it uses the session in REX_SESSION, or the only session if there is just one.
 
 | Flag | Description |
 | --- | --- |
@@ -486,7 +486,7 @@ If SESSION is omitted, Rex uses REX_SESSION when it is set. Otherwise, Rex uses 
 
 ```sh
 rex session move logs --before work
-rex session move 3 --after 1
+rex session move build --after logs
 rex session move --index 1
 rex session move build --index 99
 ```

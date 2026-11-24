@@ -55,7 +55,7 @@ If several people need Rex on one machine, see
 
 | Requirement  | Supported                                                                 |
 | ------------ | ------------------------------------------------------------------------- |
-| Architecture | x86-64, ARM64                                                             |
+| Architecture | x86-64 with SSE4.2, ARM64                                                 |
 | C library    | glibc 2.26 or later (Amazon Linux 2, Ubuntu 18.04, Debian 10, RHEL 8, or newer), or musl on Alpine 3.21 or later |
 | Init system  | systemd, or OpenRC on Alpine, for the shared server and the login server. The `rex` command runs without either. |
 | Packages     | `.deb` (Debian, Ubuntu), `.rpm` (Fedora, RHEL and its rebuilds, openSUSE), `.pkg.tar.zst` (Arch Linux and derivatives), `.apk` (Alpine), Nix |

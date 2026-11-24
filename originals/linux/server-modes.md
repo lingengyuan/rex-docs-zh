@@ -88,6 +88,36 @@ rex -S PATH server start
 To keep `rex` commands from starting a server at all, set
 `REX_AUTOSTART=0`.
 
+### Shared Home Directories
+
+Rex can run as a personal server even if the home directory of a user is
+shared across multiple machines (e.g. via NFS). Rex keys its local state by
+machine ID, so this should all work automatically, but this section clearly
+documents how it all works.
+
+The first machine to use `~/.local/state/rex` claims it and keeps its state
+there as usual. This makes it so that the local state looks "clean" to normal
+non-shared-filesystem users.
+
+Future machines that access the same state directory keep their state in
+a subdirectory keyed by machine ID: `~/.local/state/rex/machines/<key>`.
+Each machine has its own server, sessions, host ID, and list of hosts.
+Your config in `~/.config/rex` stays shared.
+
+Rex determines machine ID by `/etc/machine-id`, or `kern.hostuuid` on
+FreeBSD.
+
+A machine whose ID changes, such as after you reinstall its system, looks
+like a new machine and starts with no sessions. If it was the first machine,
+it can take its old state back. Remove the claim, then stop its server so
+that the next `rex` command starts one with the old state:
+
+```sh
+rm ~/.local/state/rex/machine-owner
+rex server stop
+rex ls
+```
+
 ## Shared Server
 
 A shared server is one server that runs as the `rex` system account.

@@ -110,9 +110,9 @@ We'll continue to add support for more common agents over time.
 ## How It Works
 
 An agent runs in a Rex terminal like any other program, so it has the same
-`REX_SESSION` and `REX_BLOCK`
-[environment variables](https://www.superlogical.com/rex/docs/automate/cli.md#command-targets) as your shell. They
-tell the agent which session and terminal it is in.
+`REX_BLOCK` [environment variable](https://www.superlogical.com/rex/docs/automate/cli.md#command-targets) as your
+shell. It tells the agent which terminal it is in, and Rex commands act on the
+session that holds that terminal.
 
 You may be looking at a different session than the agent is in. The agent
 chooses where to act from what you say:
@@ -124,7 +124,7 @@ chooses where to act from what you say:
 - **A name.** The session, tab, or pane with that label. A name always wins
   over the agent's own location and the app's focus.
 
-An agent started outside Rex has no `REX_SESSION`. It lists the sessions with
+An agent started outside Rex has no `REX_BLOCK`. It lists the sessions with
 `rex ls` and works in the one that matches your request, or asks you to
 choose when more than one does.
 

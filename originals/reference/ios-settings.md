@@ -9,6 +9,16 @@ This page lists every setting in Rex for iOS and where to find it.
 
 <div class="reference-page settings" hidden></div>
 
+## General
+
+Choose how this device appears to Rex servers, allow remote control, and pick the app icon. In Settings > General. <span hidden>app, client info, device, preferences, basics</span>
+
+| Setting | Description |
+| --- | --- |
+| <span id="setting-general-label" data-entry="Label"></span>Label | Client Info · Choose how this device appears to Rex servers and the command line. <span hidden>In Settings &gt; General.</span> <span hidden>client label, client name, device name, rename device, `rex client ls`, identify, nickname</span> |
+| <span id="setting-general-remote-control" data-entry="Remote Control"></span>Remote Control | Client Info · Let Rex and other clients perform actions in this app. <span hidden>In Settings &gt; General.</span> <span hidden>remote, control, actions, cli, `rex do`, automation, allow</span> |
+| <span id="setting-general-app-icon" data-entry="App Icon"></span>App Icon | App Icon · Choose Rexie, Bright, Twilight, Vibe, Shell, or Spookie for the Home Screen. <span hidden>In Settings &gt; General.</span> <span hidden>app icon, home screen icon, alternate icon, custom icon, change icon, rexie, default icon, bright, twilight, vibe, shell icon, spook, spookie, ghost, terminal prompt, dark icon, light icon</span> |
+
 ## Interface
 
 Choose the color scheme, theme tint, panes, and how panes move. In Settings > Interface. <span hidden>display, automatic, system, light, dark, animation, motion</span>
@@ -18,7 +28,6 @@ Choose the color scheme, theme tint, panes, and how panes move. In Settings > In
 | <span id="setting-interface-color-scheme" data-entry="Color Scheme"></span>Color Scheme | Appearance · Use Auto, Light, or Dark appearance. <span hidden>In Settings &gt; Interface.</span> <span hidden>appearance, display, system, device, mode, automatic, light mode, dark mode</span> |
 | <span id="setting-interface-tint-with-theme" data-entry="Tint with Theme"></span>Tint with Theme | Appearance · Match terminal colors or use standard iOS colors. <span hidden>In Settings &gt; Interface.</span> <span hidden>theme tint, use theme tint, tinting, matching, neutral, system colors, on, off</span> |
 | <span id="setting-interface-match-program-backgrounds" data-entry="Match Program Backgrounds"></span>Match Program Backgrounds | Panes · Color the screen with a full-screen program's background. <span hidden>In Settings &gt; Interface.</span> <span hidden>tint, screen color, header color, terminal background, program background, editor, full screen, tui, neovim, vim, extend, blend, match terminal</span> |
-| <span id="setting-interface-app-icon" data-entry="App Icon"></span>App Icon | App Icon · Choose Rexie, Bright, Twilight, Vibe, Shell, or Spookie for the Home Screen. <span hidden>In Settings &gt; Interface.</span> <span hidden>app icon, home screen icon, alternate icon, custom icon, change icon, rexie, default icon, bright, twilight, vibe, shell icon, spook, spookie, ghost, terminal prompt, dark icon, light icon</span> |
 
 ## Themes
 
@@ -28,6 +37,7 @@ Choose the terminal colors for each appearance. In Settings > Themes. <span hidd
 | --- | --- |
 | <span id="setting-themes-light-theme" data-entry="Light Theme"></span>Light Theme | Light Mode · Choose a terminal palette for light appearance. <span hidden>In Settings &gt; Themes.</span> <span hidden>colors, day, scheme, light mode</span> |
 | <span id="setting-themes-dark-theme" data-entry="Dark Theme"></span>Dark Theme | Dark Mode · Choose a terminal palette for dark appearance. <span hidden>In Settings &gt; Themes.</span> <span hidden>colors, night, scheme, dark mode</span> |
+| <span id="setting-themes-custom-themes" data-entry="Custom Themes"></span>Custom Themes | Add a new light or dark theme, duplicate one, or import one from Ghostty or iTerm, and edit or delete a custom theme from its menu. <span hidden>In Settings &gt; Themes.</span> <span hidden>add theme, new theme, create theme, new light theme, new dark theme, custom theme, edit theme, duplicate theme, fork, copy theme, delete theme, import theme, ghostty theme, paste theme, theme file, iterm, itermcolors, theme editor, colors, ansi, palette</span> |
 
 ## Terminal
 
@@ -35,7 +45,7 @@ Configure the font, text colors, cursor, scrolling, resizing, and titles. In Set
 
 | Setting | Description |
 | --- | --- |
-| <span id="setting-terminal-terminal-font" data-entry="Terminal Font"></span>Terminal Font | Typography · Choose the terminal's font family. <span hidden>In Settings &gt; Terminal.</span> <span hidden>font, typeface, monospace, family, menlo, sf mono, system font, jetbrains mono, geist mono, ioskeley mono, roboto mono</span> |
+| <span id="setting-terminal-terminal-font" data-entry="Terminal Font"></span>Terminal Font | Typography · Choose the terminal's font family. <span hidden>In Settings &gt; Terminal.</span> <span hidden>font, typeface, monospace, family, menlo, sf mono, system font, jetbrains mono, geist mono, iosevka, ioskeley mono, roboto mono, condensed, narrow</span> |
 | <span id="setting-terminal-font-size" data-entry="Font Size"></span>Font Size | Typography · Set the size of terminal text on this device. <span hidden>In Settings &gt; Terminal.</span> <span hidden>text size, bigger, larger, smaller, zoom, points, pt</span> |
 | <span id="setting-terminal-improve-text-contrast" data-entry="Improve Text Contrast"></span>Improve Text Contrast | Colors · Adjust low-contrast text against its background; included when forcing the theme palette. <span hidden>In Settings &gt; Terminal.</span> <span hidden>minimum contrast, automatic, legibility, readability, accessibility, unreadable, faint, pale, colors, on, off</span> |
 | <span id="setting-terminal-force-theme-palette-for-text" data-entry="Force Theme Palette for Text"></span>Force Theme Palette for Text | Colors · Map RGB and extended text colors to the nearest theme color, then correct contrast. <span hidden>In Settings &gt; Terminal.</span> <span hidden>force theme colors, 256 colors, truecolor, rgb, ansi, extended colors, nearest, palette</span> |
@@ -86,4 +96,14 @@ Developer · Show advanced settings for networking and the terminal. In Settings
 ## About
 
 About · See the app's version and device, and copy them for a bug report. In Settings > About. <span hidden>version, build, commit, device, model, ios, system, bug report, feedback, copy version info, copy debug info, diagnostics, support, license, open source, acknowledgements, fonts</span>
+
+## Debug
+
+Debug · Pick the Activity row layout, inspect the hub, and export the log. In Settings > Debug. <span hidden>debug build, internal, testing, tools</span>
+
+| Setting | Description |
+| --- | --- |
+| <span id="setting-debug-activity-row-layout" data-entry="Activity Row Layout"></span>Activity Row Layout | Activity Rows · Choose how the sessions list lays out a tab's row while it shows Activity. <span hidden>In Settings &gt; Debug.</span> <span hidden>activity, row, layout, session name, sessions list, style</span> |
+| <span id="setting-debug-hub" data-entry="Hub"></span>Hub | Hub · See each server's connection and count the hub's sessions and demands. <span hidden>In Settings &gt; Debug.</span> <span hidden>sync, connection, servers, sessions, demands, structure, content</span> |
+| <span id="setting-debug-export-log" data-entry="Export Log"></span>Export Log | Log · Export the log, add a mark, and copy debug info. <span hidden>In Settings &gt; Debug.</span> <span hidden>log, export, share, mark, note, debug info</span> |
 
