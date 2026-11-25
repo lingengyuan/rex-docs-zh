@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/ios-actions
-> 原文版本：ad2c3837e674（抓取于 2026-11-19）
+> 原文版本：798687acd23a（抓取于 2026-11-25）
 
 # iOS 操作
 
@@ -113,7 +113,7 @@
 | <span id="action-pane-float" data-entry="Float Pane"></span>Float Pane（悬浮窗格） | `pane.float` <span hidden>pane float floating window dock undock detach overlay pop out tile</span> |
 | <span id="action-pane-new-floating" data-entry="New Floating Pane"></span>New Floating Pane（新建悬浮窗格） | `pane.new_floating` <span hidden>pane new create open float floating window terminal overlay popup scratchpad</span> |
 | <span id="action-pane-minimize-floating" data-entry="Minimize Floating Window"></span>Minimize Floating Window（最小化悬浮窗口） | `pane.minimize_floating` <span hidden>pane floating window hide show toggle minimize minimise restore taskbar capsule stash scratchpad</span> |
-| <span id="action-pane-minimize-all-floating" data-entry="Minimize Floating Windows"></span>Minimize Floating Windows（最小化所有悬浮窗口） | `pane.minimize_all_floating` <span hidden>pane floating windows all hide show toggle minimize minimise restore taskbar capsule stash scratchpad</span> |
+| <span id="action-pane-minimize-all-floating" data-entry="Minimize All Floating Windows"></span>Minimize All Floating Windows（最小化所有悬浮窗口） | `pane.minimize_all_floating` <span hidden>pane floating windows all hide show toggle minimize minimise restore taskbar capsule stash scratchpad</span> |
 | <span id="action-pane-paste" data-entry="Paste into Pane"></span>Paste into Pane（粘贴至窗格） 将剪贴板内容粘贴到获得焦点的终端中。 | `pane.paste` <span hidden>paste clipboard insert text terminal</span> |
 | <span id="action-pane-copy" data-entry="Copy from Pane"></span>Copy from Pane（从窗格复制） 将获得焦点的终端选中内容复制到剪贴板。 | `pane.copy` <span hidden>copy selection clipboard text terminal</span> |
 | <span id="action-pane-select-all" data-entry="Select All in Pane"></span>Select All in Pane（全选窗格内容） 选中获得焦点的终端中的所有内容，包含其回滚缓冲区。 | `pane.select_all` <span hidden>select all selection text terminal scrollback</span> |

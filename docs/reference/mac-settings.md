@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/mac-settings
-> 原文版本：3b477be22a45（抓取于 2026-11-24）
+> 原文版本：e091d8dd872c（抓取于 2026-11-25）
 
 # Mac 设置
 
@@ -39,6 +39,7 @@
 | --- | --- |
 | <span id="setting-program-activity-show-activity-in-tabs" data-entry="Show activity in tabs"></span>Show activity in tabs（在标签页中显示活动） | 当标签页中的程序报告其状态时，在标签页上显示运行指示点、进度饼图以及需要关注的点和消息。<span hidden>In Settings &gt; Notifications &gt; Program Activity.</span> <span hidden>program status, process status, osc 7501, agent, claude, progress, progress pie, blocked, waiting, question, permission, error, failed, status dot, status badges, notification dot, badge, working, tab status, indicator, needs attention</span> |
 | <span id="setting-program-activity-include-idle-processes-in-activity" data-entry="Include idle processes in activity"></span>Include idle processes in activity（在活动中包含空闲进程） | 即使查看后，仍在活动过滤器和弹出窗口中保留报告为空闲状态的标签页。<span hidden>In Settings &gt; Notifications &gt; Program Activity.</span> <span hidden>idle, idle processes, idle agents, ready, activity filter, activity popup, keep idle, show idle, include idle, always show idle processes in activity, eye</span> |
+| <span id="setting-program-activity-animate-blocked-tabs" data-entry="Animate blocked tabs"></span>Animate blocked tabs（为阻塞的标签页显示动画） | 在程序处于阻塞或失败状态的标签页上使图标跳动并滚动显示消息。关闭后仅保留角标。<span hidden>In Settings &gt; Notifications &gt; Program Activity.</span> <span hidden>bounce, bouncing, animation, animations, disable animations, scrolling text, marquee, blocked, failed, attention, distracting, badge, motion, tab icon, sidebar, activity</span> |
 | <span id="setting-program-activity-show-system-notifications" data-entry="Show system notifications"></span>Show system notifications（显示系统通知） | 当 Rex 处于后台且程序报告状态时发送 macOS 系统通知，该设置独立于标签页指示符。点击通知可打开该程序的标签页。<span hidden>In Settings &gt; Notifications &gt; Program Activity.</span> <span hidden>program notifications, agent notifications, background notifications, claude notification, notify when done, notify when blocked, notifications without tab indicators</span> |
 | <span id="setting-program-activity-badge-dock-icon" data-entry="Badge Dock icon"></span>Badge Dock icon（在 Dock 图标上显示标记） | 在 Rex 的 Dock 图标上显示有多少个尚未查看且包含阻塞、失败或完成程序的标签页。<span hidden>In Settings &gt; Notifications &gt; Program Activity.</span> <span hidden>dock badge, badge count, app icon badge, unread count, red badge, badge application icon, dock icon</span> |
 | <span id="setting-program-activity-play-sounds" data-entry="Play sounds"></span>Play sounds（播放声音） | 当标签页中的程序被阻塞、报告错误或完成时播放提示音。<span hidden>In Settings &gt; Notifications &gt; Program Activity.</span> <span hidden>sound, audio, chime, alert sound, beep, bell, audible, monoh, sound effects, program finished, done sound, mute, silence</span> |
