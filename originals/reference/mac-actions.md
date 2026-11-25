@@ -13,7 +13,7 @@ This page lists every action in the Rex for Mac command palette. Use the name to
 
 | Action | Name | Default Shortcut |
 | --- | --- | --- |
-| <span id="action-client-window-new" data-entry="New Window"></span>New Window | `client.window.new` <span hidden>create workspace window</span> |  <span hidden>Default shortcut:</span>`cmd+n` |
+| <span id="action-client-window-new" data-entry="New Window"></span>New Window | `client.window.new` <span hidden>create workspace window</span> |  <span hidden>Default shortcut:</span>`shift+cmd+n` |
 | <span id="action-client-window-close" data-entry="Close Window"></span>Close Window | `client.window.close` <span hidden>close workspace window</span> |  <span hidden>Default shortcut:</span>`shift+cmd+w` |
 | <span id="action-client-window-fullscreen-toggle" data-entry="Toggle Full Screen"></span>Toggle Full Screen | `client.window.fullscreen.toggle` <span hidden>full screen fullscreen enter exit window</span> |  <span hidden>Default shortcut:</span>`ctrl+cmd+f` |
 | <span id="action-client-close" data-entry="Close"></span>Close Closes the focused pane, else the selected tab, else the window. | `client.close` <span hidden>close pane tab window focused</span> |  <span hidden>Default shortcut:</span>`cmd+w` |
@@ -47,14 +47,15 @@ This page lists every action in the Rex for Mac command palette. Use the name to
 
 | Action | Name | Default Shortcut |
 | --- | --- | --- |
-| <span id="action-session-new" data-entry="New Session"></span>New Session | `session.new` <span hidden>create session add</span> |  <span hidden>Default shortcut:</span>`shift+cmd+n` |
-| <span id="action-session-new-on-host" data-entry="New Session on Host…"></span>New Session on Host… | `session.new.on_host` <span hidden>create session add host remote server machine choose</span> |  <span hidden>Default shortcut:</span>`alt+shift+cmd+n` |
+| <span id="action-session-new" data-entry="New Session"></span>New Session | `session.new` <span hidden>create session add</span> |  <span hidden>Default shortcut:</span>`cmd+n` |
+| <span id="action-session-new-on-host" data-entry="New Session on Host…"></span>New Session on Host… | `session.new.on_host` <span hidden>create session add host remote server machine choose</span> |  <span hidden>Default shortcut:</span>`alt+cmd+n` |
 | <span id="action-session-switch" data-entry="Change Session…"></span>Change Session… | `session.switch` <span hidden>session switch jump go</span> |  <span hidden>Default shortcut:</span>`cmd+k` |
 | <span id="action-session-select" data-entry="Go to Session"></span>Go to Session | `session.select` <span hidden>session select show jump go identifier id</span> |  |
 | <span id="action-session-next" data-entry="Next Session"></span>Next Session | `session.next` <span hidden>cycle session forward</span> |  |
 | <span id="action-session-previous" data-entry="Previous Session"></span>Previous Session | `session.previous` <span hidden>cycle session back</span> |  |
 | <span id="action-session-rename" data-entry="Rename Session"></span>Rename Session | `session.rename` <span hidden>rename session name title</span> |  |
 | <span id="action-session-close" data-entry="Close Session"></span>Close Session | `session.close` <span hidden>close kill destroy delete session</span> |  |
+| <span id="action-session-undo-close" data-entry="Undo Close"></span>Undo Close Reopens the pane you closed most recently. Repeat to reopen the one before. | `session.undo_close` <span hidden>undo close reopen restore closed pane split tab</span> |  <span hidden>Default shortcut:</span>`shift+cmd+t` |
 | <span id="action-session-refresh" data-entry="Refresh Sessions"></span>Refresh Sessions | `session.refresh` <span hidden>reload sync sessions</span> |  <span hidden>Default shortcut:</span>`cmd+r` |
 | <span id="action-session-collapse" data-entry="Collapse Session"></span>Collapse Session | `session.collapse` <span hidden>collapse fold hide session sidebar tabs</span> |  |
 | <span id="action-session-expand" data-entry="Expand Session"></span>Expand Session | `session.expand` <span hidden>expand unfold show open session sidebar tabs</span> |  |
@@ -106,8 +107,8 @@ This page lists every action in the Rex for Mac command palette. Use the name to
 | <span id="action-pane-focus-down" data-entry="Focus Pane Down"></span>Focus Pane Down | `pane.focus.down` <span hidden>pane focus navigate down below</span> |  <span hidden>Default shortcut:</span>`alt+cmd+down` |
 | <span id="action-pane-focus-next" data-entry="Focus Next Pane"></span>Focus Next Pane | `pane.focus_next` <span hidden>pane focus next forward</span> |  <span hidden>Default shortcut:</span>`cmd+]` |
 | <span id="action-pane-focus-previous" data-entry="Focus Previous Pane"></span>Focus Previous Pane | `pane.focus_previous` <span hidden>pane focus previous back</span> |  <span hidden>Default shortcut:</span>`cmd+[` |
-| <span id="action-client-navigate-back" data-entry="Navigate Back"></span>Navigate Back Goes back to the pane you were in before this one, in any tab or session. Repeat to keep going back. | `client.navigate.back` <span hidden>navigate back history browser previous next pane tab session</span> |  |
-| <span id="action-client-navigate-forward" data-entry="Navigate Forward"></span>Navigate Forward Returns to the pane that Navigate Back left. Repeat to go forward again. | `client.navigate.forward` <span hidden>navigate forward history browser previous next pane tab session</span> |  |
+| <span id="action-client-navigate-back" data-entry="Navigate Back"></span>Navigate Back Goes back to the pane you were in before this one, in any tab or session. Repeat to keep going back. | `client.navigate.back` <span hidden>navigate back history browser previous next pane tab session</span> |  <span hidden>Default shortcut:</span>`alt+cmd+[` |
+| <span id="action-client-navigate-forward" data-entry="Navigate Forward"></span>Navigate Forward Returns to the pane that Navigate Back left. Repeat to go forward again. | `client.navigate.forward` <span hidden>navigate forward history browser previous next pane tab session</span> |  <span hidden>Default shortcut:</span>`alt+cmd+]` |
 | <span id="action-pane-move" data-entry="Move Pane"></span>Move Pane | `pane.move` <span hidden>pane move swap rearrange</span> |  |
 | <span id="action-pane-move-left" data-entry="Move Pane Left"></span>Move Pane Left | `pane.move.left` <span hidden>pane move swap rearrange left</span> |  <span hidden>Default shortcut:</span>`alt+shift+cmd+left` |
 | <span id="action-pane-move-right" data-entry="Move Pane Right"></span>Move Pane Right | `pane.move.right` <span hidden>pane move swap rearrange right</span> |  <span hidden>Default shortcut:</span>`alt+shift+cmd+right` |
@@ -116,7 +117,7 @@ This page lists every action in the Rex for Mac command palette. Use the name to
 | <span id="action-pane-float" data-entry="Float Pane"></span>Float Pane | `pane.float` <span hidden>pane float floating window dock undock detach overlay pop out tile</span> |  <span hidden>Default shortcut:</span>`alt+cmd+enter` |
 | <span id="action-pane-new-floating" data-entry="New Floating Pane"></span>New Floating Pane | `pane.new_floating` <span hidden>pane new create open float floating window terminal overlay popup scratchpad</span> |  |
 | <span id="action-pane-minimize-floating" data-entry="Minimize Floating Window"></span>Minimize Floating Window | `pane.minimize_floating` <span hidden>pane floating window hide show toggle minimize minimise restore taskbar capsule stash scratchpad</span> |  <span hidden>Default shortcut:</span>`alt+cmd+m` |
-| <span id="action-pane-minimize-all-floating" data-entry="Minimize Floating Windows"></span>Minimize Floating Windows | `pane.minimize_all_floating` <span hidden>pane floating windows all hide show toggle minimize minimise restore taskbar capsule stash scratchpad</span> |  <span hidden>Default shortcut:</span>`alt+shift+cmd+enter` |
+| <span id="action-pane-minimize-all-floating" data-entry="Minimize All Floating Windows"></span>Minimize All Floating Windows | `pane.minimize_all_floating` <span hidden>pane floating windows all hide show toggle minimize minimise restore taskbar capsule stash scratchpad</span> |  <span hidden>Default shortcut:</span>`alt+shift+cmd+enter` |
 | <span id="action-pane-zoom" data-entry="Zoom Pane"></span>Zoom Pane | `pane.zoom` <span hidden>pane zoom maximize restore terminal</span> |  <span hidden>Default shortcut:</span>`shift+cmd+enter` |
 | <span id="action-pane-close" data-entry="Close Pane"></span>Close Pane | `pane.close` <span hidden>pane close remove terminal</span> |  <span hidden>Default shortcut:</span>`cmd+w` |
 | <span id="action-pane-close-others" data-entry="Close Other Panes"></span>Close Other Panes | `pane.close_others` <span hidden>close other panes kill only keep focused</span> |  |

@@ -21,10 +21,13 @@ Close a block and end the program running in it.
 | `block_id` |  | The block to close. It may be a detached block. Send this or window_id, not both. |
 | `window_id` |  | The window whose focused block to close. It doesn't have to be the active window. Send this or block_id, not both. |
 | `keep_last` |  | If true, fail rather than close the only block left in a window, counting floating layers. Ignored for detached blocks. |
+| `undoable` |  | If true, hold the block for about a minute so that the calling client can bring it back with client.undo_close. Send it when a person closed the block. It only has an effect for a client attached to the session, and for a block that is in a window and has started. |
 
 Send exactly one of `block_id` and `window_id`. If you send both, or neither, the call fails with `bad_request`.
 
 The server sends `block_closed` when the block closes. If it was the last block in its window, the window closes too and the server sends `window_closed`.
+
+If `undoable` is true and the caller is a client attached to the session, the server instead keeps the block running, out of every window, for about a minute, so that `client.undo_close` can put it back. The view changes at once, and `block_closed` arrives only once the block is freed. A block that is in no window, or is still starting, closes at once all the same.
 
 If `keep_last` is true and the block is the only one left in its window, counting blocks in floating layers, the call fails with `bad_request` and closes nothing.
 
@@ -379,6 +382,28 @@ The keys that reach the scripts are fixed when they load. A function that a scri
 A successful call can still return `diagnostics`, even with severity `error`. An error marks a part of a script the server skipped, such as a binding to a key it can't read. The rest of the scripts still load.
 
 Loading scripts changes this client's keymap without a `keymap_changed` event. Call `client.keymap` again after each call to this method.
+
+### `client.undo_close`
+
+<div class="api-tags"><span class="api-tag channel">Snapshot</span></div>
+
+Reopen what this client closed most recently, a pane, a window, or a session, if it can still be undone.
+
+The call reopens the caller's newest close that can still be undone, in whichever session it was. Each client has one history of closes for the whole server, and calling again reopens the one before. There is no redo.
+
+A close can be undone only if it asked to be, with `undoable` set to true. `block.close`, `session.close_window`, and `session.destroy` take it. Send it when a person closed something. A close without it can't be undone.
+
+When an attached client closes a block with `block.close`, or a window with `session.close_window`, and sends `undoable`, the server keeps the blocks running, out of every window, for about a minute, and sends `block_closed` only once it frees a block. Leaving the session frees the client's held blocks there at once.
+
+When an attached client destroys a session with `session.destroy`, and sends `undoable`, the server keeps the whole session, hidden, for about a minute. Undoing that brings the session back at its place in the session list, with the same ID, as it was. A `session_created` event announces it, and a `session_moved` event follows unless it is last. No client is attached to it, the caller included, and its blocks have no owner: attach to it as to a new session. The closes the caller could have undone in the session before it destroyed it are still its to undo, by calling again. Another client's are freed.
+
+The blocks come back where they were, with the same block, split, layer, and window IDs, owned by the caller. A closed window comes back at its place in the window order.
+
+Focus moves to what came back, for every client attached to the session. A reopened block becomes its window's focused block, its window becomes the active window, and a zoom on another block there ends. A reopened window becomes the active window, with the focus and zoom it had. A session comes back with the active window and focus it was destroyed with. The answer names the session, window, and block, so the client can show them, and the place becomes the newest in the caller's focus history.
+
+The close ended the blocks' data streams with `block_closed`. Open them again.
+
+If there is nothing left to reopen, the call fails with `not_found`. A request that includes `client_id` fails with `bad_request`.
 
 ## data
 
@@ -793,8 +818,11 @@ Close a window and every block in it.
 | --- | --- | --- |
 | `session_id` | Yes | The session to act on. |
 | `window_id` |  | The window to close. Leave it out to close the active window. Every block in it closes too. |
+| `undoable` |  | If true, hold the window's blocks for about a minute so that the calling client can bring the window back with client.undo_close. Send it when a person closed the window. It only has an effect for a client attached to the session. |
 
 The server closes every block in the window, which ends the programs running in them. The call returns once the blocks have closed.
+
+If `undoable` is true and the caller is a client attached to the session, the server instead keeps the window's blocks running, out of every window, for about a minute, so that `client.undo_close` can put the window back. `block_closed` arrives for each block only once it is freed.
 
 If the window was active, the window after it becomes active, or the one before it if it was last.
 
@@ -845,10 +873,13 @@ Destroy a session and close every block in it.
 | Field | Required | Description |
 | --- | --- | --- |
 | `session_id` | Yes | The session to destroy. Every block in it closes. |
+| `undoable` |  | If true, hold the session for about a minute, hidden, so that the calling client can bring it back with client.undo_close. Send it when a person destroyed the session. It only has an effect for a client attached to the session, and for a session that has a window. |
 
 The server closes every window and block in the session. Closing a terminal hangs up the program running in it, as closing a terminal window does.
 
 The call returns once the session has closed. `session_destroyed` is the last event about the session, though a `client_script_events_dropped` event for it can still follow.
+
+If `undoable` is true, the caller is attached to the session with `session.attach` or `session.bootstrap`, and the session has a window, the server instead keeps the session for about a minute, hidden, with its blocks running, so that `client.undo_close` can bring it back. To every client it is destroyed all the same: every client is detached, `session_destroyed` goes out, and requests that name it fail with `session_not_found`. No `block_closed` events go out, then or when the server closes the session for good.
 
 The connection must be attached to the session, with `session.attach`, `session.bootstrap`, or `session.attach_all`, or the call fails with `conflict`.
 
@@ -926,7 +957,7 @@ Move a block out of its window's layout into a new floating layer.
 
 The new layer is in the block's own window, in front of every other floating layer there.
 
-Focus and the active window don't change. If the window was zoomed, the zoom ends.
+Focus and the active window don't change. If the block was the zoomed block of the window's layout, that zoom ends, because the block has left the layout. Any other zoom stays.
 
 Floating the last block of a window's layout leaves the layout empty. The window stays open, and its layer of kind `tiled` in `session.view` keeps the same `layer_id`.
 
@@ -943,7 +974,9 @@ Focus a block, and make its window the active window if it isn't.
 | `session_id` | Yes | The session to act on. |
 | `block_id` | Yes | The block to focus. It must be in a window, which becomes the active window. |
 
-The block can be in the window's layout or in a floating layer. If it isn't already its window's focused block, any zoom in that window ends.
+The block can be in the window's layout or in a floating layer.
+
+A zoomed block of a floating layer loses its zoom when focus moves to any other block. A zoomed block of the window's layout loses it only when focus moves to a different block of that layout, and stays zoomed behind a floating layer that takes focus.
 
 If the block already has focus in the active window, the call changes nothing.
 
@@ -961,7 +994,7 @@ Move focus to the nearest block to the left, right, above, or below.
 
 The search starts at the focused block of the active window. It covers every block in that window, floating layers included, by where each appears on screen. When two blocks are equally close, the one in front wins.
 
-If no block lies in `direction`, focus doesn't change and the call still succeeds. Moving focus ends any zoom in the window.
+If no block lies in `direction`, focus doesn't change and the call still succeeds. Moving focus ends a zoom as `session.focus_block` describes.
 
 If the session doesn't exist, the call fails with `session_not_found`. If the session has no windows, it fails with `conflict`.
 
@@ -976,7 +1009,7 @@ Move focus to the next block in the active window.
 
 Blocks are in layout order: the window's layout first, reading each split's `before` side ahead of its `after` side, then each floating layer from back to front.
 
-If there's no next block, focus doesn't change and the call still succeeds. Moving focus ends any zoom in the window.
+If there's no next block, focus doesn't change and the call still succeeds. Moving focus ends a zoom as `session.focus_block` describes.
 
 If the session doesn't exist, the call fails with `session_not_found`. If the session has no windows, it fails with `conflict`.
 
@@ -1008,7 +1041,7 @@ Move focus to the previous block in the active window.
 
 Blocks are in layout order: the window's layout first, reading each split's `before` side ahead of its `after` side, then each floating layer from back to front.
 
-If there's no previous block, focus doesn't change and the call still succeeds. Moving focus ends any zoom in the window.
+If there's no previous block, focus doesn't change and the call still succeeds. Moving focus ends a zoom as `session.focus_block` describes.
 
 If the session doesn't exist, the call fails with `session_not_found`. If the session has no windows, it fails with `conflict`.
 
@@ -1140,7 +1173,7 @@ The block and the anchor can be in different windows or layers.
 
 If the block had focus in its window, focus moves with it and its new window becomes active. A detached block doesn't take focus.
 
-Zoom ends in every window the move changes.
+A zoom follows its block. Moving another block doesn't end it. Moving the zoomed block of the window's layout to a floating layer or another window ends its zoom. A zoomed block that keeps focus in a floating layer stays zoomed.
 
 If the move empties a floating layer, the server removes it. If it empties a whole window, the server closes the window. A window's layout that empties while the window still has floating layers stays, with the same `layer_id`.
 
@@ -1209,6 +1242,8 @@ In a `split` node, `direction` is `horizontal` to put `before` on the left of `a
 
 The new layer starts in front of every other floating layer in the window.
 
+A zoomed block of the window's layout stays zoomed behind the new layer, whether or not `focus` is set. A zoomed block of another floating layer loses its zoom only if `focus` takes focus from it.
+
 Either the whole layout is created or none of it is. If a block fails to start, the server closes the blocks it already started, and the call fails.
 
 If the session doesn't exist, the call fails with `session_not_found`. If `window_id` names a window that isn't in the session, or no creator provides a `flavor`, it fails with `not_found`. Bad `bounds`, or a malformed `layout` or `flavor`, fail with `bad_request`.
@@ -1238,7 +1273,7 @@ A `block` node in `layout` starts one new block from a `flavor`, such as `com.su
 
 In a `split` node, `direction` is `horizontal` to put `before` on the left of `after`, or `vertical` to put it on top. `ratio` is the fraction of the space that `before` gets, greater than 0 and less than 1. It defaults to 0.5.
 
-Any zoom in the window ends, whether or not `focus` is set.
+A new split doesn't end a zoom by itself. If `focus` is set, focus moves to the new block, and that ends a zoom as `session.focus_block` describes. Without `focus`, a zoomed block stays zoomed and the new blocks are hidden behind it.
 
 If `anchor_id` is a split ID, the new split takes that split's place. The old split, with everything under it, goes on one side and `layout` on the other. Anchoring a layer's top split makes the new blocks span the whole layer. A layer with one block has no split, so anchor its block instead.
 
@@ -1417,7 +1452,7 @@ With `focus` set to `true`, the layer is also raised, the block last focused in 
 
 A minimized layer stays in `session.view` with `state` set to `minimized`, its blocks keep running, and it keeps its bounds and its place in the stack. `state` is left out for a normal layer.
 
-Minimizing the layer that has focus moves focus to the layer used before it, or to the nearest visible pane, and clears zoom. Returning a layer to normal leaves focus where it is. Setting the state the layer already has changes nothing.
+Minimizing the layer that has focus moves focus to the layer used before it, or to the nearest visible pane. That ends a zoom in the layer. A zoomed block of the window's layout stays zoomed unless focus lands on a different block of that layout. Returning a layer to normal leaves focus where it is. Setting the state the layer already has changes nothing.
 
 A window must keep a visible pane, so minimizing the layer that holds its last visible panes fails with `bad_request`.
 
@@ -1457,6 +1492,8 @@ Only the two blocks move. Splits, their sizes and IDs, floating layers, and the 
 
 If one of the blocks has focus in the active window, focus follows it to its new place, and that place's window becomes active.
 
+A zoom follows its block, so the other block doesn't take it over. A zoomed block stays zoomed if it is still where its zoom allows: in the window's layout for that zoom, or focused in a floating layer. Otherwise the zoom ends.
+
 If the session doesn't exist, the call fails with `session_not_found`. If `block_id` and `other_block_id` are the same, it fails with `bad_request`. If either block isn't in any window, including a detached block, it fails with `not_found`.
 
 ### `session.view`
@@ -1490,7 +1527,11 @@ Zoom a block to fill its window, or undo the zoom.
 
 With `block_id`, the server first focuses the block and makes its window active, as `session.focus_block` does. With `window_id`, focus and the active window don't change.
 
-Zoom changes only what is shown. The layout stays the same, and the zoom ends when focus moves to another block in the window.
+A window has two zooms, one for its layout and one for its floating layers, and both can be on at once. The call changes the one for the layer the block is in. `session.view` reports them as `tiled_zoomed_block_id` and `zoomed_block_id`.
+
+A zoomed block of the window's layout is shown behind the floating layers. It stays zoomed while a floating layer has focus, and the zoom ends when focus moves to a different block of the layout. A zoomed block of a floating layer is shown in front of everything, and its zoom ends when focus moves to any other block.
+
+Zoom changes only what is shown. The layout stays the same. A change to a layout, such as a new split, doesn't end a zoom unless it moves focus as above or takes the zoomed block out of the window's layout.
 
 If the session doesn't exist, the call fails with `session_not_found`. If `block_id` names a block that isn't in any window, or `window_id` names a window that isn't in the session, it fails with `not_found`. Sending both fails with `bad_request`.
 
