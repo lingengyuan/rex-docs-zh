@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/customize/config
-> 原文版本：e348e37dc78b（抓取于 2026-11-13）
+> 原文版本：adc963f645f4（抓取于 2026-11-26）
 
 # 配置文件
 
@@ -35,6 +35,22 @@ rex config reload
 
 [Lua API 参考](../reference/lua.md)列出了所有可用的 Lua API。
 
+## 设置
+
+`rex.set` 用于设置 Rex 配置项：
+
+```lua
+rex.set("resume.trust.codex", false)
+```
+
+设置项名称是以点分隔的键，便于配置嵌套值。值可以是布尔值、数字、字符串或表，具体类型取决于所配置的设置项键。
+
+目前设置项仅用于[恢复规则](https://www.superlogical.com/rex/docs/customize/resume-rules.md)，但未来版本的 Rex 将会使用同一套接口来管理所有通用设置。
+
+如果当前版本的 Rex 不认识某个设置项，只会发出警告而非报错，因此同一份配置文件可以兼容新旧版本。
+
+设置项只能在文件加载期间设置。在操作（action）中调用 `rex.set` 会报错。
+
 ## 校验配置
 
 `rex config check` 会在不更改任何内容的情况下加载文件，并报告发现的问题。如果没有问题，它会报告检测到的改动：
@@ -47,6 +63,8 @@ bindings: 8
 removals: 0
 modes: 1
 actions: 0
+settings: 0
+resume rules: 3
 ```
 
 如果存在错误，这两个命令都会输出文件中的问题，并以状态码 1 退出。向 `rex config check` 传入路径，可以检查自身配置之外的文件，例如草稿文件。

@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/mac-actions
-> 原文版本：538e96d5fedb（抓取于 2026-11-25）
+> 原文版本：bae9d2b5bf4d（抓取于 2026-11-26）
 
 # Mac 操作
 
@@ -181,7 +181,7 @@
 | <span id="action-client-sidebar-activity-toggle" data-entry="Toggle Activity"></span>Toggle Activity（切换活动） | `client.sidebar.activity.toggle` <span hidden>activity mode view filter working waiting attention programs status sidebar tabs</span> |  <span hidden>默认快捷键：</span>`cmd+.` |
 | <span id="action-client-sidebar-activity-by-session" data-entry="Show Activity by Session"></span>Show Activity by Session（按会话显示活动） | `client.sidebar.activity.by_session` <span hidden>activity mode view filter group grouping by session sessions sidebar tabs</span> |  |
 | <span id="action-client-sidebar-activity-by-priority" data-entry="Show Activity by Priority"></span>Show Activity by Priority（按优先级显示活动） | `client.sidebar.activity.by_priority` <span hidden>activity mode view filter group grouping by priority blocked failed done working idle sidebar tabs</span> |  |
-| <span id="action-client-sidebar-filter-focus" data-entry="Focus Tab Filter"></span>Focus Tab Filter（聚焦标签页过滤器） | `client.sidebar.filter.focus` <span hidden>filter search find type query focus keyboard sidebar activity tabs sessions hosts</span> |  |
+| <span id="action-client-sidebar-filter-focus" data-entry="Focus Tab Filter"></span>Focus Tab Filter（聚焦标签页过滤器） | `client.sidebar.filter.focus` <span hidden>filter search find type query focus keyboard sidebar activity tabs sessions hosts</span> |  <span hidden>默认快捷键：</span>`alt+cmd+f` |
 | <span id="action-client-tab-style-toggle" data-entry="Toggle Toolbar Layout"></span>Toggle Toolbar Layout（切换工具栏布局） | `client.tab_style.toggle` <span hidden>toolbar layout tab style orientation sidebar horizontal vertical view</span> |  <span hidden>默认快捷键：</span>`shift+cmd+s` |
 | <span id="action-client-toolbar-reveal" data-entry="Reveal Toolbar"></span>Reveal Toolbar（显示工具栏） | `client.toolbar.reveal` <span hidden>show reveal peek toolbar tab bar title row hover auto-hide hidden view</span> |  <span hidden>默认快捷键：</span>`alt+cmd+t` |
 | <span id="action-client-pane-header-reveal" data-entry="Reveal Pane Header"></span>Reveal Pane Header（显示窗格标题栏） | `client.pane_header.reveal` <span hidden>show reveal peek pane header title hover hidden focused pane view</span> |  <span hidden>默认快捷键：</span>`alt+shift+cmd+t` |

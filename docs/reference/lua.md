@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/lua
-> 原文版本：9dc7498bd92c（抓取于 2026-11-18）
+> 原文版本：d55671e65841（抓取于 2026-11-26）
 
 # Rex Lua API
 
@@ -24,6 +24,8 @@ Rex 在两个地方运行 Lua：配置文件和脚本。下文中的每个函数
 | `rex.mode`, `rex.bindings`, `rex.modes` | 是 | 错误 | 无效果 | 错误 |
 | `rex.action` | 是 | 错误 | 是 | 错误 |
 | `rex.host` | 是 | 错误 | 无效果 | 错误 |
+| `rex.set` | 是 | 错误 | 无效果 | 错误 |
+| `rex.match.*` | 是 | 是 | 是 | 是 |
 | `rex.on` | 警告 | 错误 | 是 | 错误 |
 | `rex.call`, `rex.session.*`, `rex.block.call` | 失败 | 是 | 是 | 是 |
 | `rex.invoke` | 警告 | 是 | 是 | 是 |
@@ -288,6 +290,34 @@ local title = rex.block.call(terminal, "title", {}).title
 返回一个包含与 `rex` 相同的 `session`、`block` 和 `call` 函数的表，其调用发往该服务端。对未知标签会引发错误。
 
 通过其进行的调用不会自动填充 `session_id` 或 `block_id`。
+
+## 设置
+
+参见[设置](../customize/config.md#设置)和[恢复规则](https://www.superlogical.com/rex/docs/customize/resume-rules.md)。
+
+### `rex.set(key, value)`
+
+将点分名称的设置项 `key` 设为 `value`。
+
+```lua
+rex.set("resume.trust.claude.dir", "~/code")
+```
+
+`value` 可以是布尔值、数字、字符串或由它们组成的表。对于保存命名条目的设置（例如 `resume.trust`），传入 `false` 会移除该条目。
+
+错误的值会报错，未知的键会发出警告。两者都会在调用所在行报告，且文件的其余部分仍会继续加载。在脚本中，每次调用都会接受检查，但不会产生实际效果。
+
+### `rex.match.uuid`
+
+匹配 UUID 的匹配器。目前仅适用于[恢复规则](https://www.superlogical.com/rex/docs/customize/resume-rules.md#adding-a-rule)。
+
+### `rex.match.id`
+
+匹配标识符的匹配器（定义为 1 到 128 个字母、数字和下划线）。目前仅适用于[恢复规则](https://www.superlogical.com/rex/docs/customize/resume-rules.md#adding-a-rule)。
+
+### `rex.match.under(dir)`
+
+匹配位于 `dir` 内部的绝对路径（不包括 `dir` 本身）的匹配器。`dir` 必须为绝对路径或以 `~` 开头。目前仅适用于[恢复规则](https://www.superlogical.com/rex/docs/customize/resume-rules.md#adding-a-rule)。
 
 ## 其他函数
 

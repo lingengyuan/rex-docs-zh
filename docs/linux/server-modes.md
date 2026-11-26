@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/linux/server-modes
-> 原文版本：42ecdaf1d5ba（抓取于 2026-11-24）
+> 原文版本：ab2b805ccd48（抓取于 2026-11-26）
 
 # 服务端运行模式
 
@@ -91,7 +91,7 @@ sudo systemctl enable --now rex.service
 
 若要仅在有人首次发起连接时才启动服务端，请启用 `rex.socket` 而非 `rex.service`。详见[按需启动](shared-server.md#按需启动)。
 
-软件包升级会重启该服务，这会自动终止其上的所有会话。详见[升级](upgrading.md)。
+软件包升级会重启该服务，这会自动终止其上运行的所有程序。其会话会被[恢复](https://www.superlogical.com/rex/docs/features/session-restore.md)。详见[升级](upgrading.md)。
 
 在为其他人配置之前，请先阅读[共享服务端](shared-server.md)。该文档涵盖了如何向他人分配访问权限、配置服务端以及在修改服务的同时确保升级时不丢失自定义更改。
 

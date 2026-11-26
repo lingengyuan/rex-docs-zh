@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/events
-> 原文版本：e0c8b1cdfb09（抓取于 2026-11-13）
+> 原文版本：0fed8f7e22f8（抓取于 2026-11-26）
 
 # 事件
 
@@ -80,6 +80,7 @@ end)
 | `terminal.clipboard_written` | 程序向剪贴板写入内容。 | `text` |
 | `terminal.program_status_changed` | 程序上报或更新其状态。 | `id`, `record`, `reason` |
 | `terminal.program_status_removed` | 程序状态记录被移除。 | `ids`, `reason` |
+| `terminal.program_resume_changed` | 终端的程序恢复（Program Resume）记录发生变更。 | `records`, `reason` |
 
 关于上述事件的几点说明：
 
@@ -87,6 +88,8 @@ end)
 - `pwd` 是一个形如 `file://hostname/Users/you/src` 的 URL，而非普通路径。它仅由配置了上报功能的 Shell 进行上报。
 - `owner` 是一个包含引起变更的进程的 `pid` 与 `name` 的表。
 - `foreground` 是一个描述前台进程的表，包含 `name`、`cwd`、`pid` 等字段。它可以为 `nil`。
+- `records` 是终端最新的完整[程序恢复](https://www.superlogical.com/rex/docs/build/program-resume.md)记录列表。每条记录包含 `owner`、`program`、`cwd`、`reported_at`、`chosen`、`trusted`、`rule` 和 `untrusted_reason`，其中为 false 或空的字段会被省略。由于命令中可能包含敏感信息且所有监听者都会收到该事件，因此记录中不包含命令内容。如需读取命令，请调用终端的 `program_resume_records` [方法](../automate/server-api.md#块方法)。
+- `terminal.program_resume_changed` 中的 `reason` 为 `report`、`clear`、`rejected`、`owner_exited` 或 `rules_changed`。较新的服务端可能会增加更多原因。
 
 ## 服务端事件
 
