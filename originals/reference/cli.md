@@ -334,6 +334,34 @@ A `rex forward new` that is carrying a closed forward stops it, and exits once i
 | `--orphaned` | Close every orphaned forward in the session. |
 | `--all` | Close every forward in the session. |
 
+### `rex cp [-r] SOURCE... DEST`
+
+Copy files to or from a server.
+
+Copy files and directories between this machine and a server.
+
+A path on the server starts with a colon, and the server is the one `--server` names, or the default one:
+
+  `rex cp` report.pdf :docs/   rex `-S` build cp ':out/*.tar.gz' .
+
+A known host's label can stand before the colon instead, as in scp:
+
+  `rex cp` `-r` ./site web:/var/www/
+
+Exactly one side is on the server: either every source, or the destination. A path on the server is relative to the home directory there unless it is absolute, and a leading ~ is the home directory too. Quote a pattern meant for the server so that the shell leaves it alone. Patterns use *, ? and [...], and a directory needs `-r`.
+
+The destination follows cp's rules. If it is a directory, the sources go inside it. Otherwise there must be one source, which takes that name. A file replaces a file. A directory that is already there is merged into, and files in it that were not sent are left alone. A file where a directory is, or the reverse, stops the copy before anything changes.
+
+Nothing appears at the destination until the whole copy has arrived, so a copy that fails or is interrupted leaves the destination as it was. Permissions and modification times are kept; ownership is not. A source that is a symbolic link is followed, and links inside a directory are copied as links. Devices, FIFOs and sockets inside a directory are skipped, and one named as a source is an error.
+
+The copy runs through an fs block that `rex cp` creates on the server and closes when it is done. A server started with `--no-fs` does not offer one.
+
+| Flag | Description |
+| --- | --- |
+| `-r, --recursive` | Copy directories and everything in them. |
+| `--progress` | Show how far the copy has got, on standard error. |
+| `-s, --session string` | Keep the copy's block in session SESSION. |
+
 ## Layout
 
 ### `rex focus TARGET|DIRECTION`
@@ -552,11 +580,13 @@ If WINDOW is omitted, focus the window containing REX_BLOCK when available. Othe
 | `-s, --session string` | Scope to session SESSION. |
 | `--wrap` | Wrap next and prev at the ends. |
 
-### `rex window move [WINDOW] (--before W | --after W | --index N) [-s SESSION]`
+### `rex window move [WINDOW] (--before W | --after W | --index N | --to SESSION) [-s SESSION]`
 
-Move a window within its session's tab order.
+Move a window within its session's tab order, or to another session.
 
-Exactly one of `--before`, `--after`, or `--index` is required. Window positions are numbered from one in the same order shown by window ls. An index past the end moves the window last.
+Within a session, exactly one of `--before`, `--after`, or `--index` is required. Window positions are numbered from one in the same order shown by window ls. An index past the end moves the window last.
+
+With `--to`, the window moves to SESSION with its blocks still running. Programs keep running and terminals keep their scrollback. The window goes to the end of that session unless `--before`, `--after`, or `--index` places it among the session's windows. Add `--focus` to make it the active window there. A program that is already running keeps the REX_SESSION it started with.
 
 If WINDOW is omitted, Rex uses the window containing REX_BLOCK when available. Otherwise, Rex uses the active window in the default session.
 
@@ -565,6 +595,8 @@ If WINDOW is omitted, Rex uses the window containing REX_BLOCK when available. O
 | `--before W` | Move immediately before window W. |
 | `--after W` | Move immediately after window W. |
 | `--index N` | Move to one-based position N. |
+| `--to SESSION` | Move to SESSION, keeping the window's blocks running. |
+| `--focus` | With `--to`, make the window active in its new session. |
 | `-s, --session string` | Scope to session SESSION. |
 
 ```sh
@@ -572,6 +604,8 @@ rex window move logs --before editor
 rex window move 3 --after 1
 rex window move --index 1
 rex window move -s work build --index 99
+rex window move logs --to ops
+rex window move -s work build --to ops --before deploy --focus
 ```
 
 ### `rex window rename [WINDOW] LABEL`
@@ -1034,6 +1068,7 @@ If nothing reads the server's output any more, for example because tee exited wh
 | `--block-plugin-reload` | Reload block plugins after source changes. |
 | `--state-dir DIR` | Store persistent server state below DIR. |
 | `--restore` | Restore the saved sessions (false starts without them and saves nothing). Defaults to `true`. |
+| `--no-fs` | Leave out the fs block, so that clients cannot copy files to or from this machine with `rex cp`. |
 | `--config PATH` | Read the config file at PATH (default: REX_CONFIG, else rex/init.lua in the config directory). |
 | `--max-sessions N` | Refuse new sessions once the server holds N (0 for no limit). Defaults to `64`. |
 | `--max-blocks N` | Refuse new blocks once the server holds N across all sessions (0 for no limit). Defaults to `1024`. |
@@ -1084,6 +1119,7 @@ The log size limit applies only to the file created for a detached server. Rex c
 | `--log-level LEVEL` | Log at LEVEL and above: debug, info, warn, or error (default info, or debug if `-v` is given without this flag). |
 | `--log-max-size SIZE` | Limit the active detached log to SIZE by clearing old contents (0 disables). Defaults to `50MiB`. |
 | `--env NAME` | Pass environment variable NAME or NAME=VALUE to a new server (repeatable). |
+| `--elevated` | Keep the administrator rights of a terminal opened with Run as administrator, and admit only programs with them (Windows only). |
 | `--json` | Output server information as JSON. |
 
 ### `rex server status`
@@ -1099,6 +1135,8 @@ Show server status.
 Show detached server logs.
 
 Show logs captured for a server launched by `rex server start`.
+
+Without `--server`, the command shows the log of the server that REX_SERVER names, and otherwise the log of your own server. The server must be on this machine.
 
 On Windows, the server that `rex server install` runs as a Windows Service writes to this log too, so this command shows its output as well. As with `rex server start`, Rex clears that log before it grows past 50MiB.
 
@@ -1191,6 +1229,8 @@ The code holds only the address, not a credential. The other device must be on t
 Stop the server.
 
 Stopping the server ends every program running in its sessions.
+
+Without `--server`, the command stops the server that REX_SERVER names, as other commands use it, and otherwise your own server on this machine. In a Rex terminal, REX_SERVER names the server that the terminal belongs to. The command never stops a server on another machine. If `--server` or REX_SERVER names one, it reports an error instead.
 
 With `--if-idle`, the server stops only if it has no sessions and no other client is connected. Otherwise it keeps running, and the command says what is using it and exits with status 1. A client that connects at the same moment is refused, so it never starts work that the stop would end.
 
@@ -1287,11 +1327,13 @@ The file is REX_CONFIG when that variable is set. Otherwise it is rex/init.lua i
 
 Load the config file and report what it found.
 
-Load the config file and report where it is, whether it is there, how many keys it binds and unbinds, how many modes it uses, how many actions it defines, and everything loading it had to complain about. Without PATH the account's own init.lua is used.
+Load the config file and report where it is, whether it is there, how many keys it binds and unbinds, how many modes it uses, how many actions it defines, which settings are in force and where each came from, which Program Resume trust rules are in force, and everything loading it had to complain about. Without PATH the account's own init.lua is used.
 
 Only loading happens here. Some mistakes take more than the file to see, such as binding an action that neither this file nor the client has, or unbinding a key that nothing was bound to. Those depend on which client is asking, and "rex keymap" reports them.
 
 The file is loaded by this rex binary, so it is checked against the functions and fields this version of Rex knows. A server running a different version may read it differently. "rex keymap" asks the running server instead.
+
+A trust rule names a command that Rex may start again by itself after a restart. Each rule shows its command, the directories it is limited to if it has any, and how many flags of the original command it keeps and drops. When the file changed part of a rule, the line that changed it is shown next to that part. Rules that are not in force are listed last, each with the line that left it out.
 
 The exit status is 1 when any complaint is an error.
 
@@ -1605,7 +1647,7 @@ Install Rex's terminfo entry on other machines.
 
 Install xterm-rex on a remote host and record that it is there, so that ssh stops announcing xterm-256color to it.
 
-A record is compared, exactly, against the destination as ssh resolves it, so one machine can be recorded under more than one spelling.
+A record is compared, as a whole and ignoring case, against the destination as ssh resolves it, so one machine can be recorded under more than one spelling. Only this account's own guard, written by "rex terminfo setup", lets recorded hosts through.
 
 ### `rex terminfo host install DESTINATION [-- SSH_OPTIONS...]`
 
@@ -1617,7 +1659,7 @@ The entry's source is piped to the remote tic, which compiles it into ~/.terminf
 
 The entry lands in the home directory of the account you connect as, while the record is kept per host. Another account on that host will not have the entry. Use "rex terminfo host forget" to undo a record.
 
-What gets recorded is the spelling you typed, because that is what the guard compares against. When your ssh config rewrites it with HostName, that name is recorded as well, because a machine-wide guard sees the rewritten one. Either way, other spellings of the same machine keep the old terminal type until you install to them too.
+What gets recorded is the spelling you typed, because that is what the guard compares against. When your ssh config rewrites it with HostName, that name is recorded as well, because a guard included after your Host blocks sees the rewritten one. Either way, other spellings of the same machine keep the old terminal type until you install to them too.
 
 ### `rex terminfo host forget HOST`
 
@@ -1627,13 +1669,13 @@ Remove HOST from the hosts file, so that ssh goes back to announcing xterm-256co
 
 Use this when the entry is gone from that host, or when you connect to it as an account that does not have it.
 
-HOST is the spelling that was recorded. Run "rex terminfo host ls" to see them.
+HOST is the spelling that was recorded, in any case. Run "rex terminfo host ls" to see them.
 
 ### `rex terminfo host ls`
 
 List the hosts recorded as having Rex's terminfo entry, one per line, in the order they were added.
 
-Each line is compared, exactly, against the destination as ssh resolves it. One machine can appear under more than one spelling, and each spelling is its own record.
+Each line is compared, as a whole and ignoring case, against the destination as ssh resolves it. One machine can appear under more than one spelling, and each spelling is its own record.
 
 | Flag | Description |
 | --- | --- |

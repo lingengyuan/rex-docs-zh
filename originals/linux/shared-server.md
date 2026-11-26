@@ -360,8 +360,9 @@ Upgrades never restart `rex.socket` itself. If a new version changes the
 socket unit, the change applies once you stop both units and start the
 socket again, or at the next reboot.
 
-**Restarting ends every session and every program in them.** Upgrade when
-nobody has work running, or
+**Restarting ends every program in every session.** The sessions are
+[restored](https://www.superlogical.com/rex/docs/features/session-restore.md), each pane with a new shell, and only
+programs that can resume come back. Upgrade when nobody has work running, or
 [hold the package](https://www.superlogical.com/rex/docs/linux/upgrading.md#holding-an-upgrade) until then.
 
 The login server doesn't have this problem. Its sessions survive upgrades.

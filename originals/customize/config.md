@@ -48,6 +48,28 @@ Press <kbd>Cmd</kbd>+<kbd>D</kbd> and the focused pane splits to the right.
 
 The [Lua API reference](https://www.superlogical.com/rex/docs/reference/lua.md) lists all available Lua APIs.
 
+## Settings
+
+`rex.set` sets a Rex setting:
+
+```lua
+rex.set("resume.trust.codex", false)
+```
+
+The setting name is a dot-delimited key which allows easily setting nested
+values. The value can be a boolean, number, string, or table, and the proper
+type depends on the setting key being configured.
+
+Settings today are only used for [Resume Rules](https://www.superlogical.com/rex/docs/customize/resume-rules.md), but
+a future version of Rex will use this same interface for all of its general
+settings.
+
+A setting this version of Rex doesn't know is a warning, not an error, so the
+same file works with older and newer versions.
+
+Settings are only set while the file loads. Calling `rex.set` from an action
+is an error.
+
 ## Validation
 
 `rex config check` loads the file without changing anything and reports any
@@ -61,6 +83,9 @@ bindings: 8
 removals: 0
 modes: 1
 actions: 0
+settings: 0
+resume rules: 3
+...
 ```
 
 Both commands print the file's mistakes and exit with status 1 if any of them

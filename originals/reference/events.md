@@ -92,6 +92,7 @@ the name, or in full as `com.superlogical.terminal.` followed by the name.
 | `terminal.clipboard_written` | The program writes to the clipboard. | `text` |
 | `terminal.program_status_changed` | A program reports or updates its status. | `id`, `record`, `reason` |
 | `terminal.program_status_removed` | Program status records are removed. | `ids`, `reason` |
+| `terminal.program_resume_changed` | The terminal's Program Resume records change. | `records`, `reason` |
 
 A few notes on these:
 
@@ -104,6 +105,15 @@ A few notes on these:
   change.
 - `foreground` is a table describing the process in the foreground, with
   `name`, `cwd`, `pid`, and more. It can be `nil`.
+- `records` is the terminal's whole new list of
+  [Program Resume](https://www.superlogical.com/rex/docs/build/program-resume.md) records. Each has `owner`,
+  `program`, `cwd`, `reported_at`, `chosen`, `trusted`, `rule`, and
+  `untrusted_reason`, and leaves out the ones that are false or empty. A
+  record has no command, because a command can hold a secret and every
+  listener receives the event. To read the commands, call the terminal's
+  `program_resume_records` [method](https://www.superlogical.com/rex/docs/automate/server-api.md#block-methods).
+- `reason` in `terminal.program_resume_changed` is `report`, `clear`,
+  `rejected`, `owner_exited`, or `rules_changed`. Newer servers may add more.
 
 ## Server Events
 

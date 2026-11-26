@@ -145,7 +145,8 @@ instead of `rex.service`. See
 [Starting on Demand](https://www.superlogical.com/rex/docs/linux/shared-server.md#starting-on-demand).
 
 A package upgrade restarts the service, which automatically ends every
-session on it. See [Upgrading](https://www.superlogical.com/rex/docs/linux/upgrading.md).
+program running on it. Its sessions are
+[restored](https://www.superlogical.com/rex/docs/features/session-restore.md). See [Upgrading](https://www.superlogical.com/rex/docs/linux/upgrading.md).
 
 Read [Shared Server](https://www.superlogical.com/rex/docs/linux/shared-server.md) before you set it up for other
 people. It covers giving them access, configuring the server, and changing
