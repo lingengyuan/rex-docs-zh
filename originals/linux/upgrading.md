@@ -14,9 +14,9 @@ the running server. On FreeBSD and Windows, nothing restarts automatically;
 you must manually restart the server into the latest version. See
 [FreeBSD](#freebsd) and [Windows](#windows).
 
-**Upgrading ends every session on a running shared server.** The login
-server and personal servers keep their sessions. See
-[What Restarts](#what-restarts).
+**Upgrading ends every program running on a shared server.** Its sessions
+are restored. The login server and personal servers keep their sessions
+running. See [What Restarts](#what-restarts).
 
 ## Upgrading the Package
 
@@ -53,14 +53,15 @@ and its service and start the socket again, or at the next reboot.
 
 | Server          | On upgrade        | Sessions | Runs the new version    |
 | --------------- | ----------------- | -------- | ----------------------- |
-| Shared server   | Restarts          | End      | Right away              |
+| Shared server   | Restarts          | Restored | Right away              |
 | Login server    | Restarts          | Survive  | Right away              |
 | Account servers | Keep running      | Survive  | When their sessions end |
 | Personal server | Keeps running     | Survive  | When it stops           |
 
-**Restarting the shared server ends every session and every program in
-them.** Upgrade when nobody has work running, or
-[hold the package](#holding-an-upgrade) until then.
+**Restarting the shared server ends every program in its sessions.** The
+sessions are [restored](https://www.superlogical.com/rex/docs/features/session-restore.md), each pane with a new
+shell, and only programs that can resume come back. Upgrade when nobody has
+work running, or [hold the package](#holding-an-upgrade) until then.
 
 The servers the login server starts for each account keep running the
 version they started with. Each one stops around 10 seconds after its last
@@ -234,7 +235,7 @@ sudo nixos-rebuild switch --flake .
 ```
 
 `nixos-rebuild switch` restarts the Rex service when Rex changes, the same
-as a package upgrade: the shared server's sessions end, and account servers
+as a package upgrade: the shared server's programs end, and account servers
 keep the old version until their sessions end.
 
 `flake.lock` holds Rex at its current version until you update it, so
@@ -251,9 +252,10 @@ service rex restart
 service rex-login-server restart
 ```
 
-**Restarting `rex` ends every session on the shared server**, the same as
-on Linux. Restarting `rex-login-server` keeps each account's server and its
-sessions, and they keep the old version until their sessions end.
+**Restarting `rex` ends every program on the shared server**, the same as
+on Linux. Its sessions are restored. Restarting `rex-login-server` keeps
+each account's server and its sessions, and they keep the old version until
+their sessions end.
 
 Upgrades keep your changes to the accounts file, but replace the PAM policy
 in `/usr/local/etc/pam.d`. To change the policy, edit a copy in

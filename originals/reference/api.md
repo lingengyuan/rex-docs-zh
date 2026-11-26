@@ -385,8 +385,6 @@ Loading scripts changes this client's keymap without a `keymap_changed` event. C
 
 ### `client.undo_close`
 
-<div class="api-tags"><span class="api-tag channel">Snapshot</span></div>
-
 Reopen what this client closed most recently, a pane, a window, or a session, if it can still be undone.
 
 The call reopens the caller's newest close that can still be undone, in whichever session it was. Each client has one history of closes for the whole server, and calling again reopens the one before. There is no redo.
@@ -1495,6 +1493,36 @@ If one of the blocks has focus in the active window, focus follows it to its new
 A zoom follows its block, so the other block doesn't take it over. A zoomed block stays zoomed if it is still where its zoom allows: in the window's layout for that zoom, or focused in a floating layer. Otherwise the zoom ends.
 
 If the session doesn't exist, the call fails with `session_not_found`. If `block_id` and `other_block_id` are the same, it fails with `bad_request`. If either block isn't in any window, including a detached block, it fails with `not_found`.
+
+### `session.transfer_window`
+
+Move a window, with its blocks still running, to another session.
+
+| Field | Required | Description |
+| --- | --- | --- |
+| `session_id` | Yes | The session that holds the window. |
+| `window_id` | Yes | The window to move. |
+| `to_session_id` | Yes | The session to move the window to. It must be a different session. |
+| `before_window_id` |  | The window in the destination session to place it just before. Leave it out to put the window at the end. |
+| `focus` |  | Whether to make the window the destination session's active window. Defaults to false. A session with no active window always makes it active. |
+
+The window keeps its ID, label, layout, focused block and zoom, and its blocks keep their IDs and go on running. A terminal keeps its program and its scrollback.
+
+The session the window leaves sends `window_closed` and a `block_closed` for each block, as if the window had closed. The destination sends a `block_created` for each block and then `window_created`. A client that is attached to both sees the same IDs close in one and open in the other.
+
+Streams opened on the window's blocks through the session it left end. Open them again through the destination session.
+
+The calling client becomes the owner of the blocks if it is attached to the destination session. Otherwise they have no owner until a client claims them.
+
+A program already running in a terminal keeps the `REX_SESSION` value it started with, which names the session the window left.
+
+If the window's session has no other window, it is left with none, as after `session.close_window`.
+
+To reorder windows within one session, use `session.move_window`. If `to_session_id` equals `session_id`, the call fails with `bad_request`.
+
+If the destination already has its maximum number of windows, or a block of the window is still starting or is being moved by another call, the call fails with `conflict` and the window stays where it is.
+
+If either session doesn't exist, the call fails with `session_not_found`, and the message says which one. If `window_id` isn't in the session, or `before_window_id` isn't in the destination, it fails with `not_found`.
 
 ### `session.view`
 

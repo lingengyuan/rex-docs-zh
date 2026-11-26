@@ -32,6 +32,8 @@ Anything short of working is noted at the top of the function's docs.
 | `rex.mode`, `rex.bindings`, `rex.modes` | Yes | Error | No effect | Error |
 | `rex.action` | Yes | Error | Yes | Error |
 | `rex.host` | Yes | Error | No effect | Error |
+| `rex.set` | Yes | Error | No effect | Error |
+| `rex.match.*` | Yes | Yes | Yes | Yes |
 | `rex.on` | Warning | Error | Yes | Error |
 | `rex.call`, `rex.session.*`, `rex.block.call` | Fails | Yes | Yes | Yes |
 | `rex.invoke` | Warning | Yes | Yes | Yes |
@@ -327,6 +329,42 @@ Returns a table with the same `session`, `block`, and `call` functions as
 `rex`, whose calls go to that server. Raises an error for an unknown label.
 
 Calls made through it don't fill in a `session_id` or `block_id`.
+
+## Settings
+
+See [Settings](https://www.superlogical.com/rex/docs/customize/config.md#settings) and
+[Resume Rules](https://www.superlogical.com/rex/docs/customize/resume-rules.md).
+
+### `rex.set(key, value)`
+
+Sets the setting `key`, a dotted name, to `value`.
+
+```lua
+rex.set("resume.trust.claude.dir", "~/code")
+```
+
+`value` is a boolean, a number, a string, or a table of those. For a setting
+that holds named items, such as `resume.trust`, `false` removes the item.
+
+A wrong value is an error and an unknown key is a warning. Either is reported
+at the line of the call, and the rest of the file still loads. In a script,
+each call is checked and has no effect.
+
+### `rex.match.uuid`
+
+A matcher that matches a UUID. This only works with
+[resume rules](https://www.superlogical.com/rex/docs/customize/resume-rules.md#adding-a-rule) today.
+
+### `rex.match.id`
+
+A matcher that matches an identifier, defined as 1 to 128 letters, digits,
+and underscores. This only works with [resume rules](https://www.superlogical.com/rex/docs/customize/resume-rules.md#adding-a-rule) today.
+
+### `rex.match.under(dir)`
+
+A matcher that matches an absolute path inside `dir`, but not `dir`
+itself. `dir` is absolute or starts with `~`. This only works with
+[resume rules](https://www.superlogical.com/rex/docs/customize/resume-rules.md#adding-a-rule) today.
 
 ## Other Functions
 
