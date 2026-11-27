@@ -229,6 +229,52 @@ rex capture -s build -w 2
 
 Kill sessions.
 
+### `rex open URL|FILE...`
+
+<div class="api-tags"><span class="api-tag channel">Snapshot</span></div>
+
+Open URLs and files on the Rex client's machine.
+
+Open URLs and files on the computer where the Rex client is running.
+
+Each argument is a URL or the path of a file on this machine. A URL opens in the app that the other computer uses for it, such as its browser. A file is downloaded there through the terminal and opened in its default app.
+
+  `rex open` https://example.com/login   `rex open` report.pdf ../notes.md
+
+A link to localhost is forwarded first, so it reaches this machine rather than the computer that opens it. That makes `rex open` usable as $BROWSER for a tool that signs in through a page on a local port.
+
+An argument that names a file here is a file. Anything else that starts with a scheme, such as https: or mailto:, is a URL.
+
+The app that opens them is, in order: the client `--client` or REX_CLIENT names, the client that owns the block `rex open` runs in, the client that owns the focused block of the default window, or the only app connected to the server. With several apps connected and none of those to choose by, name one with `--client`. Pass `-v` to see which app was used and why.
+
+### `rex cp [-r] SOURCE... DEST`
+
+Copy files to or from a server.
+
+Copy files and directories between this machine and a server.
+
+A path on the server starts with a colon, and the server is the one `--server` names, or the default one:
+
+  `rex cp` report.pdf :docs/   rex `-S` build cp ':out/*.tar.gz' .
+
+A known host's label can stand before the colon instead, as in scp:
+
+  `rex cp` `-r` ./site web:/var/www/
+
+Exactly one side is on the server: either every source, or the destination. A path on the server is relative to the home directory there unless it is absolute, and a leading ~ is the home directory too. Quote a pattern meant for the server so that the shell leaves it alone. Patterns use *, ? and [...], and a directory needs `-r`.
+
+The destination follows cp's rules. If it is a directory, the sources go inside it. Otherwise there must be one source, which takes that name. A file replaces a file. A directory that is already there is merged into, and files in it that were not sent are left alone. A file where a directory is, or the reverse, stops the copy before anything changes.
+
+Nothing appears at the destination until the whole copy has arrived, so a copy that fails or is interrupted leaves the destination as it was. Permissions and modification times are kept; ownership is not. A source that is a symbolic link is followed, and links inside a directory are copied as links. Devices, FIFOs and sockets inside a directory are skipped, and one named as a source is an error.
+
+The copy runs through an fs block that `rex cp` creates on the server and closes when it is done. A server started with `--no-fs` does not offer one.
+
+| Flag | Description |
+| --- | --- |
+| `-r, --recursive` | Copy directories and everything in them. |
+| `--progress` | Show how far the copy has got, on standard error. |
+| `-s, --session string` | Keep the copy's block in session SESSION. |
+
 ### `rex forward`
 
 Forward TCP ports.
@@ -333,34 +379,6 @@ A `rex forward new` that is carrying a closed forward stops it, and exits once i
 | `-s, --session string` | Scope to session SESSION. |
 | `--orphaned` | Close every orphaned forward in the session. |
 | `--all` | Close every forward in the session. |
-
-### `rex cp [-r] SOURCE... DEST`
-
-Copy files to or from a server.
-
-Copy files and directories between this machine and a server.
-
-A path on the server starts with a colon, and the server is the one `--server` names, or the default one:
-
-  `rex cp` report.pdf :docs/   rex `-S` build cp ':out/*.tar.gz' .
-
-A known host's label can stand before the colon instead, as in scp:
-
-  `rex cp` `-r` ./site web:/var/www/
-
-Exactly one side is on the server: either every source, or the destination. A path on the server is relative to the home directory there unless it is absolute, and a leading ~ is the home directory too. Quote a pattern meant for the server so that the shell leaves it alone. Patterns use *, ? and [...], and a directory needs `-r`.
-
-The destination follows cp's rules. If it is a directory, the sources go inside it. Otherwise there must be one source, which takes that name. A file replaces a file. A directory that is already there is merged into, and files in it that were not sent are left alone. A file where a directory is, or the reverse, stops the copy before anything changes.
-
-Nothing appears at the destination until the whole copy has arrived, so a copy that fails or is interrupted leaves the destination as it was. Permissions and modification times are kept; ownership is not. A source that is a symbolic link is followed, and links inside a directory are copied as links. Devices, FIFOs and sockets inside a directory are skipped, and one named as a source is an error.
-
-The copy runs through an fs block that `rex cp` creates on the server and closes when it is done. A server started with `--no-fs` does not offer one.
-
-| Flag | Description |
-| --- | --- |
-| `-r, --recursive` | Copy directories and everything in them. |
-| `--progress` | Show how far the copy has got, on standard error. |
-| `-s, --session string` | Keep the copy's block in session SESSION. |
 
 ## Layout
 
