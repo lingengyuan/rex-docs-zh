@@ -27,6 +27,7 @@ This page lists every action in the Rex for iOS command palette. Use the name to
 | <span id="action-client-debug-copy" data-entry="Copy Debug Info"></span>Copy Debug Info Copies a report of the app, system, server, and host state to the clipboard. | `client.debug.copy` <span hidden>debug debugging info report copy clipboard diagnostics troubleshoot support bug commit build environment</span> |
 | <span id="action-client-diagnostics" data-entry="Rex Diagnostics"></span>Rex Diagnostics | `client.diagnostics` <span hidden>diagnostics logs debug troubleshoot server report</span> |
 | <span id="action-client-agents-setup" data-entry="Install Rex for Agents"></span>Install Rex for Agents Installs the Rex skill and hooks for Claude Code, Codex, and other agents. | `client.agents.setup` <span hidden>`rex skill` install agent agents coding ai claude code codex cursor copilot gemini hook hooks setup</span> |
+| <span id="action-client-url-open" data-entry="Open URL"></span>Open URL Opens a URL with the app this computer uses for it, such as the browser. | `client.url.open` <span hidden>open url link web browser page address http https launch default app</span> |
 
 ## View
 
