@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/mac-actions
-> 原文版本：bae9d2b5bf4d（抓取于 2026-11-26）
+> 原文版本：76820e015e8f（抓取于 2026-11-27）
 
 # Mac 操作
 
@@ -26,6 +26,7 @@
 | <span id="action-client-onboarding" data-entry="Open Onboarding Session…"></span>Open Onboarding Session…（打开入门引导会话…） | `client.onboarding` <span hidden>onboarding welcome setup get started tour walkthrough migrate import keybindings theme appearance ghostty tmux zellij agent</span> |  |
 | <span id="action-client-permissions" data-entry="Grant System Permissions…"></span>Grant System Permissions…（授予系统权限…） | `client.permissions` <span hidden>permissions privacy security full disk access screen recording system audio grant allow system settings tcc</span> |  |
 | <span id="action-client-visibility-toggle" data-entry="Toggle Visibility"></span>Toggle Visibility（切换可见性） 在任何应用中唤出 Rex，或者在处于前台时将其隐藏。 | `client.visibility.toggle` <span hidden>show hide rex global hotkey summon bring to front focus toggle_visibility</span> |  |
+| <span id="action-client-quick-terminal-toggle" data-entry="Toggle Quick Terminal"></span>Toggle Quick Terminal（切换快速终端） 在任何应用上方显示终端，或将其隐藏。<span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | `client.quick_terminal.toggle` <span hidden>quick terminal quake dropdown drop down hotkey window global summon toggle_quick_terminal</span> |  |
 | <span id="action-client-version-copy" data-entry="Copy Version Info"></span>Copy Version Info（复制版本信息） 将应用和服务端版本复制到剪贴板。 | `client.version.copy` <span hidden>version build number copy clipboard about app server release</span> |  |
 | <span id="action-client-debug-copy" data-entry="Copy Debug Info"></span>Copy Debug Info（复制调试信息） 将应用、系统、服务端和主机状态报告复制到剪贴板。 | `client.debug.copy` <span hidden>debug debugging info report copy clipboard diagnostics troubleshoot support bug commit build environment</span> |  |
 | <span id="action-client-pair-device" data-entry="Pair Device with QR Code…"></span>Pair Device with QR Code…（通过二维码配对设备…） | `client.pair_device` <span hidden>pair device qr code scan iphone ipad ios mobile tailscale connect link</span> |  |
@@ -40,6 +41,7 @@
 | <span id="action-client-shortcuts-edit" data-entry="Change Shortcut…"></span>Change Shortcut…（更改快捷键…） | `client.shortcuts.edit` <span hidden>keyboard key binding bindings keybinding keybindings rebind record hotkey shortcut</span> |  |
 | <span id="action-client-agents-setup" data-entry="Install Rex for Agents"></span>Install Rex for Agents（为智能体安装 Rex） 为 Claude Code、Codex 及其他智能体安装 Rex skill 与 hook。 | `client.agents.setup` <span hidden>`rex skill` install agent agents coding ai claude code codex cursor copilot gemini hook hooks setup</span> |  |
 | <span id="action-client-server-restart" data-entry="Restart Server…"></span>Restart Server…（重启服务端…） 停止本地 Rex 服务端并重新启动。 | `client.server.restart` <span hidden>restart reload relaunch reboot stop start server rex daemon process local</span> |  |
+| <span id="action-client-url-open" data-entry="Open URL"></span>Open URL（打开 URL） 使用这台电脑默认用于处理此类链接的应用（例如浏览器）打开 URL。<span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | `client.url.open` <span hidden>open url link web browser page address http https launch default app</span> |  |
 
 ## 会话
 
@@ -85,6 +87,8 @@
 | <span id="action-client-tab-move-backward" data-entry="Move Tab Backward"></span>Move Tab Backward（向后移动标签页） | `client.tab.move.backward` <span hidden>move tab window reorder left up earlier</span> |  <span hidden>默认快捷键：</span>`ctrl+shift+pageup` |
 | <span id="action-client-tab-move-forward" data-entry="Move Tab Forward"></span>Move Tab Forward（向前移动标签页） | `client.tab.move.forward` <span hidden>move tab window reorder right down later</span> |  <span hidden>默认快捷键：</span>`ctrl+shift+pagedown` |
 | <span id="action-client-tab-move-to-new-window" data-entry="Move Tab to New Window"></span>Move Tab to New Window（移动标签页至新窗口） | `client.tab.move_to_new_window` <span hidden>move tab new window tear off detach separate pop out own</span> |  |
+| <span id="action-client-tab-move-to-previous-session" data-entry="Move Tab to Previous Session"></span>Move Tab to Previous Session（移动标签页至上一个会话） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | `client.tab.move_to_previous_session` <span hidden>move tab window session previous above earlier send transfer</span> |  |
+| <span id="action-client-tab-move-to-next-session" data-entry="Move Tab to Next Session"></span>Move Tab to Next Session（移动标签页至下一个会话） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | `client.tab.move_to_next_session` <span hidden>move tab window session next below later send transfer</span> |  |
 | <span id="action-client-tab-mute" data-entry="Mute Tab"></span>Mute Tab（静音标签页） | `client.tab.mute` <span hidden>mute unmute silence quiet tab sound notification alert badge</span> |  |
 | <span id="action-client-tab-unread" data-entry="Mark as Unread"></span>Mark as Unread（标记为未读） | `client.tab.unread` <span hidden>mark unread read tab pane later remind come back dot flag inbox</span> |  <span hidden>默认快捷键：</span>`alt+cmd+u` |
 
@@ -280,3 +284,4 @@
 | <span id="action-client-setting-developer-mode-enabled" data-entry="Developer Mode"></span>Developer Mode（开发者模式） 显示用于开发与调试的设置项。 | `client.setting.developer.mode.enabled` <span hidden>developer advanced development debugging enable tools setting preference</span> |  |
 | <span id="action-client-setting-developer-experimental-terminal-anchor" data-entry="Terminal Anchoring"></span>Terminal Anchoring（终端锚定） 将终端文本固定在每个窗格的顶部或底部。 | `client.setting.developer.experimental.terminal_anchor` <span hidden>anchor terminal alignment grid gravity leftover row top bottom experimental setting preference</span> |  |
 | <span id="action-client-setting-developer-experimental-new-quick-switcher" data-entry="New Quick Switcher"></span>New Quick Switcher（新快速切换器） 从“前往任意位置”（Go to Anything）打开包含所有会话、块和进程的统一列表。 | `client.setting.developer.experimental.new_quick_switcher` <span hidden>go to anything session view activity switcher jump navigate experimental setting preference</span> |  |
+| <span id="action-client-setting-developer-experimental-quick-terminal" data-entry="Quick Terminal Experiment"></span>Quick Terminal Experiment（快速终端实验性功能） 开启或关闭快速终端（在任意应用上方显示的终端）。<span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | `client.setting.developer.experimental.quick_terminal` <span hidden>quick terminal floating panel hotkey global shortcut drop down experimental setting preference</span> |  |

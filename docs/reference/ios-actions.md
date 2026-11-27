@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/ios-actions
-> 原文版本：798687acd23a（抓取于 2026-11-25）
+> 原文版本：55fff6134a8b（抓取于 2026-11-27）
 
 # iOS 操作
 
@@ -25,6 +25,7 @@
 | <span id="action-client-debug-copy" data-entry="Copy Debug Info"></span>Copy Debug Info（复制调试信息） 将应用、系统、服务端和主机状态报告复制到剪贴板。 | `client.debug.copy` <span hidden>debug debugging info report copy clipboard diagnostics troubleshoot support bug commit build environment</span> |
 | <span id="action-client-diagnostics" data-entry="Rex Diagnostics"></span>Rex Diagnostics（Rex 诊断） | `client.diagnostics` <span hidden>diagnostics logs debug troubleshoot server report</span> |
 | <span id="action-client-agents-setup" data-entry="Install Rex for Agents"></span>Install Rex for Agents（为智能体安装 Rex） 为 Claude Code、Codex 及其他智能体安装 Rex skill 与 hook。 | `client.agents.setup` <span hidden>`rex skill` install agent agents coding ai claude code codex cursor copilot gemini hook hooks setup</span> |
+| <span id="action-client-url-open" data-entry="Open URL"></span>Open URL（打开 URL） 使用这台电脑默认用于处理此类链接的应用（例如浏览器）打开 URL。 | `client.url.open` <span hidden>open url link web browser page address http https launch default app</span> |
 
 ## 视图
 

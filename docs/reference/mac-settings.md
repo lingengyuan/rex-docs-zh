@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/mac-settings
-> 原文版本：e091d8dd872c（抓取于 2026-11-25）
+> 原文版本：043bd8f9e181（抓取于 2026-11-27）
 
 # Mac 设置
 
@@ -201,6 +201,31 @@
 | --- | --- |
 | <span id="setting-animation-animation-style" data-entry="Animation style"></span>Animation style（动画样式） | 为窗格移动、活动边框以及显示/隐藏边栏选择干脆（Snappy）、自然（Natural）或关闭（Off）。开启“减弱动态效果”时为关闭。<span hidden>In Settings &gt; Interface &gt; Animation.</span> <span hidden>snappy, natural, off, spring, bounce, no bounce, overshoot, disable animations, turn off animations, reduce motion, instant, fast, speed, pane animation, split animation, hyprland, sidebar animation</span> |
 
+### 快速终端（Quick Terminal）
+
+选择快速终端的主机，以及在失去焦点时是否隐藏。位于“设置”>“界面”>“Quick Terminal”。 <span hidden>quick terminal, quake, dropdown, drop down, hotkey window, floating terminal, global shortcut, summon, toggle quick terminal</span>
+
+| 设置项 | 说明 |
+| --- | --- |
+| <span id="setting-quick-terminal-host" data-entry="Host"></span>Host（主机） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 在“本机（This Mac）”或远程主机上打开快速终端的会话。<span hidden>In Settings &gt; Interface &gt; Quick Terminal.</span> <span hidden>host, server, remote, this mac, session, quick-terminal, where</span> |
+| <span id="setting-quick-terminal-close-when-focus-is-lost" data-entry="Close when focus is lost"></span>Close when focus is lost（失去焦点时关闭） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 点击其他窗口时隐藏快速终端，或使其保持置顶。<span hidden>In Settings &gt; Interface &gt; Quick Terminal.</span> <span hidden>focus, lose focus, click away, autohide, auto hide, hide, close, always on top, pin, stay on top, float, on, off</span> |
+
+### 快速终端窗口（Quick Terminal Window）
+
+选择快速终端在哪个显示器上打开、谁可以看到它以及它的外观。位于“设置”>“界面”>“Quick Terminal Window”。 <span hidden>quick terminal, customize quick terminal, window, panel, style</span>
+
+| 设置项 | 说明 |
+| --- | --- |
+| <span id="setting-quick-terminal-window-open-on" data-entry="Open on"></span>Open on（打开位置） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 在鼠标所在的显示器、活动窗口所在的显示器或菜单栏所在的显示器上打开快速终端。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>display, screen, monitor, mouse, pointer, cursor, active window, front window, multiple displays, primary display, main display, menu bar</span> |
+| <span id="setting-quick-terminal-window-toolbar" data-entry="Toolbar"></span>Toolbar（工具栏） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 始终显示快速终端的红绿灯按钮和窗格标题栏、悬停时显示，或将其隐藏。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>window controls, decorations, strip</span> |
+| <span id="setting-quick-terminal-window-pin-to" data-entry="Pin to"></span>Pin to（固定到） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 贴靠顶部、左侧、右侧或底部边缘打开快速终端。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>pin, position, edge, side, top, bottom, left, right, quake, anchor, place</span> |
+| <span id="setting-quick-terminal-window-width" data-entry="Width"></span>Width（宽度） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 设置固定后的快速终端占用的显示器宽度比例。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>width, size, percent, wide, pin</span> |
+| <span id="setting-quick-terminal-window-height" data-entry="Height"></span>Height（高度） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 设置固定后的快速终端占用的显示器高度比例。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>height, size, percent, tall, pin</span> |
+| <span id="setting-quick-terminal-window-hide-during-screen-sharing" data-entry="Hide during screen sharing"></span>Hide during screen sharing（屏幕共享时隐藏） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 在屏幕共享、录屏和截图中排除快速终端。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>screen sharing, screen share, recording, screenshot, capture, privacy, zoom, meet, presentation, on, off</span> |
+| <span id="setting-quick-terminal-window-style" data-entry="Style"></span>Style（样式） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 与工作区窗口的窗格保持一致，或为快速终端指定独立外观。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>style, inherit, custom, look, appearance, own style, match windows, override</span> |
+| <span id="setting-quick-terminal-window-pane-style" data-entry="Pane style"></span>Pane style（窗格样式） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 为快速终端单独指定舒适或紧凑的窗格间距。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>density, comfortable, compact, spacing, padding, custom</span> |
+| <span id="setting-quick-terminal-window-transparency" data-entry="Transparency"></span>Transparency（透明度） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 设置主题色调在快速终端模糊背景上的淡出程度。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>transparency, transparent, opacity, opaque, translucent, see through, background, alpha, tint, custom</span> |
+
 ## 通用
 
 ### 应用版本（App Version）
@@ -395,6 +420,7 @@
 | --- | --- |
 | <span id="setting-experimental-features-terminal-anchoring" data-entry="Terminal anchoring"></span>Terminal anchoring（终端锚定） | 将终端文本固定在每个窗格的顶部或底部。<span hidden>In Settings &gt; Developer &gt; Experimental Features. Needs Developer Mode.</span> <span hidden>anchor, terminal alignment, grid gravity, leftover row</span> |
 | <span id="setting-experimental-features-new-quick-switcher" data-entry="New quick switcher"></span>New quick switcher（新版快速切换器） | 在“前往任意位置”中打开一个汇总所有会话、块和报告中进程的统一列表。<span hidden>In Settings &gt; Developer &gt; Experimental Features. Needs Developer Mode.</span> <span hidden>go to anything, go to session, view activity, switcher, command palette, cmd p, jump, navigate, panes, blocks, sessions, experiment</span> |
+| <span id="setting-experimental-features-quick-terminal" data-entry="Quick terminal"></span>Quick terminal（快速终端） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 通过全局快捷键在任意应用上方显示终端。<span hidden>In Settings &gt; Developer &gt; Experimental Features. Needs Developer Mode.</span> <span hidden>quick terminal, floating terminal, hotkey window, drop down, dropdown, global shortcut, panel, experiment</span> |
 
 ### 本地 API（Local API）
 在启用“开发者模式”时检查本地服务端的 API 端点。位于“设置”>“开发者”>“Local API”。 <span hidden>local server, control api, development, connection</span>
