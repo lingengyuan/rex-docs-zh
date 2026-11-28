@@ -1351,7 +1351,7 @@ Only loading happens here. Some mistakes take more than the file to see, such as
 
 The file is loaded by this rex binary, so it is checked against the functions and fields this version of Rex knows. A server running a different version may read it differently. "rex keymap" asks the running server instead.
 
-A trust rule names a command that Rex may start again by itself after a restart. Each rule shows its command, the directories it is limited to if it has any, and how many flags of the original command it keeps and drops. When the file changed part of a rule, the line that changed it is shown next to that part. Rules that are not in force are listed last, each with the line that left it out.
+A trust rule names a command that Rex may start again by itself after a restart. Each rule shows its command, the directories it is limited to if it has any, how many flags of the original command it keeps and drops, and whether it resumes a program that sends no report. When the file changed part of a rule, the line that changed it is shown next to that part. Rules that are not in force are listed last, each with the line that left it out.
 
 The exit status is 1 when any complaint is an error.
 

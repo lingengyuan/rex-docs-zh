@@ -84,7 +84,7 @@ removals: 0
 modes: 1
 actions: 0
 settings: 0
-resume rules: 3
+resume rules: 7
 ...
 ```
 
