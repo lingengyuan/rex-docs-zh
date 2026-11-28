@@ -836,6 +836,7 @@ Create a session, optionally with its first windows already in it.
 | --- | --- | --- |
 | `label` |  | The session's label, up to 128 characters. Leave it out to let the server choose one, such as quiet-meadow. |
 | `initial_windows` |  | Windows to create with the session, in order. The last one becomes the active window. If any of them fails, the server creates no session. |
+| `idempotency_key` |  | A key of up to 128 bytes, chosen by the caller, that makes the call safe to retry. A call that repeats the key of an earlier successful call to the same method by the same principal, a short time later, creates nothing and returns the earlier response. |
 
 Every argument is optional. With none, the server creates a session with no windows.
 
@@ -1207,6 +1208,7 @@ Create a block without placing it in a window. Place it later with session.move_
 | `flavor` | Yes | The flavor of block to create, such as com.superlogical.terminal.shell. block_creator.list lists them. |
 | `options` |  | Settings for the block's creator, in the shape of the flavor's options_schema from block_creator.list. |
 | `label` |  | The block's label, up to 128 characters. Defaults to the flavor's short name, such as shell. |
+| `idempotency_key` |  | A key of up to 128 bytes, chosen by the caller, that makes the call safe to retry. A call that repeats the key of an earlier successful call to the same method by the same principal, a short time later, creates nothing and returns the earlier response. |
 
 The server passes `options` to the flavor's creator unchanged.
 
@@ -1229,6 +1231,7 @@ Create blocks in a new floating layer at the front of a window.
 | `bounds` | Yes | Where the new floating layer sits, as [x, y, w, h] fractions of the window's width and height. It must fit inside the window. |
 | `layout` | Yes | The blocks to create in the floating layer and how to arrange them. Each node holds either block, with a flavor and optional options and label, or split, with direction, before, after, and an optional ratio. |
 | `focus` |  | Whether to make the window active and focus the first new block. Defaults to false. |
+| `idempotency_key` |  | A key of up to 128 bytes, chosen by the caller, that makes the call safe to retry. A call that repeats the key of an earlier successful call to the same method by the same principal, a short time later, creates nothing and returns the earlier response. |
 
 `bounds` is measured from the window's top-left corner. Its width and height must be greater than 0.
 
@@ -1264,6 +1267,7 @@ Create blocks in a new split beside an existing block or split.
 | `ratio` |  | The fraction of the space that the before part gets, greater than 0 and less than 1. Defaults to 0.5. |
 | `layout` | Yes | The blocks to create beside the anchor and how to arrange them. Each node holds either block, with a flavor and optional options and label, or split, with direction, before, after, and an optional ratio. |
 | `focus` |  | Whether to make the anchor's window active and focus the first new block. Defaults to false. |
+| `idempotency_key` |  | A key of up to 128 bytes, chosen by the caller, that makes the call safe to retry. A call that repeats the key of an earlier successful call to the same method by the same principal, a short time later, creates nothing and returns the earlier response. |
 
 The server picks the block to split before it starts the new blocks, so a focus change while they start doesn't move the split.
 
@@ -1295,6 +1299,7 @@ Create a window and the blocks in its layout. It becomes the active window by de
 | `window_label` |  | The window's label, up to 128 characters. Leave it out for a label made from the window's ID, such as Window 89abcdef. |
 | `layout` |  | The blocks to create in the window and how to arrange them. Required. Each node holds either block, with a flavor and optional options and label, or split, with direction, before, after, and an optional ratio. |
 | `focus` |  | Whether to make the new window the active window. Defaults to true. A session with no active window always makes the new one active. |
+| `idempotency_key` |  | A key of up to 128 bytes, chosen by the caller, that makes the call safe to retry. A call that repeats the key of an earlier successful call to the same method by the same principal, a short time later, creates nothing and returns the earlier response. |
 
 A `block` node in `layout` starts one new block from a `flavor`, such as `com.superlogical.terminal.shell`. A `split` node divides its space in two and holds another node in each of `before` and `after`.
 
