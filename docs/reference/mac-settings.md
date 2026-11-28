@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/mac-settings
-> 原文版本：043bd8f9e181（抓取于 2026-11-27）
+> 原文版本：ac6c54cb5454（抓取于 2026-11-28）
 
 # Mac 设置
 
@@ -116,13 +116,6 @@
 | <span id="setting-toolbar-toolbar-layout" data-entry="Toolbar layout"></span>Toolbar layout（工具栏布局） | 将工具栏及其标签页放置在窗格上方或下方，或者窗口的左侧或右侧。<span hidden>In Settings &gt; Interface &gt; Toolbar.</span> <span hidden>toolbar layout, tab style, tab placement, tab layout, horizontal tabs, vertical tabs, vertical, horizontal, sidebar, navigation, orientation, sidebar position, above, left side, right side, bottom, below, bottom tabs, tab bar at bottom, left sidebar, right sidebar, edge, location</span> |
 | <span id="setting-toolbar-toolbar-behavior" data-entry="Toolbar behavior"></span>Toolbar behavior（工具栏行为） | 始终显示工具栏、悬停时显示（隐藏标签栏或边栏标题行，直到光标移至窗口顶部），或保持隐藏直到执行“显示工具栏”。<span hidden>In Settings &gt; Interface &gt; Toolbar.</span> <span hidden>always show, on hover, show toolbar on hover, hidden, never, never show toolbar, reveal toolbar, toolbar visibility, auto-hide toolbar, autohide, hide toolbar, hide tab bar, floating toolbar, reveal, tab bar, title bar, title row, traffic lights, distraction free, minimal, full height, chrome, hot corner, hot corners</span> |
 
-### 标签页行为（Tab behavior）
-选择窗格上方的标签页是否填满标签栏。从“工具栏”下的“自定标签页”打开。位于“设置”>“界面”>“Tab behavior”。 <span hidden>tabs, tab bar, tab sizing, customize tabs</span>
-
-| 设置项 | 说明 |
-| --- | --- |
-| <span id="setting-tab-behavior-tabs-fill-available-space" data-entry="Tabs fill available space"></span>Tabs fill available space（标签页填满可用空间） | 在水平标签页下可用：均等拉伸标签页以填满标签栏，仅在有两个或更多标签页时显示背景。<span hidden>In Settings &gt; Interface &gt; Tab behavior.</span> <span hidden>fill available space, tab width, stretch, expand, full width, equal width, maximum, capped</span> |
-
 ### 标签页图标（Tab icons）
 选择标签页显示的窗格图标数量，以及标签页和 shell 图标的着色方式。从“工具栏”下的“自定标签页”打开。位于“设置”>“界面”>“Tab icons”。 <span hidden>workspace, icons, symbols, pane cards, icon stack, tab icons, tabs, customize tabs</span>
 
@@ -131,6 +124,13 @@
 | <span id="setting-tab-icons-use-color-for-tab-icons" data-entry="Use color for tab icons"></span>Use color for tab icons（为标签页图标使用颜色） | 选择始终、仅对活动窗格、仅对活动标签页显示彩色图标，或从不显示。<span hidden>In Settings &gt; Interface &gt; Tab icons.</span> <span hidden>colour, monochrome, grayscale, greyscale, saturation, always, never, active panes, active tabs, focused pane, selected tab</span> |
 | <span id="setting-tab-icons-shell-icon-theme" data-entry="Shell icon theme"></span>Shell icon theme（Shell 图标主题） | 选择默认图形、使用主题的前景与背景色，或使用主题强调色。<span hidden>In Settings &gt; Interface &gt; Tab icons.</span> <span hidden>shell colors, shell colours, terminal icon, shell palette, default, use theme, use theme accent, accent, background, foreground, glyph</span> |
 | <span id="setting-tab-icons-show-tab-icons" data-entry="Show tab icons"></span>Show tab icons（显示标签页图标） | 在垂直标签页中显示 0 到 3 个窗格图标，在水平标签页中最多显示 5 个。<span hidden>In Settings &gt; Interface &gt; Tab icons.</span> <span hidden>icon count, icons per tab, number of icons, stack size, stack limit, icon count slider, slider, maximum, none, hide icons, no icons, zero icons, one icon, two icons, three icons, four icons, five icons, 0, 1, 2, 3, 4, 5, pane icons</span> |
+
+### 标签页行为（Tab behavior）
+选择水平标签页是否填满标签栏。从“工具栏”下的“自定标签页”打开。位于“设置”>“界面”>“Tab behavior”。 <span hidden>tabs, tab bar, tab sizing, customize tabs</span>
+
+| 设置项 | 说明 |
+| --- | --- |
+| <span id="setting-tab-behavior-tabs-fill-available-space" data-entry="Tabs fill available space"></span>Tabs fill available space（标签页填满可用空间） | 适用于水平标签页：均等拉伸标签页以填满标签栏，仅在有两个或更多标签页时显示背景。<span hidden>In Settings &gt; Interface &gt; Tab behavior.</span> <span hidden>fill available space, tab width, stretch, expand, full width, equal width, maximum, capped</span> |
 
 ### 窗格（Panes）
 调整窗格间距与标题栏。位于“设置”>“界面”>“Panes”。 <span hidden>workspace, chrome, layout, density, spacing, split</span>
@@ -187,12 +187,13 @@
 | --- | --- |
 | <span id="setting-floating-windows-minimized-floating-windows" data-entry="Minimized floating windows"></span>Minimized floating windows（最小化悬浮窗口） | 选择标签页中最小化悬浮窗口排列的角落位置，或直接将其拖拽至该处。<span hidden>In Settings &gt; Interface &gt; Floating Windows.</span> <span hidden>corner, anchor, minimized corner, capsules, chat heads, minimize, minimise, drag, taskbar corner, move minimized windows</span> |
 
-### 手势（Gestures）
-开启或关闭用于窗格和边栏的触控板手势。位于“设置”>“界面”>“Gestures”。 <span hidden>gestures, trackpad, multi-touch, fingers</span>
+### 键盘与触控板（Keyboard and Trackpad）
+开启或关闭列表搜索框中的 Vim 移动操作，以及用于窗格和边栏的触控板手势。位于“设置”>“界面”>“Keyboard and Trackpad”。 <span hidden>keyboard, keys, gestures, trackpad, multi-touch, fingers</span>
 
 | 设置项 | 说明 |
 | --- | --- |
-| <span id="setting-gestures-use-trackpad-gestures" data-entry="Use trackpad gestures"></span>Use trackpad gestures（使用触控板手势） | 在窗格上双指张开可放大/最大化，捏合可复原；轻扫可显示或隐藏边栏。<span hidden>In Settings &gt; Interface &gt; Gestures.</span> <span hidden>use gestures, pinch, pinch to zoom, pinch zoom, magnify, magnification, spread, pinch zoom pane, unzoom, trackpad zoom, trackpad pinch, two finger pinch, swipe, sidebar swipe, disable gestures, turn off gestures, no gestures, trackpad gestures</span> |
+| <span id="setting-keyboard-and-trackpad-vim-motions-in-list-search-fields" data-entry="Vim motions in list search fields"></span>Vim motions in list search fields（列表搜索框中的 Vim 移动） | ⌃J 与 ⌃K 可在命令面板和选择器中移动高亮项。关闭时，⌃K 会删除至行尾。<span hidden>In Settings &gt; Interface &gt; Keyboard and Trackpad.</span> <span hidden>vim, vim motions, control j, control k, ctrl-j, ctrl-k, ctrl+j, ctrl+k, ⌃j, ⌃k, kill line, delete to end of line, emacs, list navigation, move highlight, command palette, session picker, activity popup, font picker, search field</span> |
+| <span id="setting-keyboard-and-trackpad-use-trackpad-gestures" data-entry="Use trackpad gestures"></span>Use trackpad gestures（使用触控板手势） | 在窗格上双指张开可放大/最大化，捏合可复原；轻扫可显示或隐藏边栏。<span hidden>In Settings &gt; Interface &gt; Keyboard and Trackpad.</span> <span hidden>use gestures, pinch, pinch to zoom, pinch zoom, magnify, magnification, spread, pinch zoom pane, unzoom, trackpad zoom, trackpad pinch, two finger pinch, swipe, sidebar swipe, disable gestures, turn off gestures, no gestures, trackpad gestures</span> |
 
 ### 动画（Animation）
 选择窗格移动、打开和关闭的方式。位于“设置”>“界面”>“Animation”。 <span hidden>motion, animations, transitions, movement</span>
@@ -203,12 +204,13 @@
 
 ### 快速终端（Quick Terminal）
 
-选择快速终端的主机，以及在失去焦点时是否隐藏。位于“设置”>“界面”>“Quick Terminal”。 <span hidden>quick terminal, quake, dropdown, drop down, hotkey window, floating terminal, global shortcut, summon, toggle quick terminal</span>
+录制快速终端的快捷键，选择其主机，以及在失去焦点时是否隐藏。位于“设置”>“界面”>“Quick Terminal”。 <span hidden>quick terminal, quake, dropdown, drop down, hotkey window, floating terminal, global shortcut, summon</span>
 
 | 设置项 | 说明 |
 | --- | --- |
-| <span id="setting-quick-terminal-host" data-entry="Host"></span>Host（主机） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 在“本机（This Mac）”或远程主机上打开快速终端的会话。<span hidden>In Settings &gt; Interface &gt; Quick Terminal.</span> <span hidden>host, server, remote, this mac, session, quick-terminal, where</span> |
-| <span id="setting-quick-terminal-close-when-focus-is-lost" data-entry="Close when focus is lost"></span>Close when focus is lost（失去焦点时关闭） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 点击其他窗口时隐藏快速终端，或使其保持置顶。<span hidden>In Settings &gt; Interface &gt; Quick Terminal.</span> <span hidden>focus, lose focus, click away, autohide, auto hide, hide, close, always on top, pin, stay on top, float, on, off</span> |
+| <span id="setting-quick-terminal-shortcut" data-entry="Shortcut"></span>Shortcut（快捷键） | 录制用于在任意应用中显示或隐藏快速终端的按键。<span hidden>In Settings &gt; Interface &gt; Quick Terminal.</span> <span hidden>quick terminal shortcut, quick terminal hotkey, quick terminal hot key, quick terminal key, toggle quick terminal, shortcut, keyboard shortcut, hotkey, hot key, key, keys, record, toggle_quick_terminal, client.quick_terminal.toggle</span> |
+| <span id="setting-quick-terminal-host" data-entry="Host"></span>Host（主机） | 在“本机（This Mac）”或远程主机上打开快速终端的会话。<span hidden>In Settings &gt; Interface &gt; Quick Terminal.</span> <span hidden>host, server, remote, this mac, session, quick-terminal, where</span> |
+| <span id="setting-quick-terminal-close-when-focus-is-lost" data-entry="Close when focus is lost"></span>Close when focus is lost（失去焦点时关闭） | 点击其他窗口时隐藏快速终端，或使其保持置顶。<span hidden>In Settings &gt; Interface &gt; Quick Terminal.</span> <span hidden>focus, lose focus, click away, autohide, auto hide, hide, close, always on top, pin, stay on top, float, on, off</span> |
 
 ### 快速终端窗口（Quick Terminal Window）
 
@@ -216,15 +218,15 @@
 
 | 设置项 | 说明 |
 | --- | --- |
-| <span id="setting-quick-terminal-window-open-on" data-entry="Open on"></span>Open on（打开位置） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 在鼠标所在的显示器、活动窗口所在的显示器或菜单栏所在的显示器上打开快速终端。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>display, screen, monitor, mouse, pointer, cursor, active window, front window, multiple displays, primary display, main display, menu bar</span> |
-| <span id="setting-quick-terminal-window-toolbar" data-entry="Toolbar"></span>Toolbar（工具栏） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 始终显示快速终端的红绿灯按钮和窗格标题栏、悬停时显示，或将其隐藏。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>window controls, decorations, strip</span> |
-| <span id="setting-quick-terminal-window-pin-to" data-entry="Pin to"></span>Pin to（固定到） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 贴靠顶部、左侧、右侧或底部边缘打开快速终端。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>pin, position, edge, side, top, bottom, left, right, quake, anchor, place</span> |
-| <span id="setting-quick-terminal-window-width" data-entry="Width"></span>Width（宽度） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 设置固定后的快速终端占用的显示器宽度比例。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>width, size, percent, wide, pin</span> |
-| <span id="setting-quick-terminal-window-height" data-entry="Height"></span>Height（高度） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 设置固定后的快速终端占用的显示器高度比例。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>height, size, percent, tall, pin</span> |
-| <span id="setting-quick-terminal-window-hide-during-screen-sharing" data-entry="Hide during screen sharing"></span>Hide during screen sharing（屏幕共享时隐藏） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 在屏幕共享、录屏和截图中排除快速终端。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>screen sharing, screen share, recording, screenshot, capture, privacy, zoom, meet, presentation, on, off</span> |
-| <span id="setting-quick-terminal-window-style" data-entry="Style"></span>Style（样式） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 与工作区窗口的窗格保持一致，或为快速终端指定独立外观。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>style, inherit, custom, look, appearance, own style, match windows, override</span> |
-| <span id="setting-quick-terminal-window-pane-style" data-entry="Pane style"></span>Pane style（窗格样式） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 为快速终端单独指定舒适或紧凑的窗格间距。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>density, comfortable, compact, spacing, padding, custom</span> |
-| <span id="setting-quick-terminal-window-transparency" data-entry="Transparency"></span>Transparency（透明度） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 设置主题色调在快速终端模糊背景上的淡出程度。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>transparency, transparent, opacity, opaque, translucent, see through, background, alpha, tint, custom</span> |
+| <span id="setting-quick-terminal-window-open-on" data-entry="Open on"></span>Open on（打开位置） | 在鼠标所在的显示器、活动窗口所在的显示器或菜单栏所在的显示器上打开快速终端。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>display, screen, monitor, mouse, pointer, cursor, active window, front window, multiple displays, primary display, main display, menu bar</span> |
+| <span id="setting-quick-terminal-window-toolbar" data-entry="Toolbar"></span>Toolbar（工具栏） | 始终显示快速终端的红绿灯按钮和窗格标题栏、悬停时显示，或将其隐藏。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>window controls, decorations, strip</span> |
+| <span id="setting-quick-terminal-window-pin-to" data-entry="Pin to"></span>Pin to（固定到） | 贴靠顶部、左侧、右侧或底部边缘打开快速终端。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>pin, position, edge, side, top, bottom, left, right, quake, anchor, place</span> |
+| <span id="setting-quick-terminal-window-width" data-entry="Width"></span>Width（宽度） | 设置固定后的快速终端占用的显示器宽度比例。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>width, size, percent, wide, pin</span> |
+| <span id="setting-quick-terminal-window-height" data-entry="Height"></span>Height（高度） | 设置固定后的快速终端占用的显示器高度比例。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>height, size, percent, tall, pin</span> |
+| <span id="setting-quick-terminal-window-hide-during-screen-sharing" data-entry="Hide during screen sharing"></span>Hide during screen sharing（屏幕共享时隐藏） | 在屏幕共享、录屏和截图中排除快速终端。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>screen sharing, screen share, recording, screenshot, capture, privacy, zoom, meet, presentation, on, off</span> |
+| <span id="setting-quick-terminal-window-style" data-entry="Style"></span>Style（样式） | 与工作区窗口的窗格保持一致，或为快速终端指定独立外观。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>style, inherit, custom, look, appearance, own style, match windows, override</span> |
+| <span id="setting-quick-terminal-window-pane-style" data-entry="Pane style"></span>Pane style（窗格样式） | 为快速终端单独指定舒适或紧凑的窗格间距。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>density, comfortable, compact, spacing, padding, custom</span> |
+| <span id="setting-quick-terminal-window-transparency" data-entry="Transparency"></span>Transparency（透明度） | 设置主题色调在快速终端模糊背景上的淡出程度。<span hidden>In Settings &gt; Interface &gt; Quick Terminal Window.</span> <span hidden>transparency, transparent, opacity, opaque, translucent, see through, background, alpha, tint, custom</span> |
 
 ## 通用
 
@@ -420,7 +422,7 @@
 | --- | --- |
 | <span id="setting-experimental-features-terminal-anchoring" data-entry="Terminal anchoring"></span>Terminal anchoring（终端锚定） | 将终端文本固定在每个窗格的顶部或底部。<span hidden>In Settings &gt; Developer &gt; Experimental Features. Needs Developer Mode.</span> <span hidden>anchor, terminal alignment, grid gravity, leftover row</span> |
 | <span id="setting-experimental-features-new-quick-switcher" data-entry="New quick switcher"></span>New quick switcher（新版快速切换器） | 在“前往任意位置”中打开一个汇总所有会话、块和报告中进程的统一列表。<span hidden>In Settings &gt; Developer &gt; Experimental Features. Needs Developer Mode.</span> <span hidden>go to anything, go to session, view activity, switcher, command palette, cmd p, jump, navigate, panes, blocks, sessions, experiment</span> |
-| <span id="setting-experimental-features-quick-terminal" data-entry="Quick terminal"></span>Quick terminal（快速终端） <span class="row-tags"><span class="api-tag channel">[Bleeding Edge](mac-settings.md#setting-app-version-update-channel)</span></span> | 通过全局快捷键在任意应用上方显示终端。<span hidden>In Settings &gt; Developer &gt; Experimental Features. Needs Developer Mode.</span> <span hidden>quick terminal, floating terminal, hotkey window, drop down, dropdown, global shortcut, panel, experiment</span> |
+| <span id="setting-experimental-features-quick-terminal" data-entry="Quick terminal"></span>Quick terminal（快速终端） | 通过全局快捷键在任意应用上方显示终端。<span hidden>In Settings &gt; Developer &gt; Experimental Features. Needs Developer Mode.</span> <span hidden>quick terminal, floating terminal, hotkey window, drop down, dropdown, global shortcut, panel, experiment</span> |
 
 ### 本地 API（Local API）
 在启用“开发者模式”时检查本地服务端的 API 端点。位于“设置”>“开发者”>“Local API”。 <span hidden>local server, control api, development, connection</span>

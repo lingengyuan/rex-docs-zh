@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/customize/config
-> 原文版本：adc963f645f4（抓取于 2026-11-26）
+> 原文版本：437274f01d77（抓取于 2026-11-28）
 
 # 配置文件
 
@@ -64,7 +64,7 @@ removals: 0
 modes: 1
 actions: 0
 settings: 0
-resume rules: 3
+resume rules: 7
 ```
 
 如果存在错误，这两个命令都会输出文件中的问题，并以状态码 1 退出。向 `rex config check` 传入路径，可以检查自身配置之外的文件，例如草稿文件。

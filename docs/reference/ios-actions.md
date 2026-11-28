@@ -1,5 +1,5 @@
 > 原文：https://www.superlogical.com/rex/docs/reference/ios-actions
-> 原文版本：55fff6134a8b（抓取于 2026-11-27）
+> 原文版本：959bbacf68ab（抓取于 2026-11-28）
 
 # iOS 操作
 
@@ -123,6 +123,10 @@
 | <span id="action-client-prompt-next" data-entry="Jump to Next Prompt"></span>Jump to Next Prompt（跳至下一个提示符） | `client.prompt.next` <span hidden>jump scroll next prompt command mark shell integration down forward</span> |
 | <span id="action-client-scroll-page-up" data-entry="Scroll Page Up"></span>Scroll Page Up（向上翻页） | `client.scroll.page_up` <span hidden>scroll page up back scrollback history</span> |
 | <span id="action-client-scroll-page-down" data-entry="Scroll Page Down"></span>Scroll Page Down（向下翻页） | `client.scroll.page_down` <span hidden>scroll page down forward scrollback history</span> |
+| <span id="action-client-scroll-lines" data-entry="Scroll by Lines"></span>Scroll by Lines（按行滚动） 将获得焦点的窗格向上或向下滚动指定行数。 | `client.scroll.lines` <span hidden>scroll lines rows line by line up down back forward scrollback history</span> |
+| <span id="action-client-scroll-pages" data-entry="Scroll by Pages"></span>Scroll by Pages（按页滚动） 将获得焦点的窗格向上或向下滚动指定页数（例如半页）。 | `client.scroll.pages` <span hidden>scroll pages half page fraction up down back forward scrollback history</span> |
+| <span id="action-client-scroll-top" data-entry="Scroll to Top"></span>Scroll to Top（滚动到顶部） 将获得焦点的窗格滚动到其回滚缓冲区的开头。 | `client.scroll.top` <span hidden>scroll top start beginning oldest first scrollback history home</span> |
+| <span id="action-client-scroll-bottom" data-entry="Scroll to Bottom"></span>Scroll to Bottom（滚动到底部） 将获得焦点的窗格滚动回其最新输出。 | `client.scroll.bottom` <span hidden>scroll bottom end latest newest live output follow scrollback history</span> |
 | <span id="action-client-composer-open" data-entry="Compose Input…"></span>Compose Input…（撰写输入…） | `client.composer.open` <span hidden>compose composer message input prompt attach image photo file upload claude codex</span> |
 | <span id="action-pane-insert-photo" data-entry="Insert Photo…"></span>Insert Photo…（插入照片…） 将图库中的照片发送到终端并输入其路径。 | `pane.insert_photo` <span hidden>insert photo image picture library screenshot upload attach send path</span> |
 | <span id="action-pane-insert-file" data-entry="Insert File…"></span>Insert File…（插入文件…） 将本设备中的文件发送到终端并输入其路径。 | `pane.insert_file` <span hidden>insert file document files finder upload attach send path</span> |
